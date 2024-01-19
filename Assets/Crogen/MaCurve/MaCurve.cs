@@ -8,11 +8,11 @@
 // {
 //     public abstract class MaCurve
 //     {
-//         public float startTime;
-//         public float endTime;
+//         internal float startTime;
+//         internal float endTime;
 //         
-//         public float duration;
-//         public float currentTime;
+//         internal float duration;
+//         internal float currentTime;
 //
 //         
 //         private static IEnumerator Move(Transform transform, Vector3 endPoint, float duration, EasingType easing, IEnumerator lateCoroutine = null)
