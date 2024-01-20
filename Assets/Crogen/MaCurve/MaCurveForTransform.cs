@@ -9,18 +9,22 @@ namespace Crogen.MaCurve
 {
     public class MaCurveForTransform : MaCurve<Transform, Vector3>
     {
-        //Position
-        public MaCurveForTransform(Transform target, Vector3 endPoint, float startTime, float duration)
+        private EaseCollection _easeCollection;
+        
+        public MaCurveForTransform(Transform target, Vector3 endPosition, float startTime, float duration, EasingType easingType)
         {
             this.target = target;
             this.startPoint = target.position;
-            this.endPoint = endPoint;
+            this.endPoint = endPosition;
             
             this.startTime = startTime;
             this.endTime = startTime + duration;
             this.duration = duration;
             this.currentTime = startTime;
-            
+
+            this.easingType = easingType;
+
+            _easeCollection = new EaseCollection();
             MaCurveManager.MaCurveEvent += Move;
         }
         
@@ -29,9 +33,7 @@ namespace Crogen.MaCurve
             currentTime = MaCurveManager.CurrentRealTime;
 
             float percent = (currentTime - startTime) / duration;
-            target.position = Vector3.Lerp(startPoint, endPoint, percent);
-            
-            Debug.Log(currentTime - startTime);
+            target.position = Vector3.Lerp(startPoint, endPoint, _easeCollection.SetEase(easingType, percent));
             
             if (currentTime > endTime) MaCurveManager.MaCurveEvent -= Move;
         }

@@ -11,6 +11,8 @@
         
         internal float duration;
         internal float currentTime;
+
+        internal EasingType easingType;
         
         public abstract void Move();
     }
