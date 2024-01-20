@@ -25,19 +25,24 @@ namespace Crogen.MaCurve
                 return _instance;
             }
         }
-        internal static float CurrentRealTime { get; private set; }
 
+        internal static MaCurveEvent MaCurveEvent;
         
-        private void Awake()
-        {
-            
-                
-        }
+        private static float _currentRealTime;
 
+        internal static float CurrentRealTime
+        {
+            get => _currentRealTime;
+            private set
+            {
+                _currentRealTime = value;
+                MaCurveEvent?.Invoke();
+            }
+        }
+        
         private void FixedUpdate()
         {
             CurrentRealTime = Time.unscaledTime;
-            Debug.Log(CurrentRealTime);
         }
     }
 }
