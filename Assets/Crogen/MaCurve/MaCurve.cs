@@ -5,6 +5,8 @@
         internal T0 target;
         internal T1 startPoint;
         internal T1 endPoint;
+
+        internal bool isActive;
         
         internal float startTime;
         internal float endTime;
@@ -13,7 +15,8 @@
         internal float currentTime;
 
         internal EasingType easingType;
-        
+
+        internal MaCurveCallback onDie;
         public abstract void Move();
     }
 }

@@ -23,6 +23,10 @@ namespace Crogen.MaCurve
             this.currentTime = startTime;
 
             this.easingType = easingType;
+            onDie = () =>
+            {
+                target.position = endPosition;
+            };
 
             _easeCollection = new EaseCollection();
             MaCurveManager.MaCurveEvent += Move;
@@ -34,8 +38,12 @@ namespace Crogen.MaCurve
 
             float percent = (currentTime - startTime) / duration;
             target.position = Vector3.Lerp(startPoint, endPoint, _easeCollection.SetEase(easingType, percent));
-            
-            if (currentTime > endTime) MaCurveManager.MaCurveEvent -= Move;
+
+            if (currentTime > endTime)
+            {
+                MaCurveManager.MaCurveEvent -= Move;
+                onDie?.Invoke();
+            }
         }
         
         //Rotation
