@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,27 +7,7 @@ namespace Crogen.MaCurve
 {
     public class MaCurveManager : MonoBehaviour
     {
-        private static MaCurveManager _instance;
-        internal static MaCurveManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<MaCurveManager>();
-                    if (_instance == null)
-                    {
-                        GameObject obj = new GameObject("MaCurveManager");
-                        _instance = obj.AddComponent<MaCurveManager>();
-                    }
-                    DontDestroyOnLoad(_instance);
-                }
-                
-                return _instance;
-            }
-        }
-
-        internal static MaCurveEvent MaCurveEvent;
+        internal static List<MaCurveCore> activeMaCurves = new List<MaCurveCore>();
         
         private static float _currentRealTime;
 
@@ -36,13 +17,22 @@ namespace Crogen.MaCurve
             private set
             {
                 _currentRealTime = value;
-                MaCurveEvent?.Invoke();
             }
         }
         
         private void FixedUpdate()
         {
             CurrentRealTime = Time.unscaledTime;
+            foreach (MaCurveCore activeMaCurve in activeMaCurves)
+            {
+                if (activeMaCurve.IsActive == true)
+                    activeMaCurve.Move();
+                else
+                {
+                    activeMaCurves.Remove(activeMaCurve);
+                    break;
+                }
+            }    
         }
     }
 }

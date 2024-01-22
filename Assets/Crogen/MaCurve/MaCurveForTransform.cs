@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
@@ -11,9 +12,28 @@ namespace Crogen.MaCurve
     {
         private EaseCollection _easeCollection;
         
-        public MaCurveForTransform(Transform target, Vector3 endPosition, float startTime, float duration, EasingType easingType)
+        public MaCurveForTransform(Transform target, Vector3 endPosition, float startTime, float duration, EasingType easingType, bool forcedinitializable)
         {
             this.target = target;
+            this.easingType = easingType;
+            Forcedinitializable = forcedinitializable;
+            TargetTransformID = target.GetInstanceID();
+            
+            foreach (var activeMaCurve in MaCurveManager.activeMaCurves)
+            {
+                if (activeMaCurve.IsActive == true && activeMaCurve.TargetTransformID == TargetTransformID && activeMaCurve.GetType() == typeof(MaCurveForTransform))
+                {
+                    if (activeMaCurve.Forcedinitializable == true)
+                    {
+                        activeMaCurve.IsActive = false;
+                    }
+                    break;
+                }
+            }
+            
+            //StartPoint 갱신하는 거 고치기!
+            
+            MaCurveManager.activeMaCurves.Add(this);
             this.startPoint = target.position;
             this.endPoint = endPosition;
             
@@ -22,27 +42,29 @@ namespace Crogen.MaCurve
             this.duration = duration;
             this.currentTime = startTime;
 
-            this.easingType = easingType;
-            onDie = () =>
+            
+            OnDie = () =>
             {
-                target.position = endPosition;
+                currentTime = endTime;
+                this.target.position = endPoint;
             };
-
+            IsActive = true;
             _easeCollection = new EaseCollection();
-            MaCurveManager.MaCurveEvent += Move;
         }
         
         public override void Move()
         {
-            currentTime = MaCurveManager.CurrentRealTime;
-
-            float percent = (currentTime - startTime) / duration;
-            target.position = Vector3.Lerp(startPoint, endPoint, _easeCollection.SetEase(easingType, percent));
-
-            if (currentTime > endTime)
+            if (IsActive == true)
             {
-                MaCurveManager.MaCurveEvent -= Move;
-                onDie?.Invoke();
+                currentTime = MaCurveManager.CurrentRealTime;
+
+                float percent = (currentTime - startTime) / duration;
+                target.position = Vector3.Lerp(startPoint, endPoint, _easeCollection.SetEase(easingType, percent));
+    
+                if (currentTime > endTime)
+                {
+                    IsActive = false;
+                }
             }
         }
         

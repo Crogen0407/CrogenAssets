@@ -1,12 +1,12 @@
-﻿namespace Crogen.MaCurve
+﻿using System;
+
+namespace Crogen.MaCurve
 {
-    public abstract class MaCurve<T0, T1>
+    public abstract class MaCurve<T0, T1> : MaCurveCore
     {
         internal T0 target;
         internal T1 startPoint;
         internal T1 endPoint;
-
-        internal bool isActive;
         
         internal float startTime;
         internal float endTime;
@@ -16,7 +16,5 @@
 
         internal EasingType easingType;
 
-        internal MaCurveCallback onDie;
-        public abstract void Move();
     }
 }

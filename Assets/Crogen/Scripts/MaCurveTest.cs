@@ -8,7 +8,7 @@ public class MaCurveTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.MaCurve(transform.position + Vector3.back * 10, 2, EasingType.EaseOutBounce);
+            transform.MaCurve(transform.position + Vector3.back * 10, 2, EasingType.EaseOutBounce, true);
         }
     }
 }
