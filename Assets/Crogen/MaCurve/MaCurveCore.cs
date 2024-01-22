@@ -11,6 +11,7 @@
                 _isActive = value;
                 if (value == false)
                 {
+                    MaCurveManager.activeMaCurves.Remove(this);
                     OnDie?.Invoke();
                 }
             }

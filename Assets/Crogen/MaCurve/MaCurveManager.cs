@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,20 +20,22 @@ namespace Crogen.MaCurve
                 _currentRealTime = value;
             }
         }
+
+
+        private void CheckActiveMaCurve()
+        {
+            for (int i = 0; i < activeMaCurves.Count; i++)
+            {
+                MaCurveCore activeMaCurveCore = activeMaCurves[i];
+                if(activeMaCurveCore.IsActive == true)
+                    activeMaCurveCore.Move();
+            }
+        }
         
         private void FixedUpdate()
         {
             CurrentRealTime = Time.unscaledTime;
-            foreach (MaCurveCore activeMaCurve in activeMaCurves)
-            {
-                if (activeMaCurve.IsActive == true)
-                    activeMaCurve.Move();
-                else
-                {
-                    activeMaCurves.Remove(activeMaCurve);
-                    break;
-                }
-            }    
+            CheckActiveMaCurve();
         }
     }
 }

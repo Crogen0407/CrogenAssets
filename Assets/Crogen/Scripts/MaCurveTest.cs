@@ -1,5 +1,6 @@
 ﻿using System;
 using Crogen.MaCurve;
+using Crogen.ObjectPooling;
 using UnityEngine;
 
 public class MaCurveTest : MonoBehaviour

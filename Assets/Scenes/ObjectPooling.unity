@@ -338,15 +338,6 @@ MonoBehaviour:
   - prefabTypeName: 
     prefab: {fileID: 0}
     poolCount: 0
-  - prefabTypeName: 
-    prefab: {fileID: 0}
-    poolCount: 0
-  - prefabTypeName: 
-    prefab: {fileID: 0}
-    poolCount: 0
-  - prefabTypeName: 
-    prefab: {fileID: 0}
-    poolCount: 0
 --- !u!4 &1833276576
 Transform:
   m_ObjectHideFlags: 0

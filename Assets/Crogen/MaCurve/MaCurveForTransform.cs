@@ -31,8 +31,6 @@ namespace Crogen.MaCurve
                 }
             }
             
-            //StartPoint 갱신하는 거 고치기!
-            
             MaCurveManager.activeMaCurves.Add(this);
             this.startPoint = target.position;
             this.endPoint = endPosition;
@@ -43,6 +41,7 @@ namespace Crogen.MaCurve
             this.currentTime = startTime;
 
             
+            Debug.Log($"{this.startPoint}, {startTime}, {base.duration}, {endTime}");
             OnDie = () =>
             {
                 currentTime = endTime;
