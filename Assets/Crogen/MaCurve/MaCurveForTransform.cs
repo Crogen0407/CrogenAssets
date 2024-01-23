@@ -14,34 +14,12 @@ namespace Crogen.MaCurve
         
         public MaCurveForTransform(Transform target, Vector3 endPosition, float startTime, float duration, EasingType easingType, bool forcedinitializable)
         {
-            this.target = target;
-            this.easingType = easingType;
-            Forcedinitializable = forcedinitializable;
-            TargetTransformID = target.GetInstanceID();
-            
-            foreach (var activeMaCurve in MaCurveManager.activeMaCurves)
-            {
-                if (activeMaCurve.IsActive == true && activeMaCurve.TargetTransformID == TargetTransformID && activeMaCurve.GetType() == typeof(MaCurveForTransform))
-                {
-                    if (activeMaCurve.Forcedinitializable == true)
-                    {
-                        activeMaCurve.IsActive = false;
-                    }
-                    break;
-                }
-            }
-            
-            MaCurveManager.activeMaCurves.Add(this);
+            Init(target, startTime, duration, easingType, forcedinitializable);
+
             this.startPoint = target.position;
             this.endPoint = endPosition;
             
-            this.startTime = startTime;
-            this.endTime = startTime + duration;
-            this.duration = duration;
-            this.currentTime = startTime;
-
-            
-            Debug.Log($"{this.startPoint}, {startTime}, {base.duration}, {endTime}");
+            Debug.Log(MaCurveManager.activeMaCurves.Count);
             OnDie = () =>
             {
                 currentTime = endTime;
@@ -51,7 +29,7 @@ namespace Crogen.MaCurve
             _easeCollection = new EaseCollection();
         }
         
-        public override void Move()
+        public override void Update()
         {
             if (IsActive == true)
             {

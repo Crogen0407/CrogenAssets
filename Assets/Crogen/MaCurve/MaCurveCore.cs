@@ -23,6 +23,6 @@
         
         internal MaCurveCallback OnDie;
         
-        public abstract void Move();
+        public abstract void Update();
     }
 }

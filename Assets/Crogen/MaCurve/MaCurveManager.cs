@@ -28,7 +28,7 @@ namespace Crogen.MaCurve
             {
                 MaCurveCore activeMaCurveCore = activeMaCurves[i];
                 if(activeMaCurveCore.IsActive == true)
-                    activeMaCurveCore.Move();
+                    activeMaCurveCore.Update();
             }
         }
         
