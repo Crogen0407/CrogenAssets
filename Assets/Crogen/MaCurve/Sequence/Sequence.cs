@@ -1,15 +1,26 @@
-﻿namespace Crogen.MaCurve.Sequence
-{
-    public class Sequence
-    {
-        public Sequence Append()
-        {
-            
-        }
+﻿using System;
+using System.Collections.Generic;
 
-        public Sequence Join()
+namespace Crogen.MaCurve.Sequence
+{
+    public static class Sequence
+    {
+        public static MaCurveCore Append(this MaCurveCore target, MaCurveCore lateMaCurveCore)
         {
-            
+            target.OnDie += () =>
+            {
+                
+            };
+            return lateMaCurveCore;
+        }
+        
+        public static MaCurveCore AppendCallback(this MaCurveCore target, MaCurveCallback maCurveCallback)
+        {
+            target.OnDie += () =>
+            {
+                maCurveCallback?.Invoke();
+            };
+            return target;
         }
     }
 }

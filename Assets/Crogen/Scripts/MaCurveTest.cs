@@ -1,5 +1,6 @@
 ﻿using System;
 using Crogen.MaCurve;
+using Crogen.MaCurve.Sequence;
 using Crogen.ObjectPooling;
 using UnityEngine;
 
