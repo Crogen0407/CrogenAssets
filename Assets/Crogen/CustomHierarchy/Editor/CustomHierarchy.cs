@@ -10,22 +10,14 @@ using UnityEditor;
 public class CustomHierarchy : MonoBehaviour
 {
     private static Vector2 offset = new Vector2(16.8f, 0);
-    private static bool _moreDetailed;
 
     static CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
     }
 
-    private static void Init()
-    {
-        _moreDetailed = HierarchyExtensionSetting.MoreDetailed;
-    }
-
     private static void HandleHierarchyOnGUI(int instanceID, Rect selectionRect)
     {
-        Init();
-        
         var obj = EditorUtility.InstanceIDToObject(instanceID);
         Color backgroundColor = Color.white;
         Color textColor = Color.white;
@@ -45,7 +37,7 @@ public class CustomHierarchy : MonoBehaviour
             {
                 Color lineColor = new Color32(104,104,104,255);
 
-                if (_moreDetailed == true)
+                if (HierarchyExtensionSetting.ShowLine == true)
                 {
                     float count = (selectionRect.position.x - 60) / 14;
                     for (int i = 0; i < count; i++)
@@ -63,7 +55,7 @@ public class CustomHierarchy : MonoBehaviour
             
 
             #endregion
-               
+            
             if (backgroundColor != Color.white)
             {
                 GUI.color = new Color32(104,104,104,255);
