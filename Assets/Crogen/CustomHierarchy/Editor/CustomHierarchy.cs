@@ -1,26 +1,31 @@
-using System;
-using System.Collections;
-using System.Drawing;
-using System.Drawing.Imaging;
+using Crogen.CustomHierarchy;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Color = UnityEngine.Color;
+
 #if UNITY_EDITOR
 using UnityEditor;
-
 [InitializeOnLoad]
 #endif
+
 public class CustomHierarchy : MonoBehaviour
 {
     private static Vector2 offset = new Vector2(16.8f, 0);
-    
+    private static bool _moreDetailed;
+
     static CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
     }
-    
+
+    private static void Init()
+    {
+        _moreDetailed = HierarchyExtensionSetting.MoreDetailed;
+    }
+
     private static void HandleHierarchyOnGUI(int instanceID, Rect selectionRect)
     {
+        Init();
+        
         var obj = EditorUtility.InstanceIDToObject(instanceID);
         Color backgroundColor = Color.white;
         Color textColor = Color.white;
@@ -34,12 +39,31 @@ public class CustomHierarchy : MonoBehaviour
                 backgroundColor = new Color(0,1,1,0.35f);
             }
             
+            #region DrawLine
+
             if (Mathf.Approximately(selectionRect.position.x, 60f) == false)
             {
-                Color color = new Color32(104,104,104,255);
-                EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,-8), new Vector2(2, 16)), color);
-                EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,8), new Vector2(16, 2)), color);
+                Color lineColor = new Color32(104,104,104,255);
+
+                if (_moreDetailed == true)
+                {
+                    float count = (selectionRect.position.x - 60) / 14;
+                    for (int i = 0; i < count; i++)
+                    {
+                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1),-8), new Vector2(2, 16)), lineColor);
+                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,8), new Vector2(16, 2)), lineColor);
+                    }
+                }
+                else
+                {
+                    EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,-8), new Vector2(2, 16)), lineColor);
+                    EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,8), new Vector2(16, 2)), lineColor);
+                }
             }
+            
+
+            #endregion
+               
             if (backgroundColor != Color.white)
             {
                 GUI.color = new Color32(104,104,104,255);
