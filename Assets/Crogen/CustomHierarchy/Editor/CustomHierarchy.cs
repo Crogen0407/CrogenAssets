@@ -137,7 +137,7 @@ public class CustomHierarchy : MonoBehaviour
                     //VerticalLine
                     if (parent.GetChild(0) == gameObject.transform && i == 0)
                     {
-                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1),0), new Vector2(2, 16)), lineColor);
+                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1),0), new Vector2(2, 8)), lineColor);
                     }
                     else
                     {                                        
