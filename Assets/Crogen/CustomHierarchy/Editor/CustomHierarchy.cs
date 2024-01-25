@@ -1,4 +1,6 @@
+using System;
 using Crogen.CustomHierarchy;
+using Crogen.CustomHierarchy.Editor;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -18,10 +20,37 @@ public class CustomHierarchy : MonoBehaviour
 
     private static void HandleHierarchyOnGUI(int instanceID, Rect selectionRect)
     {
+        Texture2D texture = null;
+        
         var obj = EditorUtility.InstanceIDToObject(instanceID);
+        if (((GameObject)obj) != null)
+        {
+            var components = ((GameObject)obj).GetComponents<Component>();
+            if (components != null)
+            {
+                Type t = null;
+                string guid;
+                long file;
+                // foreach (var component in components)
+                // {
+                //     t = component.GetType();
+                //     if (UnityEditor.AssetPreview.IsLoadingAssetPreview(component.GetInstanceID()))
+                //     {
+                //     }
+                //
+                //     AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out guid, out file);
+                //     var path = AssetDatabase.GetAssetPath(components[0].GetInstanceID());
+                //
+                //     Debug.Log(texture);
+                // }
+            }
+
+            texture = HierarchyIcon.LoadIcon("BuildSettings.Editor");
+        }
+
+
         Color backgroundColor = Color.white;
         Color textColor = Color.white;
-        Texture2D texture = null;
           
         if (obj != null)
         {
@@ -56,8 +85,6 @@ public class CustomHierarchy : MonoBehaviour
                 //     selectionRect.height);
                 // EditorGUI.DrawRect(bgRect, backgroundColor);
                 
-                texture = (Texture2D)EditorGUIUtility.IconContent("Error").image;
-                texture.alphaIsTransparency = false;
                 if (texture != null)
                 {
                     GUI.DrawTexture(new Rect(selectionRect.position, new Vector2(selectionRect.height, selectionRect.height)), texture);
