@@ -81,7 +81,7 @@ namespace Crogen.ObjectPooling
             }
             catch (KeyNotFoundException e)
             {
-                Debug.LogError($"You should make 'PoolManager'!\n{e}");
+                Debug.LogError($"You should make 'PoolManager'!");
                 throw;
             }
         }

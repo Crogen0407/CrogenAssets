@@ -2,9 +2,7 @@
 version : 1.0.4
 
 <업데이트> 
--PopCore 클래스를 추가하여 Pop 기능을 gameObject와 transform를 통해 접근이 가능하도록 함.
--PoolManager의 싱글톤 기능을 제거함. (어차피 Core에서 다 제어하기 때문에)
--PoolManager의 Inspector창의 GUI를 편집함, PoolBase를 일일이 열어서 해야 하는 작업을 컴포넌트에서 손쉽게 할 수 있음(PoolBase 생성, PoolBase 편집, 현재 PoolBase 복제)
+
 
 <오브젝트 풀링 사용 방법>
 1. Project 창에 우클릭을 누르고 Crogen/ObjectPooling/PoolingBase 경로로 PoolingBase를 생성한다.
