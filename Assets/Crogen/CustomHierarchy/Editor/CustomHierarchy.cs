@@ -37,41 +37,29 @@ public class CustomHierarchy : MonoBehaviour
             {
                 Color lineColor = new Color32(104,104,104,255);
 
-                if (HierarchyExtensionSetting.ShowLine == true)
+                float count = (selectionRect.position.x - 60) / 14;
+                for (int i = 0; i < count; i++)
                 {
-                    float count = (selectionRect.position.x - 60) / 14;
-                    for (int i = 0; i < count; i++)
-                    {
-                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1),-8), new Vector2(2, 16)), lineColor);
-                        EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,8), new Vector2(16, 2)), lineColor);
-                    }
-                }
-                else
-                {
-                    EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,-8), new Vector2(2, 16)), lineColor);
+                    EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14 * (i + 1),-8), new Vector2(2, 16)), lineColor);
                     EditorGUI.DrawRect(new Rect(selectionRect.position + new Vector2(-8.25f - 14,8), new Vector2(16, 2)), lineColor);
                 }
             }
-            
 
             #endregion
             
             if (backgroundColor != Color.white)
             {
-                GUI.color = new Color32(104,104,104,255);
-                EditorGUI.DrawRect(new Rect(selectionRect.position, new Vector2(selectionRect.height, selectionRect.height)),new Color32(104,104,104,255) );
-                GUI.color = Color.white;
+                EditorGUI.DrawRect(new Rect(selectionRect.position, new Vector2(selectionRect.height, selectionRect.height)),new Color32(56,56,56,255) );
 
                 // Rect offsetRect = new Rect(selectionRect.position + offset, selectionRect.size);
                 // Rect bgRect = new Rect(selectionRect.x, selectionRect.y, selectionRect.width + 50,
                 //     selectionRect.height);
                 // EditorGUI.DrawRect(bgRect, backgroundColor);
                 
-                texture = (Texture2D)EditorGUIUtility.IconContent("d_Grid.PickingTool").image;
+                texture = (Texture2D)EditorGUIUtility.IconContent("Error").image;
                 texture.alphaIsTransparency = false;
                 if (texture != null)
                 {
-
                     GUI.DrawTexture(new Rect(selectionRect.position, new Vector2(selectionRect.height, selectionRect.height)), texture);
                 }
             }
