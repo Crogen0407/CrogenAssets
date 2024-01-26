@@ -21,7 +21,7 @@ namespace Crogen.ObjectPooling
             PoolPair[] poolingPairs = poolBase.pairs.ToArray();
             for (int i = 0; i < poolingPairs.Length; i++)
             {
-                poolDic.Add(poolingPairs[i].prefabTypeName, new Queue<GameObject>());
+                poolDic.Add(poolingPairs[i].poolType, new Queue<GameObject>());
             }
 
 	    	for (int i = 0; i < poolingPairs.Length; i++)
@@ -29,7 +29,7 @@ namespace Crogen.ObjectPooling
                 for (int j = 0; j < poolingPairs[i].poolCount; j++)
                 {
                     GameObject poolObject = CreateObject(poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                    poolObject.Push(poolingPairs[i].prefabTypeName);
+                    poolObject.Push(poolingPairs[i].poolType);
 	    		}
             }
         }
@@ -43,6 +43,5 @@ namespace Crogen.ObjectPooling
 
             return poolObject;
         }
-    
     }
 }

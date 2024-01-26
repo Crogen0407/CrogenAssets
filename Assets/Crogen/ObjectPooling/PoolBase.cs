@@ -1,11 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct PoolPair
+public class PoolPair
 {
-    public string prefabTypeName;
+    public string poolType;
     public GameObject prefab;
     public int poolCount;
 }
@@ -14,4 +14,21 @@ public struct PoolPair
 public class PoolBase : ScriptableObject
 {
     public List<PoolPair> pairs;
+
+    private void OnValidate()
+    {
+        PairInit();
+    }
+
+    public void PairInit()
+    {
+        foreach (var pair in pairs)
+        {
+            if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
+            {
+                pair.poolType = pair.prefab.name;
+                break;
+            }
+        }
+    }
 }

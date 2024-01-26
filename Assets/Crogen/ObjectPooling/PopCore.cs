@@ -21,7 +21,7 @@ namespace Crogen.ObjectPooling
                 {
                     for (int i = 0; i < _poolBase.pairs.Count; i++)
                     {
-                        if (_poolBase.pairs[i].prefabTypeName == type)
+                        if (_poolBase.pairs[i].poolType == type)
                         {
                             GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
                             poolObject.Push(type);
@@ -57,7 +57,7 @@ namespace Crogen.ObjectPooling
                 {
                     for (int i = 0; i < _poolBase.pairs.Count; i++)
                     {
-                        if (_poolBase.pairs[i].prefabTypeName == type)
+                        if (_poolBase.pairs[i].poolType == type)
                         {
                             GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
                             poolObject.Push(type);
@@ -96,7 +96,7 @@ namespace Crogen.ObjectPooling
                 {
                     for (int i = 0; i < _poolBase.pairs.Count; i++)
                     {
-                        if (_poolBase.pairs[i].prefabTypeName == type)
+                        if (_poolBase.pairs[i].poolType == type)
                         {
                             GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero,
                                 Quaternion.identity);

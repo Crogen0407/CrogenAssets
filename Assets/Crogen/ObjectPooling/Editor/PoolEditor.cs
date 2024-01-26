@@ -41,6 +41,7 @@ namespace Crogen.ObjectPooling
 
             GUILayout.Space(20);
 
+            //PoolBase Serialize
             if (_poolManager.poolBase != null)
             {
                 _poolManager.poolingPairs = _poolManager.poolBase.pairs;
@@ -48,7 +49,8 @@ namespace Crogen.ObjectPooling
                 EditorGUILayout.PropertyField(poolBaseArrayObject, true);
                 serializedObject.ApplyModifiedProperties();
                 _poolManager.poolBase.pairs = _poolManager.poolingPairs;
-                
+                _poolManager.poolBase.PairInit();
+
                 serializedObject.Update();
             }
         }
