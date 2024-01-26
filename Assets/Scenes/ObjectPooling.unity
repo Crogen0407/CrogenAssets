@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58427037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58427040}
+  - component: {fileID: 58427039}
+  - component: {fileID: 58427038}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &58427038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58427037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eff65fc4af01d24ba71fe448a61b734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabTypeName: 
+  _duration: 1
+  _dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &58427039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58427037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb2e473668b44feaf4b7311043ac85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &58427040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58427037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.678927, y: 2.2649992, z: -4.6507206}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726853122
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,14 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4889394bf6bb225498bb7f1958045b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolBase: {fileID: 11400000, guid: b94e6e05a88191a49bfbd2c4d7131fb6, type: 2}
-  poolingPairs:
-  - prefabTypeName: 
-    prefab: {fileID: 0}
-    poolCount: 0
-  - prefabTypeName: 
-    prefab: {fileID: 0}
-    poolCount: 0
+  poolBase: {fileID: 11400000, guid: 44c7e98dd756bb2469b694cb275f54d1, type: 2}
+  poolingPairs: []
 --- !u!4 &1833276576
 Transform:
   m_ObjectHideFlags: 0

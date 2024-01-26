@@ -11,6 +11,7 @@ public class MaCurveTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.MaCurve( Vector3.back * 10, 2, EasingType.EaseOutBounce);
+            
             transform.MaCurve( Vector3.back * 10, 2, EasingType.EaseOutBounce);
         }
     }
