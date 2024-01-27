@@ -1,17 +1,11 @@
-using System;
-using Crogen.CustomHierarchy;
-using Crogen.CustomHierarchy.Editor;
-using Crogen.JsamJson;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using Color = UnityEngine.Color;
-
 #if UNITY_EDITOR
+using System;
+using Crogen.CustomHierarchy.Editor;
+using UnityEngine;
+using Color = UnityEngine.Color;
 using UnityEditor;
-[InitializeOnLoad]
-#endif
 
+[InitializeOnLoad]
 public class CustomHierarchy : MonoBehaviour
 {
     private static Vector2 offset = new Vector2(16.8f, 0);
@@ -207,13 +201,13 @@ public class CustomHierarchy : MonoBehaviour
 
             GUIStyle textStyle = null;
             Color textColor = hierarchyInfo != null ? hierarchyInfo.textColor : Color.white;
-            textStyle = new GUIStyle()
+            
+            textStyle = new GUIStyle() { normal = new GUIStyleState() { textColor = textColor } };
+
+            if (gameObject.activeInHierarchy == false)
             {
-                normal = new GUIStyleState()
-                {
-                    textColor = gameObject.activeSelf == true ? textColor : Color.gray
-                }
-            };
+                textStyle.normal.textColor= Color.gray;
+            }
             
             GUI.Box(new Rect(selectionRect.position + new Vector2(17.9f,0), selectionRect.size), obj.name, textStyle);
             
@@ -228,3 +222,4 @@ public class CustomHierarchy : MonoBehaviour
         }
     }
 }
+#endif
