@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum backgroundType
 {
@@ -12,7 +13,7 @@ public class HierarchyInfo : MonoBehaviour
     //Background
     public bool showBackground;
     public backgroundType backgroundType;
-    public Color mainColor = Color.clear;
+    [FormerlySerializedAs("mainColor")] public Color backgroundColor = Color.clear;
     
     //Line
     public static bool showLine;

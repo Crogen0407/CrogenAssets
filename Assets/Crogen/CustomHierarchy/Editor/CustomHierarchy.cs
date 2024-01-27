@@ -79,7 +79,7 @@ public class CustomHierarchy : MonoBehaviour
             }
             EditorGUI.DrawRect(backgroundPosition, backgroundColor);
             
-            Color color = hierarchyInfo != null ? hierarchyInfo.mainColor : Color.clear;
+            Color color = hierarchyInfo != null ? hierarchyInfo.backgroundColor : Color.clear;
             Rect gradientBackgroundPosition = new Rect(new Vector2(32, selectionRect.y), selectionRect.size + new Vector2(selectionRect.x, 0));
 
             if (hierarchyInfo != null)

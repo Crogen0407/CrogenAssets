@@ -9,7 +9,7 @@ using UnityEngine;
 public class HierarchyInfoEditor : Editor
 {
     private HierarchyInfo _hierarchyInfo;
-    
+    private readonly int _spaceValue = 20;
     private void OnEnable()
     {
         _hierarchyInfo = target as HierarchyInfo;
@@ -17,6 +17,25 @@ public class HierarchyInfoEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
+        //Background
+        GUILayout.Label("Show Background");
+        _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "");
+        if (_hierarchyInfo.showBackground)
+        {
+            _hierarchyInfo.backgroundColor = EditorGUILayout.ColorField(_hierarchyInfo.backgroundColor);
+        }
+            
+        GUILayout.Space(_spaceValue);
+        
+        //Line
+        GUILayout.Label("Show Line");
+        HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "");
+
+        GUILayout.Space(_spaceValue);
+        
+        //Icon            
+        GUILayout.Label("Show Icon");
+        _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "");
+        
     }
 }
