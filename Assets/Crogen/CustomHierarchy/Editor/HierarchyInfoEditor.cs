@@ -27,15 +27,19 @@ public class HierarchyInfoEditor : Editor
             
         GUILayout.Space(_spaceValue);
         
-        //Line
-        GUILayout.Label("Show Line");
-        HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "");
-
-        GUILayout.Space(_spaceValue);
-        
         //Icon            
         GUILayout.Label("Show Icon");
         _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "");
+        
+        GUILayout.Space(_spaceValue);
+        
+        //Line
+        GUILayout.Label("Show Line");
+        HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "");
+        if (HierarchyInfo.showLine)
+        {
+            _hierarchyInfo.lineColor = EditorGUILayout.ColorField(_hierarchyInfo.lineColor);
+        }
         
     }
 }

@@ -13,14 +13,14 @@ public class HierarchyInfo : MonoBehaviour
     //Background
     public bool showBackground;
     public backgroundType backgroundType;
-    [FormerlySerializedAs("mainColor")] public Color backgroundColor = Color.clear;
-    
-    //Line
-    public static bool showLine;
-    public Color lineColor = new Color32(104,104,104,255);
+    [FormerlySerializedAs("mainColor")] public Color backgroundColor = Color.white;
     
     //Icon
     public bool showIcon;
+    
+    //Line
+    public static bool showLine = true;
+    public Color lineColor = new Color32(104,104,104,255);
     
     //Text
     public Color textColor = Color.white;
