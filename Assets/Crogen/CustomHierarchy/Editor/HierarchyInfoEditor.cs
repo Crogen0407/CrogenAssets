@@ -17,29 +17,65 @@ public class HierarchyInfoEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        //Background
+        GUILayoutOption[] guiLayoutOption = new[]
+        {
+            GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.55f),
+            GUILayout.Height(20),
+            GUILayout.ExpandWidth(false),
+        };
+
+        #region Background
+        
+        GUILayout.BeginHorizontal();
         GUILayout.Label("Show Background");
-        _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "");
+        _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "", guiLayoutOption);
+        GUILayout.EndHorizontal();
+
         if (_hierarchyInfo.showBackground)
         {
-            _hierarchyInfo.backgroundColor = EditorGUILayout.ColorField(_hierarchyInfo.backgroundColor);
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(_spaceValue);
+            GUILayout.Label("Background Type");
+            _hierarchyInfo.backgroundType = (backgroundType)EditorGUILayout.EnumPopup(_hierarchyInfo.backgroundType, guiLayoutOption);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(_spaceValue);
+            GUILayout.Label("Color");
+            _hierarchyInfo.backgroundColor = EditorGUILayout.ColorField(_hierarchyInfo.backgroundColor, guiLayoutOption);
+            GUILayout.EndHorizontal();
         }
+        
+        #endregion
             
         GUILayout.Space(_spaceValue);
-        
-        //Icon            
+
+        #region Icon
+
+        GUILayout.BeginHorizontal();
         GUILayout.Label("Show Icon");
-        _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "");
+        _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
+        GUILayout.EndHorizontal();
+        
+        #endregion
         
         GUILayout.Space(_spaceValue);
-        
-        //Line
+
+        #region Line
+
+        GUILayout.BeginHorizontal();
         GUILayout.Label("Show Line");
-        HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "");
+        HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "", guiLayoutOption);
+        GUILayout.EndHorizontal();
         if (HierarchyInfo.showLine)
         {
-            _hierarchyInfo.lineColor = EditorGUILayout.ColorField(_hierarchyInfo.lineColor);
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(_spaceValue);
+            GUILayout.Label("Color");
+            _hierarchyInfo.lineColor = EditorGUILayout.ColorField(_hierarchyInfo.lineColor, guiLayoutOption);
+            GUILayout.EndHorizontal();
         }
         
+        #endregion
     }
 }

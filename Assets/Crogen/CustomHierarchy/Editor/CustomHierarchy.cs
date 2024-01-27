@@ -63,43 +63,46 @@ public class CustomHierarchy : MonoBehaviour
             
             #endregion
 
-            if (hierarchyInfo.showBackground)
+            if (hierarchyInfo != null)
             {
-                #region Draw Background
+                if (hierarchyInfo.showBackground)
+                {
+                    #region Draw Background
             
-                //MainBackground
-                Color backgroundColor = Color.white;
-                Rect backgroundPosition = new Rect(new Vector2(32, selectionRect.y), new Vector2(1000, selectionRect.height));
+                    //MainBackground
+                    Color backgroundColor = Color.white;
+                    Rect backgroundPosition = new Rect(new Vector2(32, selectionRect.y), new Vector2(1000, selectionRect.height));
         
-                if (hierarchyIndex == 0)
-                {
-                    backgroundColor = new Color32(65, 65, 65, 100);
-                }
-                else
-                {
-                    backgroundColor = new Color32(56, 56, 56, 100);
-                }
-                EditorGUI.DrawRect(backgroundPosition, backgroundColor);
-            
-                Color color = hierarchyInfo != null ? hierarchyInfo.backgroundColor : Color.clear;
-                Rect gradientBackgroundPosition = new Rect(new Vector2(32, selectionRect.y), selectionRect.size + new Vector2(selectionRect.x, 0));
-
-                if (hierarchyInfo != null)
-                {
-                    switch (hierarchyInfo.backgroundType)
+                    if (hierarchyIndex == 0)
                     {
-                        case backgroundType.Default:
-                            GUI.DrawTexture(gradientBackgroundPosition, new Texture2D(128, 128), ScaleMode.ScaleAndCrop, true, 0, color, Vector4.zero, 0);
-                            break;
-                        case backgroundType.Gradients:
-                            #region Draw Gradient
-                            Texture2D gradientTexture = (Resources.Load("GradientHorizontal") as Texture2D);
-                            GUI.DrawTexture(gradientBackgroundPosition, gradientTexture, ScaleMode.ScaleAndCrop, true, 0, color, Vector4.zero, 0);
-                            #endregion
-                            break;
-                    }    
+                        backgroundColor = new Color32(65, 65, 65, 100);
+                    }
+                    else
+                    {
+                        backgroundColor = new Color32(56, 56, 56, 100);
+                    }
+                    EditorGUI.DrawRect(backgroundPosition, backgroundColor);
+            
+                    Color color = hierarchyInfo != null ? hierarchyInfo.backgroundColor : Color.clear;
+                    Rect gradientBackgroundPosition = new Rect(new Vector2(32, selectionRect.y), selectionRect.size + new Vector2(selectionRect.x, 0));
+
+                    if (hierarchyInfo != null)
+                    {
+                        switch (hierarchyInfo.backgroundType)
+                        {
+                            case backgroundType.Default:
+                                GUI.DrawTexture(gradientBackgroundPosition, new Texture2D(128, 128), ScaleMode.ScaleAndCrop, true, 0, color, Vector4.zero, 0);
+                                break;
+                            case backgroundType.Gradients:
+                                #region Draw Gradient
+                                Texture2D gradientTexture = (Resources.Load("GradientHorizontal") as Texture2D);
+                                GUI.DrawTexture(gradientBackgroundPosition, gradientTexture, ScaleMode.ScaleAndCrop, true, 0, color, Vector4.zero, 0);
+                                #endregion
+                                break;
+                        }    
+                    }
+                    #endregion
                 }
-                #endregion
             }
 
             #region Draw Setting Icon
