@@ -4,6 +4,7 @@ using Crogen.CustomHierarchy.Editor;
 using UnityEngine;
 using Color = UnityEngine.Color;
 using UnityEditor;
+using UnityEditorInternal;
 
 [InitializeOnLoad]
 public class CustomHierarchy : MonoBehaviour
@@ -97,56 +98,42 @@ public class CustomHierarchy : MonoBehaviour
                     }
                     #endregion
                 }
+
+                if (hierarchyInfo.showIcon)
+                {
+                    #region Draw Icon
+
+                    Rect iconPosition = new Rect(
+                        new Vector2(selectionRect.width + selectionRect.height * 3, selectionRect.y), 
+                        new Vector2(selectionRect.height, selectionRect.height));
+            
+                    try
+                    {
+                        for (int i = 0; i < components.Length; ++i)
+                        {
+                            if(components[i].GetType() == typeof(HierarchyInfo))
+                                continue;
+                    
+                            Texture2D texture = null;
+                            texture = EditorGUIUtility.IconContent($"{components[i].GetType().Name} Icon").image as Texture2D;
+                            if(texture == null)
+                                texture = EditorGUIUtility.IconContent("cs Script Icon").image as Texture2D;
+                    
+                            GUI.DrawTexture(iconPosition, texture);
+                            iconPosition = new Rect(
+                                new Vector2(selectionRect.width - selectionRect.height * (i - 2), selectionRect.y), 
+                                new Vector2(selectionRect.height, selectionRect.height));
+                        }
+                    }
+                    catch
+                    {
+                        GUI.DrawTexture(iconPosition, new Texture2D(128, 128));
+                    }
+            
+                    #endregion
+                }
             }
 
-            #region Draw Setting Icon
-
-            
-            
-
-            #endregion
-            
-            #region Draw Icon
-
-            Rect iconPosition = new Rect(selectionRect.position, new Vector2(selectionRect.height, selectionRect.height));
-            //
-            // if (obj.name.StartsWith("="))
-            // {
-            //     Color iconBackgroundColor = Color.white;
-            //     
-            //     //Setting Icon
-            //     Texture2D iconTexture = HierarchyIcon.LoadIcon("BuildSettings.Editor");
-            //     
-            //     //Icon Background
-            //     if (Selection.activeGameObject == gameObject)
-            //     {
-            //         if (hierarchyIndex % 2 == 0)
-            //         {
-            //             iconBackgroundColor = new Color32(52,82,108,255);
-            //
-            //         }
-            //         else
-            //         {
-            //             iconBackgroundColor = new Color32(49, 78, 104, 255);
-            //         }
-            //     }
-            //     else
-            //     {
-            //         iconBackgroundColor = new Color32(56, 56, 56, 255);
-            //         EditorGUI.DrawRect(iconPosition,new Color32(56,56,56,255));
-            //     }
-            //     EditorGUI.DrawRect(iconPosition, iconBackgroundColor);
-            //     
-            //     //Icon
-            //     GUI.DrawTexture(iconPosition, iconTexture);
-            // }
-            // else
-            // {
-            Texture2D defaultIconTexture = HierarchyIcon.LoadIcon("d_GameObject Icon");
-            GUI.DrawTexture(iconPosition, defaultIconTexture);
-            // }
-
-            #endregion
             
             if (HierarchyInfo.showLine)
             {
