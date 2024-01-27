@@ -12,7 +12,7 @@ namespace Crogen.ObjectPooling
         
         public void Awake()
         {
-            MakeObj(); 
+            MakeObj();
         }
         
         private void MakeObj()
