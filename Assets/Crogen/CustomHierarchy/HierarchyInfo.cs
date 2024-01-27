@@ -9,10 +9,20 @@ public enum backgroundType
 
 public class HierarchyInfo : MonoBehaviour
 {
+    //Background
+    public bool showBackground;
     public backgroundType backgroundType;
-    public Color mainColor = Color.black;
+    public Color mainColor = Color.clear;
+    
+    //Line
+    public static bool showLine;
     public Color lineColor = new Color32(104,104,104,255);
-    public Color textColor = Color.white;
+    
+    //Icon
     public bool showIcon;
+    
+    //Text
+    public Color textColor = Color.white;
+    
 }
 #endif
