@@ -77,5 +77,18 @@ public class HierarchyInfoEditor : Editor
         }
         
         #endregion
+
+        GUILayout.Space(_spaceValue);
+        
+        #region Text
+        
+        GUILayout.Label("Text");
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(_spaceValue);
+        GUILayout.Label("Color");
+        _hierarchyInfo.textColor = EditorGUILayout.ColorField(_hierarchyInfo.textColor, guiLayoutOption);
+        GUILayout.EndHorizontal();
+
+        #endregion
     }
 }
