@@ -9,7 +9,7 @@ using UnityEditorInternal;
 [InitializeOnLoad]
 public class CustomHierarchy : MonoBehaviour
 {
-    private static Vector2 offset = new Vector2(16.8f, 0);
+    private static Vector2 offset = new Vector2(4, 0);
     private static int _objectCount;
     
     static CustomHierarchy()
@@ -103,26 +103,29 @@ public class CustomHierarchy : MonoBehaviour
                 {
                     #region Draw Icon
 
-                    Rect iconPosition = new Rect(
-                        new Vector2(selectionRect.width + selectionRect.height * 3, selectionRect.y), 
-                        new Vector2(selectionRect.height, selectionRect.height));
-            
+                    Rect iconPosition = new Rect();
+                                
                     try
                     {
                         for (int i = 0; i < components.Length; ++i)
                         {
+                            iconPosition = new Rect(
+                                new Vector2((selectionRect.width - selectionRect.height * (i + 1)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
+                                new Vector2(selectionRect.height, selectionRect.height));
+                            
                             if(components[i].GetType() == typeof(HierarchyInfo))
                                 continue;
                     
+                            //아이콘 가져오고
                             Texture2D texture = null;
                             texture = EditorGUIUtility.IconContent($"{components[i].GetType().Name} Icon").image as Texture2D;
                             if(texture == null)
                                 texture = EditorGUIUtility.IconContent("cs Script Icon").image as Texture2D;
                     
+                            //실제로 그리기                            
                             GUI.DrawTexture(iconPosition, texture);
-                            iconPosition = new Rect(
-                                new Vector2(selectionRect.width - selectionRect.height * (i - 2), selectionRect.y), 
-                                new Vector2(selectionRect.height, selectionRect.height));
+                            
+                            
                         }
                     }
                     catch
@@ -133,7 +136,7 @@ public class CustomHierarchy : MonoBehaviour
                     #endregion
                 }
             }
-
+            
             
             if (HierarchyInfo.showLine)
             {

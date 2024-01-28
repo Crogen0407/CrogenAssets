@@ -13,7 +13,7 @@ public class HierarchyInfo : MonoBehaviour
     //Background
     public bool showBackground;
     public backgroundType backgroundType;
-    [FormerlySerializedAs("mainColor")] public Color backgroundColor = Color.white;
+    public Color backgroundColor = Color.white;
     
     //Icon
     public bool showIcon;

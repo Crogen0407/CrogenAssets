@@ -21,6 +21,8 @@ public class HierarchyInfoEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        #region Style
+
         GUILayoutOption[] guiLayoutOption = new[]
         {
             GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.55f),
@@ -28,10 +30,21 @@ public class HierarchyInfoEditor : Editor
             GUILayout.ExpandWidth(false),
         };
 
+        GUIStyle titleStyle = new GUIStyle()
+        {
+            normal =
+            {
+              textColor  = Color.white
+            },
+            fontStyle = FontStyle.Bold
+        };
+
+        #endregion
+
         #region Background
         
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Show Background");
+        GUILayout.Label("Show Background", titleStyle);
         _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "", guiLayoutOption);
         GUILayout.EndHorizontal();
 
@@ -57,7 +70,7 @@ public class HierarchyInfoEditor : Editor
         #region Icon
 
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Show Icon");
+        GUILayout.Label("Show Icon", titleStyle);
         _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
         GUILayout.EndHorizontal();
         
@@ -68,7 +81,7 @@ public class HierarchyInfoEditor : Editor
         #region Line
 
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Show Line");
+        GUILayout.Label("Show Line", titleStyle);
         HierarchyInfo.showLine = GUILayout.Toggle(HierarchyInfo.showLine, "", guiLayoutOption);
         GUILayout.EndHorizontal();
         if (HierarchyInfo.showLine)
@@ -86,7 +99,7 @@ public class HierarchyInfoEditor : Editor
         
         #region Text
         
-        GUILayout.Label("Text");
+        GUILayout.Label("Text", titleStyle);
         GUILayout.BeginHorizontal();
         GUILayout.Space(_spaceValue);
         GUILayout.Label("Color");
