@@ -1,8 +1,8 @@
 #if UNITY_EDITOR
 using System;
-using Crogen.CustomHierarchy.Editor;
+using System.Reflection;
+using PlasticPipe.Server;
 using UnityEngine;
-using Color = UnityEngine.Color;
 using UnityEditor;
 using UnityEditorInternal;
 
@@ -18,13 +18,8 @@ public class CustomHierarchy : Editor
         //EditorApplication.hierarchyChanged += HandleHierarchyInit;
     }
 
-    // private static bool _initComplete = true;
-    // private static void HandleHierarchyInit()
-    // {
-    //     _initComplete = false;
-    //     _visibleObjectCount = 0;
-    //     _initComplete = true;
-    // }
+    private static MethodInfo loadIconMethodInfo;
+
 
     ~CustomHierarchy()
     {
@@ -62,11 +57,7 @@ public class CustomHierarchy : Editor
             var parentHierarchyInfo = parent != null ? parent.GetComponent<HierarchyInfo>() : null;
             var components = gameObject.GetComponents<Component>();
             var currentItemPositionY = (int)(selectionRect.y / 16f);
-            // if (_initComplete)
-            // {
-            //     _visibleObjectCount = _visibleObjectCount < currentItemPositionY ? currentItemPositionY : _visibleObjectCount;
-            // }
-            
+          
             //Hierarchy Visual
             int hierarchyIndex = ((int)selectionRect.position.y / 16) % 2; //0 : 연한 거 / 1 : 진한 거
             
@@ -130,19 +121,21 @@ public class CustomHierarchy : Editor
                             iconPosition = new Rect(
                                 new Vector2((selectionRect.width - selectionRect.height * (i + 1 - disableCount)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
                                 new Vector2(selectionRect.height, selectionRect.height));
-                            
-                            //아이콘 가져오고
+
+                            // 아이콘 가져오기
                             if (components[i].GetType() == typeof(HierarchyInfo))
                             {
                                 texture = Resources.Load<Texture2D>("CustomHierarchy Icon");
                             }
                             else
                             {
-                                texture = EditorGUIUtility.IconContent($"{components[i].GetType().Name} Icon").image as Texture2D;
+                                // Built in Icon
+                                loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);
+                                texture = loadIconMethodInfo.Invoke(null, new object[] { $"{components[i].GetType().Name} Icon" }) as Texture2D;
                             }
                             
                             if(texture == null)
-                                texture = EditorGUIUtility.IconContent("cs Script Icon").image as Texture2D;
+                                texture = EditorGUIUtility.FindTexture("cs Script Icon");
                     
                             //실제로 그리기                            
                             GUI.DrawTexture(iconPosition, texture);
@@ -228,14 +221,6 @@ public class CustomHierarchy : Editor
             gameObject.SetActive(GUI.Toggle(togglePosition, gameObject.activeSelf, ""));
 
             #endregion
-
-            // Debug.Log($"{currentItemPositionY} | {_visibleObjectCount}");
-            // Debug.Log(_visibleObjectCount - 1 == currentItemPositionY);
-            // if (_showSettingWindow && _visibleObjectCount == currentItemPositionY)
-            // {
-            //     Debug.Log("ddd");
-            //     GUI.Box(new Rect(Vector2.zero, Vector2.one * 100), "", GUI.skin.window);
-            // }
         }
     }
 }
