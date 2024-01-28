@@ -71,6 +71,16 @@ public class HierarchyInfoEditor : Editor
         GUILayout.Label("Show Icon", titleStyle);
         _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
         GUILayout.EndHorizontal();
+
+        if (_hierarchyInfo.componentIcons[0] != null)
+        {
+            for (int i = 0; i < _hierarchyInfo.componentIcons.Length; i++)
+            {
+                _hierarchyInfo.componentIcons[i].enable = GUILayout.Toggle(_hierarchyInfo.componentIcons[i].enable, "");
+                if (_hierarchyInfo.componentIcons[i + 1].component == null)
+                    break;
+            }
+        }
         
         #endregion
         

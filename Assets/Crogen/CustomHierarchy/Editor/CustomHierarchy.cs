@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System;
 using System.Reflection;
+using Cinemachine;
 using PlasticPipe.Server;
 using UnityEngine;
 using UnityEditor;
@@ -10,21 +11,16 @@ using UnityEditorInternal;
 public class CustomHierarchy : Editor
 {
     private static Vector2 offset = new Vector2(4, 0);
-    //private static int _visibleObjectCount;
-    //private static bool _showSettingWindow = true;
+    private static MethodInfo loadIconMethodInfo;
+    
     static CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
-        //EditorApplication.hierarchyChanged += HandleHierarchyInit;
     }
-
-    private static MethodInfo loadIconMethodInfo;
-
 
     ~CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI -= HandleHierarchyOnGUI;
-        //EditorApplication.hierarchyChanged -= HandleHierarchyInit;
     }
 
     private static Color GetLineColor(Transform parentTrm, Color defaultColor)
@@ -110,7 +106,17 @@ public class CustomHierarchy : Editor
                     #region Draw Icon
 
                     Rect iconPosition = new Rect();
-
+                    for (int i = 0; i < components.Length; i++)
+                    {
+                        try
+                        {
+                            hierarchyInfo.componentIcons[i].component = components[i];
+                        }
+                        catch (NullReferenceException e)
+                        {
+                            hierarchyInfo.componentIcons = new ComponentIcon[128];
+                        }
+                    }
                     int disableCount = 0;
                     try
                     {
@@ -119,23 +125,33 @@ public class CustomHierarchy : Editor
                             Texture2D texture = null;
 
                             iconPosition = new Rect(
-                                new Vector2((selectionRect.width - selectionRect.height * (i + 1 - disableCount)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
+                                new Vector2((selectionRect.width - selectionRect.height * (i + 1)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
                                 new Vector2(selectionRect.height, selectionRect.height));
 
-                            // 아이콘 가져오기
-                            if (components[i].GetType() == typeof(HierarchyInfo))
-                            {
-                                texture = Resources.Load<Texture2D>("CustomHierarchy Icon");
-                            }
-                            else
+                            //unity 기본 built-in 아이콘 가져오기
+                            if(components[i]!=null)
                             {
                                 // Built in Icon
                                 loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);
                                 texture = loadIconMethodInfo.Invoke(null, new object[] { $"{components[i].GetType().Name} Icon" }) as Texture2D;
                             }
+
+                            //사용자 정의 컴포넌트
+                            if (texture == null)
+                            {
+                                string[] guid = AssetDatabase.FindAssets($"{components[i].GetType()}");
+                                for (int j = 0; j < guid.Length; j++)
+                                {
+                                    string path = AssetDatabase.GUIDToAssetPath(guid[j]);
+                                    texture = AssetDatabase.GetCachedIcon(path) as Texture2D;
+                                }
+                            }
                             
-                            if(texture == null)
-                                texture = EditorGUIUtility.FindTexture("cs Script Icon");
+                            //package 아이콘 가져오기
+                            if (texture == null)
+                            {
+                                
+                            }
                     
                             //실제로 그리기                            
                             GUI.DrawTexture(iconPosition, texture);

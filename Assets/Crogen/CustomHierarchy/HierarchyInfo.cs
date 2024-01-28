@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,6 +7,12 @@ public enum backgroundType
 {
     Default,
     Gradients
+}
+
+public class ComponentIcon
+{
+    public Component component;
+    public bool enable = true;
 }
 
 public class HierarchyInfo : MonoBehaviour
@@ -17,6 +24,7 @@ public class HierarchyInfo : MonoBehaviour
     
     //Icon
     public bool showIcon;
+    public ComponentIcon[] componentIcons = new ComponentIcon[128];
     
     //Line
     public static bool showLine = true;
