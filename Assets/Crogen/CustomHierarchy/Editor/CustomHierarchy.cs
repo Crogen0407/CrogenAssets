@@ -7,19 +7,29 @@ using UnityEditor;
 using UnityEditorInternal;
 
 [InitializeOnLoad]
-public class CustomHierarchy : MonoBehaviour
+public class CustomHierarchy : Editor
 {
     private static Vector2 offset = new Vector2(4, 0);
-    private static int _objectCount;
-    
+    //private static int _visibleObjectCount;
+    //private static bool _showSettingWindow = true;
     static CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
+        //EditorApplication.hierarchyChanged += HandleHierarchyInit;
     }
+
+    // private static bool _initComplete = true;
+    // private static void HandleHierarchyInit()
+    // {
+    //     _initComplete = false;
+    //     _visibleObjectCount = 0;
+    //     _initComplete = true;
+    // }
 
     ~CustomHierarchy()
     {
         EditorApplication.hierarchyWindowItemOnGUI -= HandleHierarchyOnGUI;
+        //EditorApplication.hierarchyChanged -= HandleHierarchyInit;
     }
 
     private static Color GetLineColor(Transform parentTrm, Color defaultColor)
@@ -50,12 +60,17 @@ public class CustomHierarchy : MonoBehaviour
             var objectIndex = gameObject.transform.GetSiblingIndex();
             var hierarchyInfo = gameObject.GetComponent<HierarchyInfo>();
             var parentHierarchyInfo = parent != null ? parent.GetComponent<HierarchyInfo>() : null;
-            _objectCount = _objectCount <= objectIndex ? objectIndex : _objectCount;
             var components = gameObject.GetComponents<Component>();
-           
+            var currentItemPositionY = (int)(selectionRect.y / 16f);
+            // if (_initComplete)
+            // {
+            //     _visibleObjectCount = _visibleObjectCount < currentItemPositionY ? currentItemPositionY : _visibleObjectCount;
+            // }
+            
             //Hierarchy Visual
             int hierarchyIndex = ((int)selectionRect.position.y / 16) % 2; //0 : 연한 거 / 1 : 진한 거
             
+            EditorGUIUtility.hierarchyMode = false;
             #endregion
 
             if (hierarchyInfo != null)
@@ -104,28 +119,33 @@ public class CustomHierarchy : MonoBehaviour
                     #region Draw Icon
 
                     Rect iconPosition = new Rect();
-                                
+
+                    int disableCount = 0;
                     try
                     {
                         for (int i = 0; i < components.Length; ++i)
                         {
+                            Texture2D texture = null;
+
                             iconPosition = new Rect(
-                                new Vector2((selectionRect.width - selectionRect.height * (i + 1)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
+                                new Vector2((selectionRect.width - selectionRect.height * (i + 1 - disableCount)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset.x, selectionRect.y), 
                                 new Vector2(selectionRect.height, selectionRect.height));
                             
-                            if(components[i].GetType() == typeof(HierarchyInfo))
-                                continue;
-                    
                             //아이콘 가져오고
-                            Texture2D texture = null;
-                            texture = EditorGUIUtility.IconContent($"{components[i].GetType().Name} Icon").image as Texture2D;
+                            if (components[i].GetType() == typeof(HierarchyInfo))
+                            {
+                                texture = Resources.Load<Texture2D>("CustomHierarchy Icon");
+                            }
+                            else
+                            {
+                                texture = EditorGUIUtility.IconContent($"{components[i].GetType().Name} Icon").image as Texture2D;
+                            }
+                            
                             if(texture == null)
                                 texture = EditorGUIUtility.IconContent("cs Script Icon").image as Texture2D;
                     
                             //실제로 그리기                            
                             GUI.DrawTexture(iconPosition, texture);
-                            
-                            
                         }
                     }
                     catch
@@ -136,7 +156,6 @@ public class CustomHierarchy : MonoBehaviour
                     #endregion
                 }
             }
-            
             
             if (HierarchyInfo.showLine)
             {
@@ -209,6 +228,14 @@ public class CustomHierarchy : MonoBehaviour
             gameObject.SetActive(GUI.Toggle(togglePosition, gameObject.activeSelf, ""));
 
             #endregion
+
+            // Debug.Log($"{currentItemPositionY} | {_visibleObjectCount}");
+            // Debug.Log(_visibleObjectCount - 1 == currentItemPositionY);
+            // if (_showSettingWindow && _visibleObjectCount == currentItemPositionY)
+            // {
+            //     Debug.Log("ddd");
+            //     GUI.Box(new Rect(Vector2.zero, Vector2.one * 100), "", GUI.skin.window);
+            // }
         }
     }
 }

@@ -12,8 +12,6 @@ public class HierarchyInfoEditor : Editor
     private HierarchyInfo _hierarchyInfo;
     private readonly int _spaceValue = 20;
 
-    private SerializedProperty _property;
-    
     private void OnEnable()
     {
         _hierarchyInfo = target as HierarchyInfo;

@@ -1,8 +1,8 @@
 ﻿2024-01-13
+assetName : ObjectPooling
 version : 1.0.4
 
 <업데이트> 
-
 
 <오브젝트 풀링 사용 방법>
 1. Project 창에 우클릭을 누르고 Crogen/ObjectPooling/PoolingBase 경로로 PoolingBase를 생성한다.
