@@ -1,12 +1,10 @@
-﻿using System.IO;
-using Crogen.ObjectPooling;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-namespace Crogen.ObjectPooling
+namespace Crogen.ObjectPooling.Editor
 {
     [CustomEditor(typeof(PoolManager))]
-    public class PoolEditor : Editor
+    public class PoolEditor : UnityEditor.Editor
     {
         private PoolManager _poolManager;
     
@@ -20,7 +18,8 @@ namespace Crogen.ObjectPooling
             GUILayout.Label("PoolBase");
             GUILayout.BeginHorizontal();
 
-            _poolManager.poolBase = EditorGUILayout.ObjectField(_poolManager.poolBase, typeof(PoolBase)) as PoolBase;
+            _poolManager.poolBase = EditorGUILayout.ObjectField(_poolManager.poolBase, typeof(PoolBase), false) as PoolBase;
+            
             if (GUILayout.Button("New"))
             {
                 var poolBase = ScriptableObject.CreateInstance<PoolBase>();

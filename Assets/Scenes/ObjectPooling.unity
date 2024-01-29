@@ -363,13 +363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolBase: {fileID: 11400000, guid: b94e6e05a88191a49bfbd2c4d7131fb6, type: 2}
   poolingPairs:
-  - poolType: 
-    prefab: {fileID: 0}
+  - poolType: pf_Cube
+    prefab: {fileID: 8702926647798363621, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
     poolCount: 0
-  dd:
-  - ddd
-  - dad
-  - bdd
 --- !u!4 &1833276576
 Transform:
   m_ObjectHideFlags: 0

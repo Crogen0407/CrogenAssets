@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Pool Base
   m_EditorClassIdentifier: 
   pairs:
-  - poolType: 
-    prefab: {fileID: 0}
+  - poolType: pf_Cube
+    prefab: {fileID: 8702926647798363621, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
     poolCount: 0
