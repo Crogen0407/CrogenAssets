@@ -49,12 +49,11 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                             //사용자 정의 컴포넌트
                             if (texture == null)
                             {
-                                string[] guid = AssetDatabase.FindAssets($"{components[i].GetType()}");
-                                foreach (var item in guid)
-                                {
-                                    string path = AssetDatabase.GUIDToAssetPath(item);
-                                    texture = AssetDatabase.GetCachedIcon(path) as Texture2D;
-                                }
+                                string path = AssetDatabase.GetAssetPath(components[i]);
+                                Debug.Log(path);
+                                MonoImporter monoImporter = AssetImporter.GetAtPath(path) as MonoImporter;
+
+                                texture = monoImporter.GetIcon();
                             }
                         
                             //실제로 그리기          
