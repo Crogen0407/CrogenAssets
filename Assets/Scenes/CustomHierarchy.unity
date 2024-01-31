@@ -256,6 +256,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &110418699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110418700}
+  - component: {fileID: 110418701}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &110418700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110418699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 143445842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110418701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110418699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 110418700}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 110418701}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &125322399
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143445842}
+  - component: {fileID: 143445843}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -432,10 +488,91 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 110418700}
+  - {fileID: 567884772}
+  - {fileID: 1710616693}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143445843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143445841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0.48235294, b: 0, a: 1}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 143445842}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 143445843}
+    enable: 1
+  lineColor: {r: 1, g: 0.48235297, b: 0, a: 1}
+  textColor: {r: 1, g: 0.48235297, b: 0, a: 1}
+--- !u!1 &169721420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169721421}
+  - component: {fileID: 169721422}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &169721421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169721420}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1681719151}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169721422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169721420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 169721421}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 169721422}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &248510430
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,8 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 0, g: 1, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 248510433}
@@ -478,8 +615,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 248510431}
     enable: 0
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
+  textColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!111 &248510432
 Animation:
   m_ObjectHideFlags: 0
@@ -662,6 +799,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a422673e49a5af4db5d78321d02641e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &440584437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440584438}
+  - component: {fileID: 440584439}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440584438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440584437}
+  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -4.207259, y: 2.268072, z: 5.518098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710847338}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440584439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440584437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 440584438}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 440584439}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &445817251
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +987,116 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &567884771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567884772}
+  - component: {fileID: 567884773}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &567884772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567884771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 143445842}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &567884773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567884771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 567884772}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 567884773}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &676308223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676308224}
+  - component: {fileID: 676308225}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676308224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676308223}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1681719151}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676308225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676308223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 676308224}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 676308225}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &759903603
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,8 +1127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 1, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 759903606}
@@ -837,8 +1139,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 759903604}
     enable: 0
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 1, g: 1, b: 0, a: 1}
+  textColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!111 &759903605
 Animation:
   m_ObjectHideFlags: 0
@@ -1003,6 +1305,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1084328235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1084328236}
+  - component: {fileID: 1084328237}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084328236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084328235}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1681719151}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084328237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084328235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1084328236}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1084328237}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1498311758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1626,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1620352902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620352903}
+  - component: {fileID: 1620352904}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620352903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620352902}
+  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -4.207259, y: 2.268072, z: 5.518098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710847338}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620352904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620352902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1620352903}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1620352904}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1681719148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,8 +1756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1681719151}
@@ -1362,8 +1774,8 @@ MonoBehaviour:
   - name: CinemachineBrain
     component: {fileID: 1681719153}
     enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  textColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1681719151
 Transform:
   m_ObjectHideFlags: 0
@@ -1375,7 +1787,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 676308224}
+  - {fileID: 1084328236}
+  - {fileID: 169721421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 43.091, y: 0, z: 0}
@@ -1434,6 +1849,116 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1683514973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683514974}
+  - component: {fileID: 1683514975}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683514974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683514973}
+  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -4.207259, y: 2.268072, z: 5.518098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710847338}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683514975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683514973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1683514974}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1683514975}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1710616692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710616693}
+  - component: {fileID: 1710616694}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710616693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710616692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 143445842}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710616694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710616692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1710616693}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1710616694}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1710847336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710847338}
   - component: {fileID: 1710847337}
+  - component: {fileID: 1710847339}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1521,13 +2047,42 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710847336}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 6.2857976, y: 2.7692194, z: -5.9428034}
+  m_LocalPosition: {x: 6.2857976, y: 6.73, z: -3.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 440584438}
+  - {fileID: 1683514974}
+  - {fileID: 1620352903}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1710847339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710847336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 1
+  backgroundColor: {r: 0.48235294, g: 0, b: 1, a: 1}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1710847338}
+    enable: 1
+  - name: Light
+    component: {fileID: 1710847337}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1710847339}
+    enable: 1
+  lineColor: {r: 0.48235297, g: 0, b: 1, a: 1}
+  textColor: {r: 0.48235297, g: 0, b: 1, a: 1}
 --- !u!1 &1953842083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,8 +2227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1964983079}
@@ -1687,8 +2242,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1964983077}
     enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 0, g: 0, b: 1, a: 1}
+  textColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!111 &1964983078
 Animation:
   m_ObjectHideFlags: 0
