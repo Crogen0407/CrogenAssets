@@ -45,7 +45,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                             new Vector2(selectionRect.height, selectionRect.height));
                         
                         //unity 기본 built-in 아이콘 가져오기
-                        if(components[i]!=null && hierarchyInfo.ComponentIcons[i].enable == true)
+                        if(components[i]!=null && hierarchyInfo.ComponentIcons[i].enable == true &&  hierarchyInfo != hierarchyInfo.ComponentIcons[i].component)
                         {
                             // Built in Icon
                             _loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);

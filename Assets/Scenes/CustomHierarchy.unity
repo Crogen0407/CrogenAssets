@@ -170,10 +170,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 0
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 29786786}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 29786790}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 29786789}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 29786788}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 29786787}
+    enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &29786788
@@ -290,10 +304,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
   backgroundType: 0
-  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  showIcon: 1
+  backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 125322400}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 125322405}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 125322404}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 125322403}
+    enable: 1
+  - name: GameManager
+    component: {fileID: 125322402}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 125322401}
+    enable: 1
   lineColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &125322402
@@ -398,7 +429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143445841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6206207, y: -0.7389837, z: -8.605203}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -435,12 +466,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 0, g: 1, b: 0.23313022, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0.15546024, b: 0, a: 1}
-  textColor: {r: 0.5570203, g: 1, b: 0, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 248510433}
+    enable: 1
+  - name: Animation
+    component: {fileID: 248510432}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 248510431}
+    enable: 0
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!111 &248510432
 Animation:
   m_ObjectHideFlags: 0
@@ -522,11 +561,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 276416347}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 276416351}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 276416350}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 276416349}
+    enable: 1
+  - name: GameManager
+    component: {fileID: 276416352}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 276416348}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &276416349
 MeshRenderer:
@@ -653,11 +709,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 445817252}
+    enable: 0
+  - name: Rigidbody
+    component: {fileID: 445817256}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 445817255}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 445817254}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 445817253}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &445817254
 MeshRenderer:
@@ -755,12 +825,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 0, g: 1, b: 0.23313022, a: 1}
-  showIcon: 1
-  lineColor: {r: 0, g: 0.026484966, b: 1, a: 1}
-  textColor: {r: 0.5570203, g: 1, b: 0, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 759903606}
+    enable: 0
+  - name: Animation
+    component: {fileID: 759903605}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 759903604}
+    enable: 0
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!111 &759903605
 Animation:
   m_ObjectHideFlags: 0
@@ -840,10 +918,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 0
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 840830300}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 840830304}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 840830301}
+    enable: 1
+  - name: SpriteRenderer
+    component: {fileID: 840830305}
+    enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &840830304
@@ -961,11 +1050,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1498311759}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 1498311763}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 1498311762}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 1498311761}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1498311760}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &1498311761
 MeshRenderer:
@@ -1080,12 +1183,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0, b: 0, a: 1}
-  textColor: {r: 0.09451628, g: 0, b: 1, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1618408470}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 1618408474}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 1618408473}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 1618408472}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1618408471}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &1618408472
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1195,11 +1312,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1227,10 +1344,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
   backgroundType: 0
-  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  showIcon: 1
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1681719151}
+    enable: 0
+  - name: Rigidbody2D
+    component: {fileID: 1681719152}
+    enable: 1
+  - name: Camera
+    component: {fileID: 1681719149}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1681719150}
+    enable: 0
+  - name: CinemachineBrain
+    component: {fileID: 1681719153}
+    enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1681719151
@@ -1240,8 +1371,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681719148}
-  m_LocalRotation: {x: 0.36724368, y: -0, z: -0, w: 0.9301248}
-  m_LocalPosition: {x: 0, y: 5.21, z: -8.21}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1541,12 +1672,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 0, g: 1, b: 0.23313022, a: 1}
-  showIcon: 1
-  lineColor: {r: 1, g: 0.86508846, b: 0, a: 1}
-  textColor: {r: 0.5570203, g: 1, b: 0, a: 1}
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1964983079}
+    enable: 1
+  - name: Animation
+    component: {fileID: 1964983078}
+    enable: 1
+  - name: Test
+    component: {fileID: 1964983080}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1964983077}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!111 &1964983078
 Animation:
   m_ObjectHideFlags: 0
@@ -1639,10 +1781,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 0
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
-  showIcon: 0
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 2090372381}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 2090372385}
+    enable: 1
+  - name: MeshFilter
+    component: {fileID: 2090372384}
+    enable: 1
+  - name: MeshRenderer
+    component: {fileID: 2090372383}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 2090372382}
+    enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &2090372383

@@ -78,7 +78,7 @@ namespace Crogen.CustomHierarchy.Editor
                 {
                     ComponentIcon componentIcon = _hierarchyInfo.ComponentIcons[i];
                 
-                    if (componentIcon != null)
+                    if (componentIcon != null && componentIcon.component != _hierarchyInfo)
                     {
                         GUILayout.BeginHorizontal();
                         GUILayout.Space(_spaceValue);
