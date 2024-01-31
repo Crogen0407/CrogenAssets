@@ -22,12 +22,12 @@ namespace Crogen.CustomHierarchy
     public class HierarchyInfo : MonoBehaviour
     {
         //Background
-        public bool showBackground;
-        public BackgroundType backgroundType;
-        public Color backgroundColor = Color.white;
+        public static bool showBackground;
+        public BackgroundType backgroundType = BackgroundType.Default;
+        public Color backgroundColor = Color.clear;
     
         //Icon
-        public bool showIcon;
+        public static bool showIcon;
         public ComponentIcon[] ComponentIcons = new ComponentIcon[128];
     
         //Line

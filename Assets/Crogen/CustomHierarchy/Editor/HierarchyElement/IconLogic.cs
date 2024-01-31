@@ -12,7 +12,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 
         public void Draw(HierarchyInfo hierarchyInfo, Component[] components, Rect selectionRect, float offset)
         {
-            if (hierarchyInfo.showIcon)
+            if (HierarchyInfo.showIcon)
             {
                 Rect iconPosition = new Rect();
                 if (hierarchyInfo.ComponentIcons != null && components.Length == hierarchyInfo.ComponentIcons.Length)
@@ -37,14 +37,15 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                 
                 try
                 {
+                    int emptySpaceOffset = 0;
                     for (int i = 0; i < components.Length; ++i)
                     {
                         iconPosition = new Rect(
-                            new Vector2((selectionRect.width - selectionRect.height * (i + 1)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset, selectionRect.y), 
+                            new Vector2((selectionRect.width - selectionRect.height * (i + 1 - emptySpaceOffset)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset, selectionRect.y), 
                             new Vector2(selectionRect.height, selectionRect.height));
                         
                         //unity 기본 built-in 아이콘 가져오기
-                        if(components[i]!=null)
+                        if(components[i]!=null && hierarchyInfo.ComponentIcons[i].enable == true)
                         {
                             // Built in Icon
                             _loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);
@@ -68,6 +69,10 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                             //실제로 그리기          
                             if(texture != null)
                                 GUI.DrawTexture(iconPosition, texture);
+                        }
+                        else
+                        {
+                            ++emptySpaceOffset;
                         }
                     }
                 }
