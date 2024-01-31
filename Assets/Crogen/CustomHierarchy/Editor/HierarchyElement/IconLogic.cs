@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using Cinemachine.Editor;
-using Cinemachine;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +10,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 
         public void Draw(HierarchyInfo hierarchyInfo, Component[] components, Rect selectionRect, float offset)
         {
-            if (HierarchyInfo.showIcon)
+            if (hierarchyInfo.showIcon)
             {
                 Rect iconPosition = new Rect();
                 if (hierarchyInfo.ComponentIcons != null && components.Length == hierarchyInfo.ComponentIcons.Length)

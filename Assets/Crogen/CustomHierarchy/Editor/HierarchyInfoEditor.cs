@@ -41,10 +41,10 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Background", titleStyle);
-            HierarchyInfo.showBackground = GUILayout.Toggle(HierarchyInfo.showBackground, "", guiLayoutOption);
+            _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "", guiLayoutOption);
             GUILayout.EndHorizontal();
 
-            if (HierarchyInfo.showBackground)
+            if (_hierarchyInfo.showBackground)
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
@@ -69,10 +69,10 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Icon", titleStyle);
-            HierarchyInfo.showIcon = GUILayout.Toggle(HierarchyInfo.showIcon, "", guiLayoutOption);
+            _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
             GUILayout.EndHorizontal();
 
-            if (HierarchyInfo.showIcon)
+            if (_hierarchyInfo.showIcon)
             {
                 for (int i = 0; i < _hierarchyInfo.ComponentIcons.Length; i++)
                 {

@@ -7,7 +7,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
     {
         public void Draw(HierarchyInfo hierarchyInfo, Rect selectionRect)
         {
-            if (HierarchyInfo.showBackground && hierarchyInfo.backgroundColor != Color.clear)
+            if (hierarchyInfo.showBackground && hierarchyInfo.backgroundColor != Color.clear)
             {
                 //Hierarchy Visual
                 int hierarchyIndex = ((int)selectionRect.position.y / 16) % 2; //0 : 연한 거 / 1 : 진한 거
