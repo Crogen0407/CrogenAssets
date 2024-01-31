@@ -72,14 +72,31 @@ namespace Crogen.CustomHierarchy.Editor
             _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
             GUILayout.EndHorizontal();
 
-            if (_hierarchyInfo.ComponentIcons[0] != null)
+            if (_hierarchyInfo.showIcon)
             {
                 for (int i = 0; i < _hierarchyInfo.ComponentIcons.Length; i++)
                 {
-                    _hierarchyInfo.ComponentIcons[i].Enable =
-                        GUILayout.Toggle(_hierarchyInfo.ComponentIcons[i].Enable, "");
-                    if (_hierarchyInfo.ComponentIcons[i + 1].Component == null)
-                        break;
+                    ComponentIcon componentIcon = _hierarchyInfo.ComponentIcons[i];
+                
+                    if (componentIcon != null)
+                    {
+                        GUILayout.BeginHorizontal();
+                        GUILayout.Space(_spaceValue);
+                        
+                        GUIStyle disableTextStyle = new GUIStyle() { normal = new GUIStyleState() { textColor = componentIcon.enable ? Color.white : Color.gray } };
+                        
+                        if (GUILayout.Button(componentIcon.name, disableTextStyle))
+                        {
+                            componentIcon.enable = !componentIcon.enable;
+                        }
+                    
+                        GUILayout.EndHorizontal();
+                    
+                        GUILayout.Space(_spaceValue / 4);
+
+                        if (componentIcon.component == null)
+                            break;    
+                    }
                 }
             }
 

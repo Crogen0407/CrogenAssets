@@ -1,5 +1,7 @@
 #if UNITY_EDITOR
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Crogen.CustomHierarchy
 {
@@ -9,10 +11,12 @@ namespace Crogen.CustomHierarchy
         Gradients
     }
 
+    [Serializable]
     public class ComponentIcon
     {
-        public Component Component;
-        public bool Enable = true;
+        [HideInInspector] public string name;
+        [HideInInspector] public Component component;
+        public bool enable = true;
     }
 
     public class HierarchyInfo : MonoBehaviour
@@ -32,7 +36,6 @@ namespace Crogen.CustomHierarchy
     
         //Text
         public Color textColor = Color.white;
-    
     }
 }
 #endif

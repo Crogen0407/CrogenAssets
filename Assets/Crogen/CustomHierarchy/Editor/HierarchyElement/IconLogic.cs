@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using Cinemachine.Editor;
-using PlasticPipe.Server;
+using Cinemachine;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,17 +15,26 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
             if (hierarchyInfo.showIcon)
             {
                 Rect iconPosition = new Rect();
-                for (int i = 0; i < components.Length; i++)
+                if (hierarchyInfo.ComponentIcons != null && components.Length == hierarchyInfo.ComponentIcons.Length)
                 {
-                    try
+                    for (int i = 0; i < components.Length; i++)
                     {
-                        hierarchyInfo.ComponentIcons[i].Component = components[i];
-                    }
-                    catch
-                    {
-                        hierarchyInfo.ComponentIcons = new ComponentIcon[128];
+                        ComponentIcon componentIcon = hierarchyInfo.ComponentIcons[i];
+                        
+                        if(componentIcon == null)
+                            componentIcon = new ComponentIcon();
+                        
+                        if(componentIcon.component != components[i])
+                            componentIcon.name =components[i].GetType().Name;
+                            
+                        componentIcon.component = components[i];
                     }
                 }
+                else
+                {
+                    hierarchyInfo.ComponentIcons = new ComponentIcon[components.Length];
+                }
+                
                 try
                 {
                     for (int i = 0; i < components.Length; ++i)
@@ -33,7 +42,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                         iconPosition = new Rect(
                             new Vector2((selectionRect.width - selectionRect.height * (i + 1)) + (EditorGUIUtility.currentViewWidth - selectionRect.width) - offset, selectionRect.y), 
                             new Vector2(selectionRect.height, selectionRect.height));
-                
+                        
                         //unity 기본 built-in 아이콘 가져오기
                         if(components[i]!=null)
                         {
