@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Cinemachine.Editor;
 using PlasticPipe.Server;
 using UnityEditor;
 using UnityEngine;
@@ -40,20 +41,19 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                             _loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);
                             Texture2D texture = _loadIconMethodInfo?.Invoke(null, new object[] { $"{components[i].GetType().Name} Icon" }) as Texture2D;
                             
-                            //package 아이콘 가져오기
+                            //패키지 정의 컴포넌트
                             if (texture == null)
                             {
-                            
-                            }
-                        
-                            //사용자 정의 컴포넌트
-                            if (texture == null)
-                            {
-                                string path = AssetDatabase.GetAssetPath(components[i]);
-                                Debug.Log(path);
+                                var item = MonoScript.FromMonoBehaviour(components[i] as MonoBehaviour);
+                                string path = AssetDatabase.GetAssetPath(item);
                                 MonoImporter monoImporter = AssetImporter.GetAtPath(path) as MonoImporter;
-
                                 texture = monoImporter.GetIcon();
+                                
+                                if (texture == null)
+                                {
+                                    //사용자 정의 컴포넌트
+                                    texture = AssetDatabase.GetCachedIcon(path) as Texture2D;
+                                }
                             }
                         
                             //실제로 그리기          

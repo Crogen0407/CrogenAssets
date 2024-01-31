@@ -8,7 +8,7 @@ namespace Crogen.CustomHierarchy.Editor
     [InitializeOnLoad]
     public class CustomHierarchy : UnityEditor.Editor
     {
-        private static readonly float Offset = 4f;
+        private static readonly float Offset = 3f;
 
         private static IconLogic _iconLogic = new IconLogic();
         private static BackgroundLogic _backgroundLogic = new BackgroundLogic();
@@ -40,8 +40,8 @@ namespace Crogen.CustomHierarchy.Editor
                 
                 if (hierarchyInfo != null)
                 {
-                    _iconLogic.Draw(hierarchyInfo, components, selectionRect, Offset);
                     _backgroundLogic.Draw(hierarchyInfo, selectionRect);
+                    _iconLogic.Draw(hierarchyInfo, components, selectionRect, Offset);
                     _textLogic.Draw(hierarchyInfo, gameObject, selectionRect);
                 }
                 
