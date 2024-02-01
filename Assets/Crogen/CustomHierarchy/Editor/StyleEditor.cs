@@ -18,7 +18,8 @@ namespace Crogen.CustomHierarchy.Editor
             {
                 textColor = Color.white
             },
-            fontStyle = FontStyle.Bold
+            fontStyle = FontStyle.Bold,
+            margin = new RectOffset(5, 0, 0, 0)
         };
         
         public static readonly GUIStyle NormalTitleStyle = new GUIStyle()
@@ -27,7 +28,6 @@ namespace Crogen.CustomHierarchy.Editor
             {
                 textColor = Color.white
             },
-            fontStyle = FontStyle.Bold
         };
     }
 }
