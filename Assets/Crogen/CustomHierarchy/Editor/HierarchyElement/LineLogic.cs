@@ -14,7 +14,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                     float count = (selectionRect.position.x - 60) / 14;
                     
                     //HorizontalLine
-                    Color parentSettingLineColor = GetLineColor(parent, new Color32(104, 104, 104, 255));
+                    Color parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
 
                     Vector2 positionOffset = new Vector2(-8.25f - 14, 8);
                     int lineSizeX = gameObject.transform.childCount != 0 ? 8 : 16;
@@ -24,7 +24,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                     //VerticalLine
                     for (int i = 0; i < count; i++)
                     {
-                        parentSettingLineColor = GetLineColor(parent, new Color32(104, 104, 104, 255));
+                        parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
     
                         if (parent.GetChild(0) == gameObject.transform && i == 0)
                         {

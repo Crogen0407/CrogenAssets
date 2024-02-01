@@ -4,21 +4,20 @@ using UnityEngine;
 
 namespace Crogen.CustomHierarchy.Editor
 {
-    [Serializable]
-    public class CustomHierarchySettingData
+    public class CustomHierarchySettingDataSO : ScriptableObject
     {
         //Background
         public BackgroundType backgroundType;
-        public List<Color> backgroundColor;
+        public List<Color> backgroundColor = new();
         
         //Icon
-        public bool[] activeIcons;
+        public List<bool> activeIcons = new();
         
         //Line 
-        public List<Color> lineColor;
+        public List<Color> lineColor = new();
         
         //Text
-        public List<Color> textColor;
+        public List<Color> textColor = new();
 
     }
 }

@@ -29,5 +29,8 @@ namespace Crogen.CustomHierarchy.Editor
                 textColor = Color.white
             },
         };
+
+        public static readonly Color DefaultLineColor = new Color32(104, 104, 104, 255);
+        public static readonly int SpaceValue = 20;
     }
 }
