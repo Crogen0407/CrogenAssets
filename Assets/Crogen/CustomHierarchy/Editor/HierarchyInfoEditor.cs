@@ -19,21 +19,8 @@ namespace Crogen.CustomHierarchy.Editor
         {
             #region Style
 
-            GUILayoutOption[] guiLayoutOption = new[]
-            {
-                GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.55f),
-                GUILayout.Height(20),
-                GUILayout.ExpandWidth(false),
-            };
-
-            GUIStyle titleStyle = new GUIStyle()
-            {
-                normal =
-                {
-                    textColor = Color.white
-                },
-                fontStyle = FontStyle.Bold
-            };
+            GUILayoutOption[] guiLayoutOption = StyleEditor.GUILayoutOption;
+            GUIStyle titleStyle = StyleEditor.BoldTitleStyle;
 
             #endregion
 
