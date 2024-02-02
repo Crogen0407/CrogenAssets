@@ -1,18 +1,20 @@
+using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 namespace Crogen.CustomHierarchy.Editor
 {
-    [CanEditMultipleObjects]
     [CustomEditor(typeof(HierarchyInfo))]
+    [CanEditMultipleObjects]
     public class HierarchyInfoEditor : UnityEditor.Editor
     {
-        private HierarchyInfo _hierarchyInfo;
+        private HierarchyInfo[] _hierarchyInfo;
         private readonly int _spaceValue = 20;
 
         private void OnEnable()
         {
-            _hierarchyInfo = target as HierarchyInfo;
+            _hierarchyInfo = targets.Cast<HierarchyInfo>().ToArray();
         }
 
         public override void OnInspectorGUI()
@@ -23,28 +25,35 @@ namespace Crogen.CustomHierarchy.Editor
             GUIStyle titleStyle = StyleEditor.BoldTitleStyle;
 
             #endregion
-
+            
+            EditorGUI.BeginChangeCheck();
+            
+            //다른 수치가 2개 이상 있으면 true
+            EditorGUI.showMixedValue =
+                _hierarchyInfo.Select (x => x.backgroundColor).Distinct ().Count () > 1;
+            
             #region Background
 
             GUILayout.BeginHorizontal();
+            
             GUILayout.Label("Show Background", titleStyle);
-            _hierarchyInfo.showBackground = GUILayout.Toggle(_hierarchyInfo.showBackground, "", guiLayoutOption);
+            var showBackground = EditorGUILayout.Toggle(_hierarchyInfo[0].showBackground, guiLayoutOption);
             GUILayout.EndHorizontal();
-
-            if (_hierarchyInfo.showBackground)
+            BackgroundType backgroundType = BackgroundType.Default;
+            Color backgroundColor = Color.white;
+            
+            if (_hierarchyInfo[0].showBackground)
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
                 GUILayout.Label("Background Type");
-                _hierarchyInfo.backgroundType =
-                    (BackgroundType)EditorGUILayout.EnumPopup(_hierarchyInfo.backgroundType, guiLayoutOption);
+                backgroundType = (BackgroundType)EditorGUILayout.EnumPopup(_hierarchyInfo[0].backgroundType, guiLayoutOption);
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
                 GUILayout.Label("Color");
-                _hierarchyInfo.backgroundColor =
-                    EditorGUILayout.ColorField(_hierarchyInfo.backgroundColor, guiLayoutOption);
+                backgroundColor = EditorGUILayout.ColorField(_hierarchyInfo[0].backgroundColor, guiLayoutOption);
                 GUILayout.EndHorizontal();
             }
 
@@ -56,16 +65,16 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Icon", titleStyle);
-            _hierarchyInfo.showIcon = GUILayout.Toggle(_hierarchyInfo.showIcon, "", guiLayoutOption);
+            var showIcon = EditorGUILayout.Toggle(_hierarchyInfo[0].showIcon, guiLayoutOption);
             GUILayout.EndHorizontal();
 
-            if (_hierarchyInfo.showIcon)
+            if (_hierarchyInfo[0].showIcon && _hierarchyInfo.Length == 1)
             {
-                for (int i = 0; i < _hierarchyInfo.ComponentIcons.Length; i++)
+                for (int i = 0; i < _hierarchyInfo[0].ComponentIcons.Length; i++)
                 {
-                    ComponentIcon componentIcon = _hierarchyInfo.ComponentIcons[i];
+                    ComponentIcon componentIcon = _hierarchyInfo[0].ComponentIcons[i];
                 
-                    if (componentIcon != null && componentIcon.component != _hierarchyInfo)
+                    if (componentIcon != null && componentIcon.component != _hierarchyInfo[0])
                     {
                         GUILayout.BeginHorizontal();
                         GUILayout.Space(_spaceValue);
@@ -98,14 +107,15 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Line", titleStyle);
-            HierarchyInfo.ShowLine = GUILayout.Toggle(HierarchyInfo.ShowLine, "", guiLayoutOption);
+            HierarchyInfo.ShowLine = EditorGUILayout.Toggle(HierarchyInfo.ShowLine, guiLayoutOption);
+            Color lineColor = Color.white;
             GUILayout.EndHorizontal();
             if (HierarchyInfo.ShowLine)
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
                 GUILayout.Label("Color");
-                _hierarchyInfo.lineColor = EditorGUILayout.ColorField(_hierarchyInfo.lineColor, guiLayoutOption);
+                lineColor = EditorGUILayout.ColorField(_hierarchyInfo[0].lineColor, guiLayoutOption);
                 GUILayout.EndHorizontal();
             }
 
@@ -119,10 +129,30 @@ namespace Crogen.CustomHierarchy.Editor
             GUILayout.BeginHorizontal();
             GUILayout.Space(_spaceValue);
             GUILayout.Label("Color");
-            _hierarchyInfo.textColor = EditorGUILayout.ColorField(_hierarchyInfo.textColor, guiLayoutOption);
+            var textColor = EditorGUILayout.ColorField(_hierarchyInfo[0].textColor, guiLayoutOption);
             GUILayout.EndHorizontal();
 
             #endregion
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObjects(_hierarchyInfo, "Change HierarchyInfo");
+                
+                //모든 컴포넌트에 수치 대입 및 갱신
+                foreach (HierarchyInfo hierarchyInfo in _hierarchyInfo)
+                {
+                    hierarchyInfo.showBackground = showBackground;
+                    hierarchyInfo.backgroundType = backgroundType;
+                    hierarchyInfo.backgroundColor = backgroundColor;
+                    
+                    hierarchyInfo.showIcon = showIcon;
+
+                    hierarchyInfo.lineColor = lineColor;
+
+                    hierarchyInfo.textColor = textColor;
+                }
+            }
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

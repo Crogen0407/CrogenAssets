@@ -36,7 +36,6 @@ namespace Crogen.CustomHierarchy.Editor
                 var parent = gameObject.transform.parent;
                 var hierarchyInfo = gameObject.GetComponent<HierarchyInfo>();
                 var components = gameObject.GetComponents<Component>();
-                EditorGUIUtility.hierarchyMode = false;
                 
                 if (hierarchyInfo != null)
                 {

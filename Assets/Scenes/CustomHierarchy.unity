@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 29786786}
@@ -300,8 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 110418700}
@@ -359,8 +363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 125322400}
@@ -507,8 +513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 1
   backgroundColor: {r: 1, g: 0.48235294, b: 0, a: 1}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 143445842}
@@ -562,8 +570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 169721421}
@@ -603,8 +613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 1
   backgroundType: 1
-  backgroundColor: {r: 0, g: 1, b: 0, a: 1}
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  showIcon: 1
   ComponentIcons:
   - name: Transform
     component: {fileID: 248510433}
@@ -615,7 +627,7 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 248510431}
     enable: 0
-  lineColor: {r: 0, g: 1, b: 0, a: 1}
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
   textColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!111 &248510432
 Animation:
@@ -698,8 +710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 276416347}
@@ -843,8 +857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 440584438}
@@ -901,8 +917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 445817252}
@@ -1031,8 +1049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 567884772}
@@ -1086,8 +1106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 676308224}
@@ -1127,19 +1149,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 1
   backgroundType: 1
-  backgroundColor: {r: 1, g: 1, b: 0, a: 1}
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  showIcon: 1
   ComponentIcons:
   - name: Transform
     component: {fileID: 759903606}
-    enable: 0
+    enable: 1
   - name: Animation
     component: {fileID: 759903605}
     enable: 1
   - name: HierarchyInfo
     component: {fileID: 759903604}
     enable: 0
-  lineColor: {r: 1, g: 1, b: 0, a: 1}
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
   textColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!111 &759903605
 Animation:
@@ -1220,8 +1244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 840830300}
@@ -1349,8 +1375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1084328236}
@@ -1407,8 +1435,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1498311759}
@@ -1540,8 +1570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1618408470}
@@ -1670,8 +1702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1620352903}
@@ -1756,8 +1790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 1
   backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1681719151}
@@ -1893,8 +1929,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1683514974}
@@ -1948,8 +1986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 1710616693}
@@ -2069,8 +2109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 1
   backgroundType: 1
-  backgroundColor: {r: 0.48235294, g: 0, b: 1, a: 1}
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  showIcon: 1
   ComponentIcons:
   - name: Transform
     component: {fileID: 1710847338}
@@ -2081,7 +2123,7 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1710847339}
     enable: 1
-  lineColor: {r: 0.48235297, g: 0, b: 1, a: 1}
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
   textColor: {r: 0.48235297, g: 0, b: 1, a: 1}
 --- !u!1 &1953842083
 GameObject:
@@ -2227,8 +2269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 1
   backgroundType: 1
-  backgroundColor: {r: 0, g: 0, b: 1, a: 1}
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  showIcon: 1
   ComponentIcons:
   - name: Transform
     component: {fileID: 1964983079}
@@ -2242,7 +2286,7 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1964983077}
     enable: 1
-  lineColor: {r: 0, g: 0, b: 1, a: 1}
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
   textColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!111 &1964983078
 Animation:
@@ -2336,8 +2380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showBackground: 0
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  showIcon: 0
   ComponentIcons:
   - name: Transform
     component: {fileID: 2090372381}
