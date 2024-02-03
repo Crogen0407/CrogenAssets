@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 {
-    public class LineLogic
+    public class LineLogic : ILogic
     {
-        public void Draw(GameObject gameObject, Transform parent, Rect selectionRect, float offset)
+        public void Draw(Rect selectionRect = new Rect(), HierarchyInfo hierarchyInfo = null, GameObject gameObject = null,
+            Transform parent = null, Component[] components = null, float offset = 0)
         {
             if (HierarchyInfo.ShowLine)
             {
@@ -45,6 +46,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                     }
                 }
             }
+            
         }
         
         private Color GetLineColor(Transform parentTrm, Color defaultColor)

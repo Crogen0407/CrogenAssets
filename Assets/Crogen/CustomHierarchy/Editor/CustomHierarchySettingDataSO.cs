@@ -8,16 +8,15 @@ namespace Crogen.CustomHierarchy.Editor
     {
         //Background
         public BackgroundType backgroundType;
-        public List<Color> backgroundColor = new();
+        public List<Color> backgroundColor;
         
         //Icon
-        public List<bool> activeIcons = new();
+        public List<bool> activeIcons;
         
         //Line 
-        public List<Color> lineColor = new();
+        public List<Color> lineColor;
         
         //Text
-        public List<Color> textColor = new();
-
+        public List<Color> textColor;
     }
 }

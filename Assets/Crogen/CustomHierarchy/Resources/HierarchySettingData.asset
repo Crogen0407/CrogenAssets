@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: HierarchySettingData
   m_EditorClassIdentifier: 
   backgroundType: 0
-  backgroundColor: []
+  backgroundColor:
+  - {r: 1, g: 0, b: 0.48235294, a: 1}
+  - {r: 1, g: 0.52990127, b: 0, a: 1}
+  - {r: 1, g: 0.40784314, b: 0.40784314, a: 1}
+  - {r: 1, g: 0.40784314, b: 0.40784314, a: 1}
+  - {r: 1, g: 0.40784314, b: 0.40784314, a: 1}
+  - {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  - {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   activeIcons: 
   lineColor: []
   textColor: []

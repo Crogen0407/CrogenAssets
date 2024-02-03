@@ -20,7 +20,7 @@ namespace Crogen.CustomHierarchy.Editor
 
             if (_hierarchySettingData == null)
             {
-                ScriptableObject asset = CreateInstance(typeof(CustomHierarchySettingDataSO));
+                ScriptableObject asset = ScriptableObject.CreateInstance(typeof(CustomHierarchySettingDataSO));
                 AssetDatabase.CreateAsset(asset, "Assets/Crogen/CustomHierarchy/Resources/HierarchySettingData.asset");
                 _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
             }
@@ -31,6 +31,8 @@ namespace Crogen.CustomHierarchy.Editor
         {
             if (_hierarchySettingData != null)
             {
+                EditorGUI.BeginChangeCheck();
+                
                 #region Background
                 GUILayout.Label("Background", StyleEditor.BoldTitleStyle);
 
@@ -52,7 +54,7 @@ namespace Crogen.CustomHierarchy.Editor
                     
                     if (GUILayout.Button("+"))
                     {
-                        backgroundColor.Add(StyleEditor.DefaultLineColor);
+                        backgroundColor.Add(Color.clear);
                     }
                     if (backgroundColor.Count > 0)
                     {
@@ -75,6 +77,13 @@ namespace Crogen.CustomHierarchy.Editor
                 #endregion
                 GUILayout.Label("Line", StyleEditor.BoldTitleStyle);
                 GUILayout.Label("Text", StyleEditor.BoldTitleStyle);
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    Undo.RecordObject(_hierarchySettingData, "Change HierarchySettings");
+                    _hierarchySettingData.backgroundColor = backgroundColor;
+                    EditorUtility.SetDirty(_hierarchySettingData);
+                }
             }
             else
             {

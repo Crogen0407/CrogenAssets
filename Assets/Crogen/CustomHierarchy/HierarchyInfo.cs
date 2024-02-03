@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System;
+using Crogen.CustomHierarchy.Editor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,8 +12,12 @@ public class ComponentIcon
     public bool enable = true;
 }
 
+[DisallowMultipleComponent]
 public class HierarchyInfo : MonoBehaviour
 {
+    private CustomHierarchySettingDataSO _hierarchySettingData;
+    [HideInInspector] public int hierarchyIndex = 0;
+    
     //Background
     public bool showBackground;
     public BackgroundType backgroundType = BackgroundType.Default;
@@ -28,5 +33,11 @@ public class HierarchyInfo : MonoBehaviour
 
     //Text
     public Color textColor = Color.white;
+
+    private void Reset()
+    {
+        _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
+        backgroundColor = _hierarchySettingData.backgroundColor[hierarchyIndex];
+    }
 }
 #endif

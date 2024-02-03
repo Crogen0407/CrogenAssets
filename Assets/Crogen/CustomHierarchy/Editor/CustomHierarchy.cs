@@ -6,7 +6,7 @@ using UnityEditor;
 namespace Crogen.CustomHierarchy.Editor
 {
     [InitializeOnLoad]
-    public class CustomHierarchy : UnityEditor.Editor
+    public class CustomHierarchy
     {
         private static readonly float Offset = 3f;
 
@@ -36,7 +36,6 @@ namespace Crogen.CustomHierarchy.Editor
                 var parent = gameObject.transform.parent;
                 var hierarchyInfo = gameObject.GetComponent<HierarchyInfo>();
                 var components = gameObject.GetComponents<Component>();
-                
                 if (hierarchyInfo != null)
                 {
                     _backgroundLogic.Draw(hierarchyInfo, selectionRect);
@@ -44,7 +43,7 @@ namespace Crogen.CustomHierarchy.Editor
                     _textLogic.Draw(hierarchyInfo, gameObject, selectionRect);
                 }
                 
-                _lineLogic.Draw(gameObject, parent, selectionRect, Offset);
+                _lineLogic.Draw(selectionRect:selectionRect, gameObject:gameObject, parent:parent, offset:Offset);
                 _toggleLogic.Draw(gameObject, selectionRect);
             }
         }

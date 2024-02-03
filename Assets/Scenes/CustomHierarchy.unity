@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showBackground: 1
   backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundColor: {r: 1, g: 0.5613208, b: 0.5613208, a: 1}
   showIcon: 1
   ComponentIcons:
   - name: Transform
@@ -2286,8 +2286,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1964983077}
     enable: 1
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
-  textColor: {r: 0, g: 0, b: 1, a: 1}
+  lineColor: {r: 0.608023, g: 1, b: 0.5235849, a: 1}
+  textColor: {r: 1, g: 0, b: 0.8873906, a: 1}
 --- !u!111 &1964983078
 Animation:
   m_ObjectHideFlags: 0
