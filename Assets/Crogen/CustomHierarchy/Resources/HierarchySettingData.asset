@@ -12,8 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f8c2221c424b84b422ad221aeb9cde, type: 3}
   m_Name: HierarchySettingData
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: []
-  activeIcons: 01010000
-  lineColor: []
-  textColor: []
+  backgroundType: 1
+  backgroundColor:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.48235294, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  activeIcons: 0001010100010000
+  lineColor:
+  - {r: 1, g: 0, b: 0.48235294, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  textColor:
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
