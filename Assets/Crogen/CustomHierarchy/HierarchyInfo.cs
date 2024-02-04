@@ -35,16 +35,76 @@ public class HierarchyInfo : MonoBehaviour
     {
         if (_hierarchySettingData == null)
             _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
+        
+        #region Background
 
+        backgroundType = _hierarchySettingData.backgroundType;
+        
         try
         {
             backgroundColor = _hierarchySettingData.backgroundColor[GetParentIndex()];
         }
         catch (ArgumentOutOfRangeException e)
         {
-            Debug.Log("설정한 값이 존재하지 않습니다. 기본색인 (0, 0, 0, 0)으로 설정합니다.");
-            backgroundColor = Color.clear;
+            if (_hierarchySettingData.backgroundColor.Count > 0)
+            {
+                backgroundColor = _hierarchySettingData.backgroundColor[_hierarchySettingData.backgroundColor.Count - 1];
+            }
+            else
+            {
+                backgroundColor = Color.clear;
+            }
         }
+
+        #endregion
+
+        // #region Icon
+        //
+        // for (int i = 0; i < ComponentIcons.Length; ++i)
+        // {
+        // }
+        //
+        // #endregion
+
+        #region Line
+
+        try
+        {
+            lineColor = _hierarchySettingData.lineColor[GetParentIndex()];
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            if (_hierarchySettingData.lineColor.Count > 0)
+            {
+                lineColor = _hierarchySettingData.lineColor[_hierarchySettingData.lineColor.Count - 1];
+            }
+            else
+            {
+                lineColor = Color.clear;
+            }
+        }
+
+        #endregion
+
+        #region Text
+
+        try
+        {
+            textColor = _hierarchySettingData.textColor[GetParentIndex()];
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            if (_hierarchySettingData.textColor.Count > 0)
+            {
+                lineColor = _hierarchySettingData.textColor[_hierarchySettingData.textColor.Count - 1];
+            }
+            else
+            {
+                textColor = Color.clear;
+            }
+        }
+
+        #endregion
     }
 
     public int GetParentIndex()

@@ -16,8 +16,7 @@ MonoBehaviour:
   backgroundColor:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  activeIcons: 0001010100010000
+  activeIcons: 00010101
   lineColor:
   - {r: 1, g: 0, b: 0.48235294, a: 1}
   - {r: 0, g: 1, b: 1, a: 1}

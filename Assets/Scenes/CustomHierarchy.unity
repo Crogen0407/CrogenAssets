@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 353524805}
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 685984038}
@@ -361,8 +361,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 685984039}
     enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 0, g: 1, b: 1, a: 1}
+  textColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &743794083
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 1, g: 0, b: 0.48235294, a: 1}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1325228073}
@@ -878,8 +878,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1325228071}
     enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 1, g: 0, b: 0.48235294, a: 1}
+  textColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!81 &1325228072
 AudioListener:
   m_ObjectHideFlags: 0
@@ -947,8 +947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1462781581}
@@ -956,8 +956,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1462781582}
     enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
+  textColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1710847336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundType: 0
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundType: 1
+  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1927931049}
