@@ -62,6 +62,7 @@ public class HierarchyInfo : MonoBehaviour
         //
         // for (int i = 0; i < ComponentIcons.Length; ++i)
         // {
+        //     ComponentIcons[i].enable = _hierarchySettingData.activeIcons[i];
         // }
         //
         // #endregion
