@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35957272}
-  - component: {fileID: 35957271}
+  - component: {fileID: 35957273}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -140,31 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &35957271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35957270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0.48235294, a: 1}
-  showIcon: 0
-  ComponentIcons:
-  - name: Transform
-    component: {fileID: 35957272}
-    enable: 0
-  - name: HierarchyInfo
-    component: {fileID: 35957271}
-    enable: 1
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &35957272
 Transform:
   m_ObjectHideFlags: 0
@@ -174,72 +149,36 @@ Transform:
   m_GameObject: {fileID: 35957270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 345345340, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 829251489}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &615654600
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 615654601}
-  - component: {fileID: 615654602}
-  m_Layer: 0
-  m_Name: GameObject (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &615654601
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615654600}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1681539027}
-  m_Father: {fileID: 829251489}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &615654602
+--- !u!114 &35957273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615654600}
+  m_GameObject: {fileID: 35957270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  showIcon: 1
   ComponentIcons:
   - name: Transform
-    component: {fileID: 615654601}
+    component: {fileID: 35957272}
     enable: 1
   - name: HierarchyInfo
-    component: {fileID: 615654602}
+    component: {fileID: 35957273}
     enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &829251488
+--- !u!1 &232438099
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,8 +186,329 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 829251489}
-  - component: {fileID: 829251490}
+  - component: {fileID: 232438101}
+  - component: {fileID: 232438100}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &232438100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232438099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 232438101}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 232438100}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &232438101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232438099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &353524802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353524805}
+  - component: {fileID: 353524804}
+  - component: {fileID: 353524803}
+  m_Layer: 0
+  m_Name: GameObject (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &353524803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353524802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 353524805}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 353524804}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 353524803}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!54 &353524804
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353524802}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!4 &353524805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353524802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &685984037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685984038}
+  - component: {fileID: 685984039}
+  m_Layer: 0
+  m_Name: GameObject (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685984038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685984037}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1927931049}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685984039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685984037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 685984038}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 685984039}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &743794083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743794085}
+  - component: {fileID: 743794084}
+  m_Layer: 0
+  m_Name: GameObject (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &743794084
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743794083}
+  m_Enabled: 1
+--- !u!4 &743794085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743794083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6000519, y: -5.7780323, z: 14.086646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &798771464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798771465}
+  - component: {fileID: 798771466}
+  m_Layer: 0
+  m_Name: GameObject (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798771465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798771464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1462781581}
+  m_Father: {fileID: 1927931049}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798771466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798771464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 798771465}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 798771466}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &848906675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848906677}
+  - component: {fileID: 848906676}
+  m_Layer: 0
+  m_Name: GameObject (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &848906676
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848906675}
+  m_Enabled: 1
+--- !u!4 &848906677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848906675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6000519, y: -5.7780323, z: 14.086646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &943048778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943048780}
+  - component: {fileID: 943048779}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -256,425 +516,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &829251489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829251488}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 615654601}
-  m_Father: {fileID: 35957272}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829251490
+--- !u!114 &943048779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829251488}
+  m_GameObject: {fileID: 943048778}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
   backgroundType: 0
   backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  showIcon: 0
   ComponentIcons:
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
+  - name: Transform
+    component: {fileID: 943048780}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 943048779}
     enable: 1
   lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &943048780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943048778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &974633356
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,10 +563,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974633361}
+  - component: {fileID: 974633357}
   - component: {fileID: 974633360}
   - component: {fileID: 974633359}
-  - component: {fileID: 974633358}
-  - component: {fileID: 974633357}
+  - component: {fileID: 974633362}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -729,40 +608,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &974633358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974633356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0.48235294, a: 1}
-  showIcon: 0
-  ComponentIcons:
-  - name: Transform
-    component: {fileID: 974633361}
-    enable: 1
-  - name: Camera
-    component: {fileID: 974633360}
-    enable: 1
-  - name: AudioListener
-    component: {fileID: 974633359}
-    enable: 1
-  - name: HierarchyInfo
-    component: {fileID: 974633358}
-    enable: 1
-  - name: CinemachineBrain
-    component: {fileID: 974633357}
-    enable: 1
-  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
-  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!81 &974633359
 AudioListener:
   m_ObjectHideFlags: 0
@@ -794,11 +639,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -829,7 +674,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1681539026
+--- !u!114 &974633362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974633356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 1, g: 0, b: 0.48235294, a: 1}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 974633361}
+    enable: 1
+  - name: CinemachineBrain
+    component: {fileID: 974633357}
+    enable: 1
+  - name: Camera
+    component: {fileID: 974633360}
+    enable: 1
+  - name: AudioListener
+    component: {fileID: 974633359}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 974633362}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1061319596
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -837,432 +714,249 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1681539027}
-  - component: {fileID: 1681539028}
+  - component: {fileID: 1061319598}
+  - component: {fileID: 1061319597}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1681539027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681539026}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 615654601}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1681539028
+--- !u!114 &1061319597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681539026}
+  m_GameObject: {fileID: 1061319596}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showBackground: 1
-  backgroundType: 1
-  backgroundColor: {r: 0.48235294, g: 0, b: 1, a: 1}
-  showIcon: 0
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   ComponentIcons:
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  - name: 
-    component: {fileID: 0}
-    enable: 1
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Transform
+    component: {fileID: 1061319598}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1061319597}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1061319598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061319596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1086553162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086553165}
+  - component: {fileID: 1086553164}
+  - component: {fileID: 1086553163}
+  m_Layer: 0
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1086553163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086553162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1086553165}
+    enable: 1
+  - name: Rigidbody
+    component: {fileID: 1086553164}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1086553163}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!54 &1086553164
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086553162}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!4 &1086553165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086553162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1325228070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1325228073}
+  - component: {fileID: 1325228072}
+  - component: {fileID: 1325228071}
+  m_Layer: 0
+  m_Name: GameObject (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1325228071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325228070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 1, g: 0, b: 0.48235294, a: 1}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1325228073}
+    enable: 1
+  - name: AudioListener
+    component: {fileID: 1325228072}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1325228071}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!81 &1325228072
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325228070}
+  m_Enabled: 1
+--- !u!4 &1325228073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325228070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6000519, y: -5.7780323, z: 14.086646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1462781580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462781581}
+  - component: {fileID: 1462781582}
+  m_Layer: 0
+  m_Name: GameObject (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1462781581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462781580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 798771465}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1462781582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462781580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1462781581}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1462781582}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
   textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1710847336
 GameObject:
@@ -1358,3 +1052,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1927931047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927931049}
+  - component: {fileID: 1927931048}
+  m_Layer: 0
+  m_Name: GameObject (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1927931048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927931047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ad243ec7bdc504886059c217fb1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundType: 0
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  ComponentIcons:
+  - name: Transform
+    component: {fileID: 1927931049}
+    enable: 1
+  - name: HierarchyInfo
+    component: {fileID: 1927931048}
+    enable: 1
+  lineColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1927931049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927931047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 685984038}
+  - {fileID: 798771465}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

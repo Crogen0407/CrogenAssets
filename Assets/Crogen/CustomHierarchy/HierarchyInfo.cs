@@ -36,7 +36,15 @@ public class HierarchyInfo : MonoBehaviour
         if (_hierarchySettingData == null)
             _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
 
-        backgroundColor = _hierarchySettingData.backgroundColor[GetParentIndex()];
+        try
+        {
+            backgroundColor = _hierarchySettingData.backgroundColor[GetParentIndex()];
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            Debug.Log("설정한 값이 존재하지 않습니다. 기본색인 (0, 0, 0, 0)으로 설정합니다.");
+            backgroundColor = Color.clear;
+        }
     }
 
     public int GetParentIndex()

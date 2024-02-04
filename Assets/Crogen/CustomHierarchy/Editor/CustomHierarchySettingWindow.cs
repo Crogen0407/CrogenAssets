@@ -70,10 +70,37 @@ namespace Crogen.CustomHierarchy.Editor
                 GUILayout.Space(10);
                 
                 #region Icon
+                List<bool> activeIcons = _hierarchySettingData.activeIcons;
 
                 GUILayout.Label("Icon", StyleEditor.BoldTitleStyle);
                 
+                if (activeIcons != null)
+                {
+                    for (int i = 0; i < activeIcons.Count; i++)
+                    {
+                        GUILayout.BeginHorizontal();
+                        
+                        activeIcons[i] =
+                            EditorGUILayout.Toggle(activeIcons[i]);
+                        
+                        GUILayout.EndHorizontal();
+                    }
 
+                    GUILayout.BeginHorizontal();
+                    
+                    if (GUILayout.Button("+"))
+                    {
+                        activeIcons.Add(false);
+                    }
+                    if (activeIcons.Count > 0)
+                    {
+                        if (GUILayout.Button("-"))
+                        {
+                            activeIcons.RemoveAt(activeIcons.Count - 1);
+                        }    
+                    }
+                    GUILayout.EndHorizontal();
+                }
                 #endregion
                 GUILayout.Label("Line", StyleEditor.BoldTitleStyle);
                 GUILayout.Label("Text", StyleEditor.BoldTitleStyle);
