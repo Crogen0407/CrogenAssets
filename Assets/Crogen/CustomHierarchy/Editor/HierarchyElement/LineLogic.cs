@@ -13,8 +13,11 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
         public void Draw(Rect selectionRect = new Rect(), HierarchyInfo hierarchyInfo = null, GameObject gameObject = null,
             Transform parent = null, Component[] components = null, float hierarchySibling = 0, int hierarchyIndex = 0, float offset = 0)
         {
-            if (Mathf.Approximately(selectionRect.position.x, 60f) == false || (hierarchyInfo != null && hierarchyInfo.lineColor.a > 0))
+            if (Mathf.Approximately(selectionRect.position.x, 60f) == false)
             {
+                if (hierarchyInfo != null && Mathf.Approximately(hierarchyInfo.lineColor.a, 0))
+                    return;
+                
                 //HorizontalLine
                 Color parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
             
