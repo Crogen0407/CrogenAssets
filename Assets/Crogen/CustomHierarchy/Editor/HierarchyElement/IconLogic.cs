@@ -8,17 +8,22 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
     {
         private static MethodInfo _loadIconMethodInfo;
 
+        public IconLogic()
+        {
+            CustomHierarchy.LogicCallback += Draw;
+        }
+        
         public void Draw(Rect selectionRect = new Rect(), HierarchyInfo hierarchyInfo = null, GameObject gameObject = null,
             Transform parent = null, Component[] components = null, float hierarchySibling = 0, int hierarchyIndex = 0, float offset = 0)
         {
-            if (hierarchyInfo != null)
+            if (hierarchyInfo != null && components != null)
             {
-                if (hierarchyInfo.showIcon)
+                if (true)
                 {
                     Rect iconPosition = new Rect();
                     if (hierarchyInfo.ComponentIcons != null && components.Length == hierarchyInfo.ComponentIcons.Length)
                     {
-                        for (int i = 0; i < components.Length; i++)
+                        for (int i = 0; i < components.Length; ++i)
                         {
                             ComponentIcon componentIcon = hierarchyInfo.ComponentIcons[i];
                             
@@ -46,7 +51,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                                 new Vector2(selectionRect.height, selectionRect.height));
                             
                             //unity 기본 built-in 아이콘 가져오기
-                            if(components[i]!=null && hierarchyInfo.ComponentIcons[i].enable == true &&  hierarchyInfo != hierarchyInfo.ComponentIcons[i].component)
+                            if(components[i] != null && hierarchyInfo.ComponentIcons[i].enable &&  hierarchyInfo != hierarchyInfo.ComponentIcons[i].component)
                             {
                                 // Built in Icon
                                 _loadIconMethodInfo = typeof(EditorGUIUtility).GetMethod("LoadIcon", BindingFlags.Static | BindingFlags.NonPublic);
@@ -58,7 +63,8 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                                     var item = MonoScript.FromMonoBehaviour(components[i] as MonoBehaviour);
                                     string path = AssetDatabase.GetAssetPath(item);
                                     MonoImporter monoImporter = AssetImporter.GetAtPath(path) as MonoImporter;
-                                    texture = monoImporter.GetIcon();
+                                    if(monoImporter != null)
+                                        texture = monoImporter.GetIcon();
                                     
                                     if (texture == null)
                                     {

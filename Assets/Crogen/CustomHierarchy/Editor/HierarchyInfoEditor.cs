@@ -39,7 +39,6 @@ namespace Crogen.CustomHierarchy.Editor
             GUILayout.BeginHorizontal();
             
             GUILayout.Label("Show Background", titleStyle);
-            var showBackground = EditorGUILayout.Toggle(_hierarchyInfo[0].showBackground, guiLayoutOption);
             
             GUILayout.EndHorizontal();
             BackgroundType backgroundType = BackgroundType.Default;
@@ -47,24 +46,20 @@ namespace Crogen.CustomHierarchy.Editor
             Color[] backgroundColor = new Color[_hierarchyInfo.Length];
             for (int i = 0; i < backgroundColor.Length; ++i) backgroundColor[i] = _hierarchyInfo[i].backgroundColor;
             
-            
-            if (_hierarchyInfo[0].showBackground)
-            {
-                GUILayout.BeginHorizontal();
-                GUILayout.Space(_spaceValue);
-                GUILayout.Label("Background Type");
-                backgroundType = (BackgroundType)EditorGUILayout.EnumPopup(_hierarchyInfo[0].backgroundType, guiLayoutOption);
-                GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(_spaceValue);
+            GUILayout.Label("Background Type");
+            backgroundType = (BackgroundType)EditorGUILayout.EnumPopup(_hierarchyInfo[0].backgroundType, guiLayoutOption);
+            GUILayout.EndHorizontal();
 
-                GUILayout.BeginHorizontal();
-                GUILayout.Space(_spaceValue);
-                GUILayout.Label("Color");
-                backgroundColor[0] = EditorGUILayout.ColorField(_hierarchyInfo[0].backgroundColor, guiLayoutOption);
-                
-                for (int i = 1; i < backgroundColor.Length; ++i) backgroundColor[i] = backgroundColor[0];
-                
-                GUILayout.EndHorizontal();
-            }
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(_spaceValue);
+            GUILayout.Label("Color");
+            backgroundColor[0] = EditorGUILayout.ColorField(_hierarchyInfo[0].backgroundColor, guiLayoutOption);
+            
+            for (int i = 1; i < backgroundColor.Length; ++i) backgroundColor[i] = backgroundColor[0];
+            
+            GUILayout.EndHorizontal();
 
             #endregion
 
@@ -74,37 +69,37 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Icon", titleStyle);
-            var showIcon = EditorGUILayout.Toggle(_hierarchyInfo[0].showIcon, guiLayoutOption);
             GUILayout.EndHorizontal();
 
-            if (_hierarchyInfo[0].showIcon && _hierarchyInfo.Length == 1)
+            ComponentIcon componentIcon = null;
+            for (int i = 0; i < _hierarchyInfo[0].ComponentIcons.Length; ++i)
             {
-                for (int i = 0; i < _hierarchyInfo[0].ComponentIcons.Length; i++)
+                componentIcon = _hierarchyInfo[0].ComponentIcons[i];
+                if (componentIcon != null && componentIcon.component != _hierarchyInfo[0])
                 {
-                    ComponentIcon componentIcon = _hierarchyInfo[0].ComponentIcons[i];
-                
-                    if (componentIcon != null && componentIcon.component != _hierarchyInfo[0])
-                    {
-                        GUILayout.BeginHorizontal();
-                        GUILayout.Space(_spaceValue);
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Space(_spaceValue);
 
-                        GUIStyle textStyle = GUI.skin.toggle;
-                        textStyle.normal = new GUIStyleState() { textColor = componentIcon.enable ? Color.white : Color.gray };
-                        GUILayoutOption[] toggleOption = new[]
-                        {
-                            GUILayout.Width(EditorGUIUtility.currentViewWidth),
-                            GUILayout.Height(20),
-                            GUILayout.ExpandWidth(false),
-                        };
-                        
-                        componentIcon.enable = GUILayout.Toggle(componentIcon.enable, $"  {componentIcon.name}", toggleOption);
+                    GUIStyle textStyle = GUI.skin.toggle;
+                    textStyle.normal = new GUIStyleState() { textColor = componentIcon.enable ? Color.white : Color.gray };
+                    GUILayoutOption[] toggleOption = new[]
+                    {
+                        GUILayout.Width(EditorGUIUtility.currentViewWidth),
+                        GUILayout.Height(20),
+                        GUILayout.ExpandWidth(false),
+                    };
                     
-                        GUILayout.EndHorizontal();
-                    
-                    
-                        if (componentIcon.component == null)
-                            break;    
-                    }
+                    componentIcon.enable = GUILayout.Toggle(componentIcon.enable, $"  {componentIcon.name}", toggleOption);
+                
+                    GUILayout.EndHorizontal();
+                
+                
+                    if (componentIcon.component == null)
+                        break;    
+                }
+                else
+                {
+                    continue;
                 }
             }
 
@@ -116,17 +111,13 @@ namespace Crogen.CustomHierarchy.Editor
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Show Line", titleStyle);
-            HierarchyInfo.ShowLine = EditorGUILayout.Toggle(HierarchyInfo.ShowLine, guiLayoutOption);
             Color lineColor = Color.white;
             GUILayout.EndHorizontal();
-            if (HierarchyInfo.ShowLine)
-            {
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
                 GUILayout.Label("Color");
                 lineColor = EditorGUILayout.ColorField(_hierarchyInfo[0].lineColor, guiLayoutOption);
                 GUILayout.EndHorizontal();
-            }
 
             #endregion
 
@@ -153,13 +144,14 @@ namespace Crogen.CustomHierarchy.Editor
                 for (int i = 0; i < _hierarchyInfo.Length; ++i)
                 {
                     HierarchyInfo hierarchyInfo = _hierarchyInfo[i];
-                    hierarchyInfo.showBackground = showBackground;
                     hierarchyInfo.backgroundType = backgroundType;
-                    
                     hierarchyInfo.backgroundColor = backgroundColor[i];
-                    
-                    hierarchyInfo.showIcon = showIcon;
-                    
+
+                    for (int j = 0; j < hierarchyInfo.ComponentIcons.Length; ++j)
+                    {
+                        hierarchyInfo.ComponentIcons[i] = componentIcon;
+                    }
+
                     hierarchyInfo.lineColor = lineColor;
                     
                     hierarchyInfo.textColor = textColor;
