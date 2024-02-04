@@ -6,14 +6,12 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
     public class LineLogic : ILogic
     {
         public void Draw(Rect selectionRect = new Rect(), HierarchyInfo hierarchyInfo = null, GameObject gameObject = null,
-            Transform parent = null, Component[] components = null, float offset = 0)
+            Transform parent = null, Component[] components = null, float hierarchySibling = 0, int hierarchyIndex = 0, float offset = 0)
         {
             if (HierarchyInfo.ShowLine)
             {
                 if (Mathf.Approximately(selectionRect.position.x, 60f) == false)
                 {
-                    float count = (selectionRect.position.x - 60) / 14;
-                    
                     //HorizontalLine
                     Color parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
 
@@ -23,7 +21,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                     EditorGUI.DrawRect(new Rect(selectionRect.position + positionOffset, new Vector2(lineSizeX, 2)), parentSettingLineColor);
     
                     //VerticalLine
-                    for (int i = 0; i < count; i++)
+                    for (int i = 0; i < hierarchySibling; i++)
                     {
                         parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
     

@@ -10,11 +10,13 @@ namespace Crogen.CustomHierarchy.Editor
     public class HierarchyInfoEditor : UnityEditor.Editor
     {
         private HierarchyInfo[] _hierarchyInfo;
+        public CustomHierarchySettingDataSO hierarchySettingData;
         private readonly int _spaceValue = 20;
-
+        
         private void OnEnable()
         {
             _hierarchyInfo = targets.Cast<HierarchyInfo>().ToArray();
+            hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
         }
 
         public override void OnInspectorGUI()
@@ -38,9 +40,13 @@ namespace Crogen.CustomHierarchy.Editor
             
             GUILayout.Label("Show Background", titleStyle);
             var showBackground = EditorGUILayout.Toggle(_hierarchyInfo[0].showBackground, guiLayoutOption);
+            
             GUILayout.EndHorizontal();
             BackgroundType backgroundType = BackgroundType.Default;
-            Color backgroundColor = Color.white;
+            
+            Color[] backgroundColor = new Color[_hierarchyInfo.Length];
+            for (int i = 0; i < backgroundColor.Length; ++i) backgroundColor[i] = _hierarchyInfo[i].backgroundColor;
+            
             
             if (_hierarchyInfo[0].showBackground)
             {
@@ -53,7 +59,10 @@ namespace Crogen.CustomHierarchy.Editor
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(_spaceValue);
                 GUILayout.Label("Color");
-                backgroundColor = EditorGUILayout.ColorField(_hierarchyInfo[0].backgroundColor, guiLayoutOption);
+                backgroundColor[0] = EditorGUILayout.ColorField(_hierarchyInfo[0].backgroundColor, guiLayoutOption);
+                
+                for (int i = 1; i < backgroundColor.Length; ++i) backgroundColor[i] = backgroundColor[0];
+                
                 GUILayout.EndHorizontal();
             }
 
@@ -134,25 +143,30 @@ namespace Crogen.CustomHierarchy.Editor
 
             #endregion
 
+            
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObjects(_hierarchyInfo, "Change HierarchyInfo");
                 
                 //모든 컴포넌트에 수치 대입 및 갱신
-                foreach (HierarchyInfo hierarchyInfo in _hierarchyInfo)
+
+                for (int i = 0; i < _hierarchyInfo.Length; ++i)
                 {
+                    HierarchyInfo hierarchyInfo = _hierarchyInfo[i];
                     hierarchyInfo.showBackground = showBackground;
                     hierarchyInfo.backgroundType = backgroundType;
-                    hierarchyInfo.backgroundColor = backgroundColor;
+                    
+                    hierarchyInfo.backgroundColor = backgroundColor[i];
                     
                     hierarchyInfo.showIcon = showIcon;
-
+                    
                     hierarchyInfo.lineColor = lineColor;
-
+                    
                     hierarchyInfo.textColor = textColor;
                 }
+                serializedObject.ApplyModifiedProperties();
             }
-            serializedObject.ApplyModifiedProperties();
+            Repaint();
         }
     }
 }
