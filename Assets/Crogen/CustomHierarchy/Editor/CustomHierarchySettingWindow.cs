@@ -186,7 +186,6 @@ namespace Crogen.CustomHierarchy.Editor
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(_hierarchySettingData, "Change HierarchySettings");
-                    _hierarchySettingData.backgroundColor = backgroundColor;
                     EditorUtility.SetDirty(_hierarchySettingData);
                 }
             }
