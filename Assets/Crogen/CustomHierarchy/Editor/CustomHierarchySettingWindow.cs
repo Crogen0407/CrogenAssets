@@ -53,20 +53,7 @@ namespace Crogen.CustomHierarchy.Editor
                         GUILayout.EndHorizontal();
                     }
 
-                    GUILayout.BeginHorizontal();
-                    
-                    if (GUILayout.Button("+"))
-                    {
-                        backgroundColor.Add(backgroundColor[backgroundColor.Count - 1]);
-                    }
-                    if (backgroundColor.Count > 0)
-                    {
-                        if (GUILayout.Button("-"))
-                        {
-                            backgroundColor.RemoveAt(backgroundColor.Count - 1);
-                        }    
-                    }
-                    GUILayout.EndHorizontal();
+                    DrawListButton(backgroundColor, Color.clear);
                 }
                 #endregion
 
@@ -89,20 +76,8 @@ namespace Crogen.CustomHierarchy.Editor
                         GUILayout.EndHorizontal();
                     }
 
-                    GUILayout.BeginHorizontal();
-                    
-                    if (GUILayout.Button("+"))
-                    {
-                        activeIcons.Add(activeIcons[activeIcons.Count - 1]);
-                    }
-                    if (activeIcons.Count > 0)
-                    {
-                        if (GUILayout.Button("-"))
-                        {
-                            activeIcons.RemoveAt(activeIcons.Count - 1);
-                        }    
-                    }
-                    GUILayout.EndHorizontal();
+                    DrawListButton(activeIcons, true);
+
                 }
                 #endregion
 
@@ -126,20 +101,7 @@ namespace Crogen.CustomHierarchy.Editor
                         GUILayout.EndHorizontal();
                     }
 
-                    GUILayout.BeginHorizontal();
-                    
-                    if (GUILayout.Button("+"))
-                    {
-                        lineColor.Add(lineColor[lineColor.Count - 1]);
-                    }
-                    if (lineColor.Count > 0)
-                    {
-                        if (GUILayout.Button("-"))
-                        {
-                            lineColor.RemoveAt(lineColor.Count - 1);
-                        }    
-                    }
-                    GUILayout.EndHorizontal();
+                    DrawListButton(lineColor, Color.clear);
                 }
 
                 #endregion
@@ -164,20 +126,7 @@ namespace Crogen.CustomHierarchy.Editor
                         GUILayout.EndHorizontal();
                     }
 
-                    GUILayout.BeginHorizontal();
-                    
-                    if (GUILayout.Button("+"))
-                    {
-                        textColor.Add(textColor[textColor.Count - 1]);
-                    }
-                    if (textColor.Count > 0)
-                    {
-                        if (GUILayout.Button("-"))
-                        {
-                            textColor.RemoveAt(textColor.Count - 1);
-                        }    
-                    }
-                    GUILayout.EndHorizontal();
+                    DrawListButton(textColor, Color.clear);
                 }
 
                 #endregion
@@ -194,6 +143,31 @@ namespace Crogen.CustomHierarchy.Editor
                 _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
             }
             EditorGUILayout.EndScrollView();
+        }
+        
+        private void DrawListButton<T>(List<T> list, T item)
+        {
+            GUILayout.BeginHorizontal();
+                    
+            if (GUILayout.Button("+"))
+            {
+                if (list.Count == 0)
+                {
+                    list.Add(item);
+                }
+                else
+                {
+                    list.Add(list[list.Count - 1]);
+                }
+            }
+            if (list.Count > 0)
+            {
+                if (GUILayout.Button("-"))
+                {
+                    list.RemoveAt(list.Count - 1);
+                }    
+            }
+            GUILayout.EndHorizontal();
         }
     }
 }

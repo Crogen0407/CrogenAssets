@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using System.Collections.Generic;
+using System.Linq;
 using Crogen.CustomHierarchy.Editor.HierarchyElement;
 using UnityEngine;
 using UnityEditor;
@@ -39,7 +41,7 @@ namespace Crogen.CustomHierarchy.Editor
                 var components = gameObject.GetComponents<Component>();
                 float hierarchySibling = (selectionRect.position.x - 60) / 14;
                 int hierarchyIndex = (int)selectionRect.position.y/16;
-                
+                if(hierarchyInfo) hierarchyInfo.Init();
                 LogicCallback?.Invoke(selectionRect, hierarchyInfo, gameObject, parent, components, hierarchySibling, hierarchyIndex, Offset);
             }
         }

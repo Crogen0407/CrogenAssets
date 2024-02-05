@@ -17,13 +17,13 @@ public class ComponentIcon
 public class HierarchyInfo : MonoBehaviour
 {
     private CustomHierarchySettingDataSO _hierarchySettingData;
-    
+
     //Background
     public BackgroundType backgroundType = BackgroundType.Default;
     public Color backgroundColor = Color.clear;
 
     //Icon
-    public ComponentIcon[] ComponentIcons = new ComponentIcon[128];
+    public ComponentIcon[] ComponentIcons;
 
     //Line
     public Color lineColor = new Color32(104,104,104,255);
@@ -31,8 +31,15 @@ public class HierarchyInfo : MonoBehaviour
     //Text
     public Color textColor = Color.white;
 
+    public void Init()
+    {
+        int componentAmount = GetComponents<Component>().Length;
+        for (int i = 0; i < componentAmount; ++i) UnityEditorInternal.ComponentUtility.MoveComponentDown(this);
+    }
+    
     private void Reset()
     {
+        Init();
         if (_hierarchySettingData == null)
             _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
         
@@ -57,15 +64,6 @@ public class HierarchyInfo : MonoBehaviour
         }
 
         #endregion
-
-        // #region Icon
-        //
-        // for (int i = 0; i < ComponentIcons.Length; ++i)
-        // {
-        //     ComponentIcons[i].enable = _hierarchySettingData.activeIcons[i];
-        // }
-        //
-        // #endregion
 
         #region Line
 

@@ -6,10 +6,15 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 {
     public class IconLogic : ILogic
     {
+        private CustomHierarchySettingDataSO _hierarchySettingData;
+
         private static MethodInfo _loadIconMethodInfo;
 
         public IconLogic()
         {
+            if (_hierarchySettingData == null)
+                _hierarchySettingData = Resources.Load<CustomHierarchySettingDataSO>("HierarchySettingData");
+            
             CustomHierarchy.LogicCallback += Draw;
         }
         
@@ -38,7 +43,14 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                     }
                     else
                     {
+                        //OnReset
                         hierarchyInfo.ComponentIcons = new ComponentIcon[components.Length];
+                        for (int i = 0; i < hierarchyInfo.ComponentIcons.Length; ++i)
+                        {
+                            hierarchyInfo.ComponentIcons[i] = new ComponentIcon();
+                            hierarchyInfo.ComponentIcons[i].enable = _hierarchySettingData.activeIcons[i];
+                            if(_hierarchySettingData.activeIcons.Count == i + 1) break;
+                        }
                     }
                     
                     try

@@ -29,7 +29,7 @@ namespace Crogen.CustomHierarchy.Editor
             
             EditorGUI.BeginChangeCheck();
             
-              #region Background
+            #region Background
 
             GUILayout.BeginHorizontal();
             
@@ -64,7 +64,7 @@ namespace Crogen.CustomHierarchy.Editor
             GUILayout.Label("Show Icon", titleStyle);
             GUILayout.EndHorizontal();
 
-            ComponentIcon[] componentIcons = _hierarchyInfo.ComponentIcons.Length < 128 ? new ComponentIcon[_hierarchyInfo.ComponentIcons.Length] : _hierarchyInfo.ComponentIcons;
+            ComponentIcon[] componentIcons = _hierarchyInfo.ComponentIcons == null ? new ComponentIcon[_hierarchyInfo.ComponentIcons.Length] : _hierarchyInfo.ComponentIcons;
             for (int i = 0; i < _hierarchyInfo.ComponentIcons.Length; ++i)
             {
                 componentIcons[i] = _hierarchyInfo.ComponentIcons[i];
