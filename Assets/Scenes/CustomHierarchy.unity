@@ -800,10 +800,10 @@ MonoBehaviour:
     enable: 1
   - name: Animator
     component: {fileID: 1086553169}
-    enable: 0
+    enable: 1
   - name: AudioListener
     component: {fileID: 1086553168}
-    enable: 0
+    enable: 1
   - name: BoxCollider
     component: {fileID: 1086553167}
     enable: 1
@@ -813,8 +813,8 @@ MonoBehaviour:
   - name: HierarchyInfo
     component: {fileID: 1086553163}
     enable: 1
-  lineColor: {r: 1, g: 0, b: 0.48235294, a: 1}
-  textColor: {r: 0, g: 1, b: 1, a: 1}
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1086553164
 Rigidbody:
   m_ObjectHideFlags: 0
