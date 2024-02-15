@@ -14,7 +14,19 @@ namespace Crogen.PowerfulInput
         public event Action AttackEvent;
 
         #endregion
-        
+
+        private Controls _controls;
+
+        private void OnEnable()
+        {
+            if (_controls == null)
+            {
+                _controls = new Controls();
+                _controls.Player.SetCallbacks(this);
+            }
+            _controls.Enable();
+        }
+
         public void OnDash(InputAction.CallbackContext context)
         {
             if(context.performed)
