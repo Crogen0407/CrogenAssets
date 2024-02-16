@@ -27,6 +27,11 @@ namespace Crogen.PowerfulInput
             _controls.Enable();
         }
 
+        private void OnDisable()
+        {
+            _controls.Disable();
+        }
+
         public void OnDash(InputAction.CallbackContext context)
         {
             if(context.performed)
