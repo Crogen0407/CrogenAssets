@@ -11,15 +11,12 @@ namespace Crogen.CustomHierarchy.Editor
     public class CustomHierarchy
     {
         private static readonly float Offset = 3f;
-        public static event LogicCallback LogicCallback;
+        public static Element element;
         
         static CustomHierarchy()
         {
-            new BackgroundLogic();
-            new IconLogic();
-            new LineLogic();
-            new TextLogic();
-            new ToggleLogic();
+            //ElementDraw
+            element = new Element();
             
             EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
         }
@@ -42,7 +39,7 @@ namespace Crogen.CustomHierarchy.Editor
                 float hierarchySibling = (selectionRect.position.x - 60) / 14;
                 int hierarchyIndex = (int)selectionRect.position.y/16;
                 if(hierarchyInfo) hierarchyInfo.Init();
-                LogicCallback?.Invoke(selectionRect, hierarchyInfo, gameObject, parent, components, hierarchySibling, hierarchyIndex, Offset);
+                element.Draw(selectionRect, hierarchyInfo, gameObject, parent, components, hierarchySibling, hierarchyIndex, Offset);
             }
         }
     }

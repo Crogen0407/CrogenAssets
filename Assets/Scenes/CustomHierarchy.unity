@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundType: 1
-  backgroundColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundColor: {r: 0.22778821, g: 1, b: 0, a: 1}
   ComponentIcons:
   - name: Transform
     component: {fileID: 1086553165}
