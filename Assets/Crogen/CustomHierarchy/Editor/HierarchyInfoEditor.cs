@@ -38,8 +38,7 @@ namespace Crogen.CustomHierarchy.Editor
             GUILayout.EndHorizontal();
             BackgroundType backgroundType = BackgroundType.Default;
             
-            Color backgroundColor = new Color();
-            backgroundColor = _hierarchyInfo.backgroundColor;
+            Color backgroundColor = _hierarchyInfo.backgroundColor;
             
             GUILayout.BeginHorizontal();
             GUILayout.Space(_spaceValue);

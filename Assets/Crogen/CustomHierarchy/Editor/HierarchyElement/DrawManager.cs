@@ -1,10 +1,11 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
 namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 {
-    public class Element
+    public class DrawManager
     {
         private Texture2D _gradientTexture;
 
@@ -12,8 +13,7 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
 
         private static MethodInfo _loadIconMethodInfo;
 
-        
-        public Element()
+        public DrawManager()
         {
             _gradientTexture = (Resources.Load("GradientHorizontal") as Texture2D);
             
@@ -47,14 +47,8 @@ namespace Crogen.CustomHierarchy.Editor.HierarchyElement
                                     ScaleMode.ScaleAndCrop, true, 0, color, Vector4.zero, 0);
                                 break;
                             case BackgroundType.Gradients:
-
-                                #region Draw Gradient
-
                                 GUI.DrawTexture(gradientBackgroundPosition, _gradientTexture, ScaleMode.ScaleAndCrop,
                                     true, 0, color, Vector4.zero, 0);
-
-                                #endregion
-
                                 break;
                         }
                     }

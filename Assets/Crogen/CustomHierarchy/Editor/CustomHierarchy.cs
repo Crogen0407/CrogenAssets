@@ -11,12 +11,12 @@ namespace Crogen.CustomHierarchy.Editor
     public class CustomHierarchy
     {
         private static readonly float Offset = 3f;
-        public static Element element;
+        public static DrawManager DrawManager;
         
         static CustomHierarchy()
         {
             //ElementDraw
-            element = new Element();
+            DrawManager = new DrawManager();
             
             EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
         }
@@ -39,7 +39,7 @@ namespace Crogen.CustomHierarchy.Editor
                 float hierarchySibling = (selectionRect.position.x - 60) / 14;
                 int hierarchyIndex = (int)selectionRect.position.y/16;
                 if(hierarchyInfo) hierarchyInfo.Init();
-                element.Draw(selectionRect, hierarchyInfo, gameObject, parent, components, hierarchySibling, hierarchyIndex, Offset);
+                DrawManager.Draw(selectionRect, hierarchyInfo, gameObject, parent, components, hierarchySibling, hierarchyIndex, Offset);
             }
         }
     }
