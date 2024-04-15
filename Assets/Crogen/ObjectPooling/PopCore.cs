@@ -6,10 +6,12 @@ namespace Crogen.ObjectPooling
 {
     public static class PopCore
     {
+        private static PoolManager _poolManager { get; set; }
         private static PoolBase _poolBase;
         
-        public static void Init(PoolBase poolBase)
+        public static void Init(PoolBase poolBase, PoolManager poolManager)
         {
+            _poolManager = poolManager;
             _poolBase = poolBase;
         }
         
@@ -49,25 +51,26 @@ namespace Crogen.ObjectPooling
             
         }
         
-        public static GameObject Pop(this GameObject targetGameObject, string type, bool followTargetObjectRotation = false)
+        public static GameObject Pop(this GameObject targetGameObject, PoolType type, bool followTargetObjectRotation = false)
         {
             try
             {
-                if (PoolManager.poolDic[type].Count == 0)
+                if (PoolManager.poolDic[type.ToString()].Count == 0)
                 {
                     for (int i = 0; i < _poolBase.pairs.Count; i++)
                     {
-                        if (_poolBase.pairs[i].poolType == type)
+                        if (_poolBase.pairs[i].poolType.Equals(type.ToString()))
                         {
                             GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                            poolObject.Push(type);
+                            poolObject.Push(type.ToString());
                             break;
                         }
                     }
                 }
-                GameObject obj = PoolManager.poolDic[type].Dequeue();
+                GameObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
             
                 obj.SetActive(true);
+                obj.transform.SetParent(_poolManager.transform);
                 obj.transform.position = targetGameObject.transform.position;
                 if (followTargetObjectRotation)
                 {
@@ -86,30 +89,30 @@ namespace Crogen.ObjectPooling
             }
         }
 
-        public static GameObject Pop(this GameObject targetGameObject, string type, Vector3 vec, Quaternion rot,
+        public static GameObject Pop(this GameObject targetGameObject, PoolType type, Vector3 vec, Quaternion rot,
             bool useParentSpacePosition = false, bool useParentSpaceRotation = false)
         {
 
             try
             {
-                if (PoolManager.poolDic[type].Count == 0)
+                if (PoolManager.poolDic[type.ToString()].Count == 0)
                 {
                     for (int i = 0; i < _poolBase.pairs.Count; i++)
                     {
-                        if (_poolBase.pairs[i].poolType == type)
+                        if (_poolBase.pairs[i].poolType.Equals(type.ToString()))
                         {
                             GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero,
                                 Quaternion.identity);
-                            poolObject.Push(type);
+                            poolObject.Push(type.ToString());
                             break;
                         }
                     }
                 }
 
-                GameObject obj = PoolManager.poolDic[type].Dequeue();
+                GameObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
 
                 obj.SetActive(true);
-
+                obj.transform.SetParent(_poolManager.transform);
                 if (useParentSpacePosition)
                     obj.transform.position = targetGameObject.transform.position + vec;
                 else

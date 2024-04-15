@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,19 +10,28 @@ namespace Crogen.ObjectPooling
         internal static Dictionary<string, Queue<GameObject>> poolDic = new Dictionary<string, Queue<GameObject>>();
         public PoolBase poolBase;
         public List<PoolPair> poolingPairs;
-        
+
+#if UNITY_EDITOR
+        private void Reset()
+        {
+            transform.position = Vector3.zero;
+        }  
+#endif
+
         public void Awake()
         {
+            PopCore.Init(poolBase, this);
+            PushCore.Init(this);
+            
             MakeObj();
         }
         
         private void MakeObj()
         {
-            PopCore.Init(poolBase);
             PoolPair[] poolingPairs = poolBase.pairs.ToArray();
             for (int i = 0; i < poolingPairs.Length; i++)
             {
-                poolDic.Add(poolingPairs[i].poolType, new Queue<GameObject>());
+                poolDic.Add(poolingPairs[i].poolType.ToString(), new Queue<GameObject>());
             }
 
 	    	for (int i = 0; i < poolingPairs.Length; i++)

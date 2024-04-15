@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System.IO;
+using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace Crogen.ObjectPooling.Editor
@@ -52,14 +54,44 @@ namespace Crogen.ObjectPooling.Editor
 
                 serializedObject.Update();
             }
+
+            if (GUILayout.Button("Generate Enum"))
+            {
+                GeneratePoolingEnumFile();
+                Debug.Log("Success!");
+            }
         }
 
+        
+        private void GeneratePoolingEnumFile()
+        {
+            StringBuilder codeBuilder = new StringBuilder();
+        
+            foreach(var item in _poolManager.poolBase.pairs)
+            {
+                codeBuilder.Append(item.poolType);
+                codeBuilder.Append(", ");
+            }
+
+            string code = string.Format(CodeFormat.PoolingTypeFormat, codeBuilder.ToString());
+
+            string path = $"{Application.dataPath}/Crogen/ObjectPooling";
+
+            File.WriteAllText($"{path}/PoolType.cs", code);
+
+            EditorUtility.SetDirty(_poolManager.poolBase);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        
         private void CreatePoolBaseAsset(PoolBase clonePoolBase)
         {
             var uniqueFileName = AssetDatabase.GenerateUniqueAssetPath($"Assets/New Pool Base.asset");
             AssetDatabase.CreateAsset(clonePoolBase, uniqueFileName);
             _poolManager.poolBase = clonePoolBase;
+            EditorUtility.SetDirty(_poolManager.poolBase);
             AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }

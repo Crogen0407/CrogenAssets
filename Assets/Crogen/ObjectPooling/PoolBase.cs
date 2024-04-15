@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Crogen.ObjectPooling;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,12 +23,15 @@ public class PoolBase : ScriptableObject
 
     public void PairInit()
     {
-        foreach (var pair in pairs)
+        if (pairs != null)
         {
-            if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
+            foreach (var pair in pairs)
             {
-                pair.poolType = pair.prefab.name;
-                break;
+                if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
+                {
+                    pair.poolType = pair.prefab.name;
+                    break;
+                }
             }
         }
     }

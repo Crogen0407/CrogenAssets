@@ -1,8 +1,9 @@
-﻿2024-01-13
+﻿2024-04-15
 assetName : ObjectPooling
-version : 1.0.4
+version : 1.0.6
 
 <업데이트> 
+-SO를 저장하는 과정에서 작업이 날아가는 버그가 있었음. Pooling작업을 한 후 반드시 Generate Enum를 하도록!
 
 <오브젝트 풀링 사용 방법>
 1. Project 창에 우클릭을 누르고 Crogen/ObjectPooling/PoolingBase 경로로 PoolingBase를 생성한다.

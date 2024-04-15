@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466109768}
+  - component: {fileID: 466109769}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -147,13 +148,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466109767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.024112, y: -1.3614364, z: 5.0712967}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466109769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466109767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c08512b9cf22347bd0b788eb085ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726853122
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +378,7 @@ MonoBehaviour:
   poolingPairs:
   - poolType: pf_Cube
     prefab: {fileID: 8702926647798363621, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
-    poolCount: 0
+    poolCount: 10
 --- !u!4 &1833276576
 Transform:
   m_ObjectHideFlags: 0

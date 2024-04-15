@@ -7,7 +7,7 @@ namespace Crogen.ObjectPooling
 {
     public class PoolDeath : MonoBehaviour
     {
-        [SerializeField] private string _prefabTypeName;
+        [SerializeField] private PoolType _prefabType;
         [SerializeField] private float _duration = 1;
         [SerializeField] private UnityEvent _dieEvent;
     
@@ -20,7 +20,7 @@ namespace Crogen.ObjectPooling
         {
             yield return new WaitForSeconds(_duration);
             _dieEvent?.Invoke();
-            gameObject.Push(_prefabTypeName);
+            gameObject.Push(_prefabType);
         }
     }
 }
