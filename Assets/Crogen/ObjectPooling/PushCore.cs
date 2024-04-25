@@ -12,40 +12,27 @@ namespace Crogen.ObjectPooling
             _poolManager = poolManager;
         }
         
-        public static void Push(this GameObject target, PoolType type)
+        public static void Push(this MonoPoolingObject target, string type, bool useEvent = true)
         {
             target.transform.SetParent(_poolManager.transform);
-            var trailRenderers = target.GetComponentsInChildren<TrailRenderer>();
-
-            //Trail은 오브젝트를 끈 후에 무조건 Point들을 제거해야 함
-            if (trailRenderers.Length != 0)
+            if (target.transform.childCount > 0)
             {
-                foreach (var trailRenderer in trailRenderers)
+                var trailRenderers = target.GetComponentsInChildren<TrailRenderer>();
+
+                //Trail은 오브젝트를 끈 후에 무조건 Point들을 제거해야 함
+                if (trailRenderers.Length != 0)
                 {
-                    trailRenderer.Clear();
+                    foreach (var trailRenderer in trailRenderers)
+                    {
+                        trailRenderer.Clear();
+                    }
                 }
             }
-        
-            target.SetActive(false);
-            PoolManager.poolDic[type.ToString()].Enqueue(target);
-        }
-        
-        public static void Push(this GameObject target, string type)
-        {
-            target.transform.SetParent(_poolManager.transform);
-            var trailRenderers = target.GetComponentsInChildren<TrailRenderer>();
-
-            //Trail은 오브젝트를 끈 후에 무조건 Point들을 제거해야 함
-            if (trailRenderers.Length != 0)
-            {
-                foreach (var trailRenderer in trailRenderers)
-                {
-                    trailRenderer.Clear();
-                }
-            }
-        
-            target.SetActive(false);
-            PoolManager.poolDic[type].Enqueue(target);
+           
+            target.gameObject.SetActive(false);
+            if(useEvent)
+                target.OnPush();
+            PoolManager.poolDic[type].Enqueue(target.GetComponent<MonoPoolingObject>());
         }
     }
 }

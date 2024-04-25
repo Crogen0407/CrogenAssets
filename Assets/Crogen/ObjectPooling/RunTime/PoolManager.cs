@@ -7,7 +7,8 @@ namespace Crogen.ObjectPooling
 {
     public class PoolManager : MonoBehaviour
     {
-        internal static Dictionary<string, Queue<GameObject>> poolDic = new Dictionary<string, Queue<GameObject>>();
+        public static PoolManager Instance;
+        internal static Dictionary<string, Queue<MonoPoolingObject>> poolDic = new Dictionary<string, Queue<MonoPoolingObject>>();
         public PoolBase poolBase;
         public List<PoolPair> poolingPairs;
 
@@ -20,6 +21,7 @@ namespace Crogen.ObjectPooling
 
         public void Awake()
         {
+            Instance = this;
             PopCore.Init(poolBase, this);
             PushCore.Init(this);
             
@@ -31,22 +33,22 @@ namespace Crogen.ObjectPooling
             PoolPair[] poolingPairs = poolBase.pairs.ToArray();
             for (int i = 0; i < poolingPairs.Length; i++)
             {
-                poolDic.Add(poolingPairs[i].poolType.ToString(), new Queue<GameObject>());
+                poolDic.Add(poolingPairs[i].poolType, new Queue<MonoPoolingObject>());
             }
 
 	    	for (int i = 0; i < poolingPairs.Length; i++)
 	    	{
                 for (int j = 0; j < poolingPairs[i].poolCount; j++)
                 {
-                    GameObject poolObject = CreateObject(poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                    poolObject.Push(poolingPairs[i].poolType);
+                    MonoPoolingObject poolObject = CreateObject(poolBase.pairs[i], Vector3.zero, Quaternion.identity);
+                    poolObject.Push(poolingPairs[i].poolType, false);
 	    		}
             }
         }
 
-        public static GameObject CreateObject(PoolPair poolPair, Vector3 vec, Quaternion rot)
+        public static MonoPoolingObject CreateObject(PoolPair poolPair, Vector3 vec, Quaternion rot)
         {
-            GameObject poolObject = Instantiate(poolPair.prefab);
+            MonoPoolingObject poolObject = Instantiate(poolPair.monoPoolingObjectPrefab);
             poolObject.transform.localPosition = vec;
             poolObject.transform.localRotation = rot;
             poolObject.name = poolObject.name.Replace("(Clone)","");

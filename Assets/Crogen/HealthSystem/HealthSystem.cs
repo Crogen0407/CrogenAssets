@@ -8,9 +8,8 @@ namespace Crogen.HealthSystem
     public abstract class HealthSystem : MonoBehaviour
     {
         [Header("Hp Option")]
-        [SerializeField] private float _hp = 100.0f;
-        [SerializeField] protected float maxHp = 100.0f;
-        [SerializeField] protected float minHpRange = 0.05f;
+        public float _hp = 100.0f;
+        public float maxHp = 100.0f;
         
         protected float Hp
         {
@@ -31,7 +30,7 @@ namespace Crogen.HealthSystem
             
                     _hp = value;
                     
-                    if (_hp <= minHpRange)
+                    if (_hp <= 0.1f)
                     {
                         OnDie();
                     }                

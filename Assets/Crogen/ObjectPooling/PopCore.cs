@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Crogen.ObjectPooling
@@ -15,7 +14,7 @@ namespace Crogen.ObjectPooling
             _poolBase = poolBase;
         }
         
-        public static GameObject Pop(this Transform parentTrm, string type, Vector3 vec, Quaternion rot, bool useParentSpacePosition = true, bool useParentSpaceRotation = true)
+        public static MonoPoolingObject Pop(this Transform parentTrm, string type, Vector3 vec, Quaternion rot, bool useParentSpacePosition = true, bool useParentSpaceRotation = true)
         {
             try
             {
@@ -25,15 +24,15 @@ namespace Crogen.ObjectPooling
                     {
                         if (_poolBase.pairs[i].poolType == type)
                         {
-                            GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                            poolObject.Push(type);
+                            MonoPoolingObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
+                            poolObject.Push(type, false);
                             break;
                         }
                     }
                 }
-                GameObject obj = PoolManager.poolDic[type].Dequeue();
+                MonoPoolingObject obj = PoolManager.poolDic[type].Dequeue();
             
-                obj.SetActive(true);
+                obj.gameObject.SetActive(true);
                 obj.transform.SetParent(parentTrm);
             
                 if (useParentSpacePosition) obj.transform.localPosition = vec; else obj.transform.position = vec; 
@@ -51,7 +50,7 @@ namespace Crogen.ObjectPooling
             
         }
         
-        public static GameObject Pop(this GameObject targetGameObject, PoolType type, bool followTargetObjectRotation = false)
+        public static MonoPoolingObject Pop(this MonoBehaviour targetGameObject, PoolType type, bool followTargetObjectRotation = false, bool useEvent = true)
         {
             try
             {
@@ -61,15 +60,17 @@ namespace Crogen.ObjectPooling
                     {
                         if (_poolBase.pairs[i].poolType.Equals(type.ToString()))
                         {
-                            GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                            poolObject.Push(type.ToString());
+                            MonoPoolingObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero, Quaternion.identity);
+                            poolObject.Push(type.ToString(), false);
                             break;
                         }
                     }
                 }
-                GameObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
-            
-                obj.SetActive(true);
+                MonoPoolingObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
+                obj.gameObject.SetActive(true);
+                if(useEvent)
+                    obj.OnPop();
+
                 obj.transform.SetParent(_poolManager.transform);
                 obj.transform.position = targetGameObject.transform.position;
                 if (followTargetObjectRotation)
@@ -89,8 +90,8 @@ namespace Crogen.ObjectPooling
             }
         }
 
-        public static GameObject Pop(this GameObject targetGameObject, PoolType type, Vector3 vec, Quaternion rot,
-            bool useParentSpacePosition = false, bool useParentSpaceRotation = false)
+        public static MonoPoolingObject Pop(this MonoBehaviour targetGameObject, PoolType type, Vector3 vec, Quaternion rot,
+            bool useParentSpacePosition = false, bool useParentSpaceRotation = false, bool useEvent = true)
         {
 
             try
@@ -101,17 +102,18 @@ namespace Crogen.ObjectPooling
                     {
                         if (_poolBase.pairs[i].poolType.Equals(type.ToString()))
                         {
-                            GameObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero,
+                            MonoPoolingObject poolObject = PoolManager.CreateObject(_poolBase.pairs[i], Vector3.zero,
                                 Quaternion.identity);
-                            poolObject.Push(type.ToString());
+                            poolObject.Push(type.ToString(), false);
                             break;
                         }
                     }
                 }
 
-                GameObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
-
-                obj.SetActive(true);
+                MonoPoolingObject obj = PoolManager.poolDic[type.ToString()].Dequeue();
+                obj.gameObject.SetActive(true);
+                if(useEvent)
+                    obj.OnPop();
                 obj.transform.SetParent(_poolManager.transform);
                 if (useParentSpacePosition)
                     obj.transform.position = targetGameObject.transform.position + vec;

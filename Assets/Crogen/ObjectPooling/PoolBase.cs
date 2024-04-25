@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using Crogen.ObjectPooling;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class PoolPair
 {
     public string poolType;
-    public GameObject prefab;
+    [FormerlySerializedAs("poolablePrefab")] public MonoPoolingObject monoPoolingObjectPrefab;
     public int poolCount;
 }
 
@@ -27,9 +28,9 @@ public class PoolBase : ScriptableObject
         {
             foreach (var pair in pairs)
             {
-                if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
+                if (pair.poolType.Equals(string.Empty) && pair.monoPoolingObjectPrefab != null)
                 {
-                    pair.poolType = pair.prefab.name;
+                    pair.poolType = pair.monoPoolingObjectPrefab.name;
                     break;
                 }
             }

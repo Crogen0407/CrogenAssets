@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8473853147406962049}
   - component: {fileID: 3087005480604802926}
   - component: {fileID: 4603698051706876932}
-  - component: {fileID: 6779110664885569373}
+  - component: {fileID: 213767295058933171}
   m_Layer: 0
   m_Name: pf_Cube
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6779110664885569373
+--- !u!114 &213767295058933171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,11 +107,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8702926647798363621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eff65fc4af01d24ba71fe448a61b734, type: 3}
+  m_Script: {fileID: 11500000, guid: d6c08512b9cf22347bd0b788eb085ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabTypeName: pf_Cube
-  _duration: 1
-  _dieEvent:
-    m_PersistentCalls:
-      m_Calls: []

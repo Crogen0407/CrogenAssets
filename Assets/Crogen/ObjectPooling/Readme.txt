@@ -1,9 +1,12 @@
-﻿2024-04-15
+﻿2024-04-20
 assetName : ObjectPooling
-version : 1.0.6
+version : 1.1.6
 
-<업데이트> 
--SO를 저장하는 과정에서 작업이 날아가는 버그가 있었음. Pooling작업을 한 후 반드시 Generate Enum를 하도록!
+<업데이트>
+-MonoPoolingObject를 상속받는 오브젝트만 풀링하도록 바꾸었음
+    1. 이상한 오브젝트가 pool에 들어가는 것을 막기 위해
+    2. 이벤트를 손쉽게 구현하기 위해
+    3. 스크립트로 접근하여 MonoPoolingObject를를 상속 받는 하위 클래스로 형변환를 가능하게 하여 코드의 확정성을 높히기 위해
 
 <오브젝트 풀링 사용 방법>
 1. Project 창에 우클릭을 누르고 Crogen/ObjectPooling/PoolingBase 경로로 PoolingBase를 생성한다.
