@@ -49,5 +49,15 @@ public class {0} : {1}
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+        
+        public static void CustomScriptFileFormat(string scriptName, string parent, string codeDescription, string path)
+        {
+            string code = string.Format(soTypeFormat, scriptName, parent, codeDescription);
+            path = $"{Application.dataPath}{path.Replace("Assets", "")}";
+
+            File.WriteAllText(path, code);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
     }
 }

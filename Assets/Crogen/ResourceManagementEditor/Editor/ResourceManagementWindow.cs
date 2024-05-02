@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Crogen.ResourceManagementEditor;
 using UnityEngine;
 using UnityEditor;
@@ -14,7 +12,7 @@ public class ResourceManagementWindow : EditorWindow
     private static string _resourceListSOPath = $"Assets/Resources";
     private static string _newEnumName = "";
     private static Vector2 materialListScroll = Vector2.zero;
-    private static WindowSaveData _windowSaveData;
+    private static ResourceManagementWindowSaveData _resourceManagementWindowSaveData;
     private ResourceSO _currentSelectedResourceSO;
     private Rect viewRect;
     private Editor _currentSelectedResourceSOEditor;
@@ -29,7 +27,7 @@ public class ResourceManagementWindow : EditorWindow
     private void OnEnable()
     {
         //데이터 로드
-        _windowSaveData = EditorDataExtension.LoadLiquidCreateSOData<WindowSaveData>($"{_path}/WindowSaveData.asset");
+        _resourceManagementWindowSaveData = EditorDataExtension.LoadLiquidCreateSOData<ResourceManagementWindowSaveData>($"{_path}/WindowSaveData.asset");
         _resourceListSOPath = EditorDataExtension.LoadLiquidCreatePath(_resourceListSOPath);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -68,34 +66,34 @@ public class ResourceManagementWindow : EditorWindow
         GUILayout.BeginArea(settingSaveAndReturnAreaRect, new GUIStyle("helpBox"));
         {
             //window 저장 SO가 없으면 아예 그리지 말것!
-            if (_windowSaveData == null)
+            if (_resourceManagementWindowSaveData == null)
             {
                 GUILayout.EndArea();
                 return;
             }
 
             //ResourceListSO에 할당하기
-            _windowSaveData.ResourceListSO = EditorGUILayout.ObjectField(
-                _windowSaveData.ResourceListSO, 
+            _resourceManagementWindowSaveData.ResourceListSO = EditorGUILayout.ObjectField(
+                _resourceManagementWindowSaveData.ResourceListSO, 
                 typeof(ResourceListSO)) as ResourceListSO;
             
-            if (_windowSaveData.ResourceListSO != null)
+            if (_resourceManagementWindowSaveData.ResourceListSO != null)
             {
                 GUILayout.Space(10);
                 GUI.color = Color.green; //Save
                 {
                     if (GUILayout.Button("Save"))
                     {
-                        for (int i = 0; i < _windowSaveData.ResourceListSO.resourceList.Count; ++i)
+                        for (int i = 0; i < _resourceManagementWindowSaveData.ResourceListSO.resourceList.Count; ++i)
                         {
-                            string path = AssetDatabase.GetAssetPath(_windowSaveData.ResourceListSO.resourceList[i].GetInstanceID());
-                            EditorUtility.SetDirty(_windowSaveData.ResourceListSO.resourceList[i]);
-                            AssetDatabase.RenameAsset(path, _windowSaveData.ResourceListSO.resourceList[i].name);
+                            string path = AssetDatabase.GetAssetPath(_resourceManagementWindowSaveData.ResourceListSO.resourceList[i].GetInstanceID());
+                            EditorUtility.SetDirty(_resourceManagementWindowSaveData.ResourceListSO.resourceList[i]);
+                            AssetDatabase.RenameAsset(path, _resourceManagementWindowSaveData.ResourceListSO.resourceList[i].name);
                             AssetDatabase.SaveAssets();
                             AssetDatabase.Refresh();
                         }
-                        EditorUtility.SetDirty(_windowSaveData.ResourceListSO);
-                        EditorUtility.SetDirty(_windowSaveData);
+                        EditorUtility.SetDirty(_resourceManagementWindowSaveData.ResourceListSO);
+                        EditorUtility.SetDirty(_resourceManagementWindowSaveData);
                         AssetDatabase.SaveAssets();
                         AssetDatabase.Refresh();
                     }    
@@ -104,17 +102,17 @@ public class ResourceManagementWindow : EditorWindow
 
                 if (GUILayout.Button("Generate Enum"))
                 {
-                    string[] names = new string[_windowSaveData.ResourceListSO.resourceList.Count];
+                    string[] names = new string[_resourceManagementWindowSaveData.ResourceListSO.resourceList.Count];
                     for (int i = 0; i < names.Length; ++i)
-                        names[i] = _windowSaveData.ResourceListSO.resourceList[i].name;
+                        names[i] = _resourceManagementWindowSaveData.ResourceListSO.resourceList[i].name;
                     string path = EditorDataExtension.LoadLiquidCreatePath(_runTimePath);
                     path += "/ResourceType.cs";
                     EditorCodeFormatExtension.ScriptEnumFileFormat("ResourceType", names, path);
 
-                    for (int i = 0; i < _windowSaveData.ResourceListSO.resourceList.Count; ++i)
+                    for (int i = 0; i < _resourceManagementWindowSaveData.ResourceListSO.resourceList.Count; ++i)
                     {
-                        _windowSaveData.ResourceListSO.resourceDictionary.Add((ResourceType)i, 
-                            _windowSaveData.ResourceListSO.resourceList[i]);
+                        _resourceManagementWindowSaveData.ResourceListSO.resourceDictionary.Add((ResourceType)i, 
+                            _resourceManagementWindowSaveData.ResourceListSO.resourceList[i]);
                     }
                 }
 
@@ -122,11 +120,11 @@ public class ResourceManagementWindow : EditorWindow
             }
         }
         GUILayout.EndArea();
-        if (_windowSaveData.ResourceListSO)
+        if (_resourceManagementWindowSaveData.ResourceListSO)
         {
             GUILayout.BeginArea(mainSettingAreaRect, new GUIStyle("helpBox"));
             {
-                if (_windowSaveData.ResourceListSO == null)
+                if (_resourceManagementWindowSaveData.ResourceListSO == null)
                 {
                     GUI.color = Color.red;
                     {
@@ -138,23 +136,23 @@ public class ResourceManagementWindow : EditorWindow
                 
                 GUILayout.BeginHorizontal();
                 {
-                    viewRect = new Rect(0, 0, 0, 55f * (_windowSaveData.ResourceListSO.resourceList.Count + 1));
+                    viewRect = new Rect(0, 0, 0, 55f * (_resourceManagementWindowSaveData.ResourceListSO.resourceList.Count + 1));
                     materialListScroll = GUI.BeginScrollView(new Rect(0,0,mainSettingAreaRect.width, mainSettingAreaRect.height), materialListScroll, viewRect, false, true);
                     {
                         Rect btnRect = new Rect(0, 0, mainSettingAreaRect.width-60f, 50f);
-                        for (int i = 0; i < _windowSaveData.ResourceListSO.resourceList.Count; ++i)
+                        for (int i = 0; i < _resourceManagementWindowSaveData.ResourceListSO.resourceList.Count; ++i)
                         {
                             btnRect.position = new Vector2(0f, 55f * i);
-                            DrawElementButton(_windowSaveData.ResourceListSO.resourceList[i], btnRect, mainSettingAreaRect, elementFont);
+                            DrawElementButton(_resourceManagementWindowSaveData.ResourceListSO.resourceList[i], btnRect, mainSettingAreaRect, elementFont);
                         }
             
-                        btnRect.y = 55f * _windowSaveData.ResourceListSO.resourceList.Count;
+                        btnRect.y = 55f * _resourceManagementWindowSaveData.ResourceListSO.resourceList.Count;
                         btnRect.width = mainSettingAreaRect.width - 25f;
                         btnRect.height = 25f;
                         GUI.color = Color.yellow;
                         if (GUI.Button(btnRect, "Add"))
                         {
-                            ListLastPointAddNewElement(_windowSaveData.ResourceListSO.resourceList);    
+                            ListLastPointAddNewElement(_resourceManagementWindowSaveData.ResourceListSO.resourceList);    
                         }
             
                         GUI.color = Color.white;
@@ -227,10 +225,10 @@ public class ResourceManagementWindow : EditorWindow
 
     private void DeleteElementInArray(ResourceSO targetElement)
     {
-        List<ResourceSO> list = _windowSaveData.ResourceListSO.resourceList.ToList();
+        List<ResourceSO> list = _resourceManagementWindowSaveData.ResourceListSO.resourceList.ToList();
         list.Remove(targetElement);
 
-        _windowSaveData.ResourceListSO.resourceList = list;
+        _resourceManagementWindowSaveData.ResourceListSO.resourceList = list;
         EditorDataExtension.DeleteSOData(targetElement);
     }
 }

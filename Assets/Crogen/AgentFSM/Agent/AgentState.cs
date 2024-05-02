@@ -6,12 +6,12 @@ namespace Crogen.AgentFSM
     public class AgentState<T> where T : Enum
     {
         protected StateMachine<T> _stateMachine;
-        protected Agent _agentBase;
+        protected Agent<T> _agentBase;
 
         protected bool _endTriggerCalled;
         protected int _animBoolHash;
         
-        public AgentState(Agent agentBase, StateMachine<T> stateMachine, string animBoolName)
+        public AgentState(Agent<T> agentBase, StateMachine<T> stateMachine, string animBoolName)
         {
             _agentBase = agentBase;
             _stateMachine = stateMachine;

@@ -2,7 +2,7 @@ using Crogen.ResourceManagementEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class WindowSaveData : ScriptableObject
+public class ResourceManagementWindowSaveData : ScriptableObject
 {
     public ResourceListSO ResourceListSO;
 }

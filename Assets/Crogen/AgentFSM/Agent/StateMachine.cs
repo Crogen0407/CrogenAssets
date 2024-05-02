@@ -5,12 +5,12 @@ namespace Crogen.AgentFSM
 {
     public class StateMachine<T> where T : Enum
     {
-        public Agent _agentBase;
+        public Agent<T> _agentBase;
         public Dictionary<T, AgentState<T>> StateDictionary = new Dictionary<T, AgentState<T>>();
         public AgentState<T> CurrentState { get; private set; }
         
         
-        public virtual void Initialize(Agent agent)
+        public virtual void Initialize(Agent<T> agent)
         {
             _agentBase = agent;
         }
