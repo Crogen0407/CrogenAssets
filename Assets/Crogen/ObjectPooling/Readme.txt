@@ -1,12 +1,9 @@
-﻿2024-04-20
+﻿2024-05-13
 assetName : ObjectPooling
-version : 1.1.6
+version : 1.1.7
 
 <업데이트>
--MonoPoolingObject를 상속받는 오브젝트만 풀링하도록 바꾸었음
-    1. 이상한 오브젝트가 pool에 들어가는 것을 막기 위해
-    2. 이벤트를 손쉽게 구현하기 위해
-    3. 스크립트로 접근하여 MonoPoolingObject를를 상속 받는 하위 클래스로 형변환를 가능하게 하여 코드의 확정성을 높히기 위해
+-게임을 빌드할 때 AssemblyDefinition 때문에 에디터 스크립트가 빌드 목록에서 제외되지 않는 오류 해결(좀 치명적인 버그)
 
 <오브젝트 풀링 사용 방법>
 1. Project 창에 우클릭을 누르고 Crogen/ObjectPooling/PoolingBase 경로로 PoolingBase를 생성한다.

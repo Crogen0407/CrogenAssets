@@ -1,7 +1,4 @@
-namespace Crogen.ObjectPooling
-        {
-            public enum PoolType
-            {
-                pf_Cube, 
-            }
-        }
+public enum PoolType
+{
+    pf_Cube, 
+}

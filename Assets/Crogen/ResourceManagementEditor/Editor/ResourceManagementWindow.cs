@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using Crogen.ResourceManagementEditor;
@@ -7,7 +8,7 @@ using Crogen.CrogenEditorExtension.Editor;
 
 public class ResourceManagementWindow : EditorWindow
 {
-    private static string _path = $"Assets/Crogen/ResourceManagementEditor/Resources";
+    private static string _path = $"Assets/Crogen/ResourceManagementEditor/Editor/Resources";
     private static string _runTimePath = $"Assets/Crogen/ResourceManagementEditor/RunTime";
     private static string _resourceListSOPath = $"Assets/Resources";
     private static string _newEnumName = "";
@@ -232,3 +233,4 @@ public class ResourceManagementWindow : EditorWindow
         EditorDataExtension.DeleteSOData(targetElement);
     }
 }
+#endif

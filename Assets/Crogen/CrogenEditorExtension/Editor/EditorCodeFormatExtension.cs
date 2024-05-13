@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.IO;
 using System.Text;
 using UnityEditor;
@@ -61,3 +62,4 @@ public class {0} : {1}
         }
     }
 }
+#endif
