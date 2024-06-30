@@ -8,17 +8,17 @@ namespace Crogen.AgentFSM
     {
         public StateMachine<T> StateMachine { get; private set; }
         public IMovement<T> Movement { get; protected set; }
-        public Animator Animator { get; private set; }
+        //public Animator Animator { get; private set; }
         public bool CanStateChangeable { get; protected set; } = true;
         public bool isDead;
-        public new string name;
+        
         protected virtual void Awake()
         {
             Transform visualTrm = transform.Find("Visual");
-            Animator = visualTrm.GetComponent<Animator>();
+            //Animator = visualTrm.GetComponent<Animator>();
         
             StateMachine = new StateMachine<T>();
-            
+            string name = GetType().Name;
             foreach(T stateEnum in Enum.GetValues(typeof(T)))
             {
                 string typeName = stateEnum.ToString();
@@ -35,11 +35,16 @@ namespace Crogen.AgentFSM
             }
         }
 
-        protected void Start()
+        protected virtual void Start()
         {
             StateMachine.Initialize(this);
         }
-        
+
+        protected virtual void Update()
+        {
+            StateMachine.CurrentState?.UpdateState();
+        }
+
         #region Delay Callback coroutine 
         public Coroutine StartDelayCallback(float delayTime, Action callback)
         {

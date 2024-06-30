@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Crogen.ObjectPooling;
+using UnityEngine.Serialization;
 
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
     internal static Dictionary<string, Queue<MonoPoolingObject>> poolDic = new Dictionary<string, Queue<MonoPoolingObject>>();
-    public PoolBase poolBase;
+    public PoolBaseSO poolBase;
     public List<PoolPair> poolingPairs;
 
     public void Awake()

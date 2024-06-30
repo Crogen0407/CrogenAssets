@@ -21,12 +21,12 @@ namespace Crogen.AgentFSM
         public virtual void Enter()
         {
             _endTriggerCalled = false;
-            _agentBase.Animator.SetBool(_animBoolHash, true);
+            //_agentBase.Animator.SetBool(_animBoolHash, true);
         }
 
         public virtual void Exit()
         {
-            _agentBase.Animator.SetBool(_animBoolHash, false);
+            //_agentBase.Animator.SetBool(_animBoolHash, false);
         }
 
         public virtual void UpdateState() { }

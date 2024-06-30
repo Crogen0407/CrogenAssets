@@ -1,25 +1,24 @@
-﻿#if  UNITY_EDITOR
-using System.IO;
+﻿using System;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(PoolManager))]
-public class PoolEditor : Editor
+[CustomEditor(typeof(SoundManager))]
+public class SoundManagerEditor : Editor
 {
-    private PoolManager _poolManager;
+    private SoundManager _soundManager;
 
     private void OnEnable()
     {
-        _poolManager = target as PoolManager;
+        _soundManager = target as SoundManager;
     }
 
     public override void OnInspectorGUI()
     {
-        GUILayout.Label("PoolBase");
+        GUILayout.Label("SoundBase");
         GUILayout.BeginHorizontal();
 
-        _poolManager.poolBase = EditorGUILayout.ObjectField(_poolManager.poolBase, typeof(PoolBaseSO), false) as PoolBaseSO;
+        _soundManager.soundBase = EditorGUILayout.ObjectField(_soundManager.soundBase, typeof(PoolBaseSO), false) as SoundBaseSO;
         
         if (GUILayout.Button("New"))
         {
@@ -28,11 +27,11 @@ public class PoolEditor : Editor
             CreatePoolBaseAsset(poolBase);
         }
 
-        if (_poolManager.poolBase != null)
+        if (_soundManager.soundBase != null)
         {
             if (GUILayout.Button("Clone"))
             {
-                var poolBase = Instantiate(_poolManager.poolBase);
+                var poolBase = Instantiate(_soundManager.soundBase);
                 CreatePoolBaseAsset(poolBase);
             }
         }
@@ -42,14 +41,14 @@ public class PoolEditor : Editor
         GUILayout.Space(20);
 
         //PoolBase Serialize
-        if (_poolManager.poolBase != null)
+        if (_soundManager.soundBase != null)
         {
-            _poolManager.poolingPairs = _poolManager.poolBase.pairs;
+            _soundManager.soundBase = _soundManager.soundBase.pairs;
             var poolBaseArrayObject = serializedObject.FindProperty("poolingPairs");
             EditorGUILayout.PropertyField(poolBaseArrayObject, true);
             serializedObject.ApplyModifiedProperties();
-            _poolManager.poolBase.pairs = _poolManager.poolingPairs;
-            _poolManager.poolBase.PairInit();
+            _soundManager.soundBase.pairs = _soundManager.pairs;
+            _soundManager.soundBase.PairInit();
 
             serializedObject.Update();
         }
@@ -60,7 +59,6 @@ public class PoolEditor : Editor
             Debug.Log("Success!");
         }
     }
-
     
     private void GeneratePoolingEnumFile()
     {
@@ -93,4 +91,3 @@ public class PoolEditor : Editor
         AssetDatabase.Refresh();
     }
 }
-#endif

@@ -6,12 +6,12 @@ namespace Crogen.ObjectPooling
     public static class PopCore
     {
         private static PoolManager _poolManager { get; set; }
-        private static PoolBase _poolBase;
+        private static PoolBaseSO _poolBase;
         
-        public static void Init(PoolBase poolBase, PoolManager poolManager)
+        public static void Init(PoolBaseSO poolBaseSo, PoolManager poolManager)
         {
             _poolManager = poolManager;
-            _poolBase = poolBase;
+            _poolBase = poolBaseSo;
         }
         
         public static MonoPoolingObject Pop(this Transform parentTrm, string type, Vector3 vec, Quaternion rot, bool useParentSpacePosition = true, bool useParentSpaceRotation = true)

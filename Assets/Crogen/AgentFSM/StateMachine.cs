@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Crogen.AgentFSM
 {
@@ -9,10 +11,11 @@ namespace Crogen.AgentFSM
         public Dictionary<T, AgentState<T>> StateDictionary = new Dictionary<T, AgentState<T>>();
         public AgentState<T> CurrentState { get; private set; }
         
-        
         public virtual void Initialize(Agent<T> agent)
         {
             _agentBase = agent;
+            CurrentState = StateDictionary.First().Value;
+            CurrentState?.Enter();
         }
         
         public virtual void ChangeState(T newState, bool forceMode = false)
