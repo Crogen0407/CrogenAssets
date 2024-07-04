@@ -15,7 +15,6 @@ public class Test : MonoPoolingObject
         Debug.Log("죽었따");
     }
 
-
     IEnumerator PushCoroutine()
     {
         yield return new WaitForSeconds(1);
