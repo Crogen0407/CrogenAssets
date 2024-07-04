@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class SoundPair
 {
-    public string audioName;
+    public string audioType;
     public AudioClip audioClip;
 }
 
@@ -18,9 +18,9 @@ public class SoundBaseSO : ScriptableObject
         
         foreach (var pair in pairs)
         {
-            if (pair.audioName.Equals(string.Empty) && pair.audioClip != null)
+            if (pair.audioType.Equals(string.Empty) && pair.audioClip != null)
             {
-                pair.audioName = pair.audioClip.name;
+                pair.audioType = pair.audioClip.name;
                 break;
             }
         }

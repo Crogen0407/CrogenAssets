@@ -9,7 +9,7 @@ namespace Crogen.JsamJson
     {
         private static object _saveData;
         private static List<string> _filePaths = new List<string>();
-    
+        
         public static string Save<T>(T saveData, bool convertToByte = true, bool showDebugMessage = true) where T : class
         {
             string currentFilePath = CreateFilePath(typeof(T), _filePaths);

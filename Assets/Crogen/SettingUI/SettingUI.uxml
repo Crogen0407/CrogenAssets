@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Content" style="flex-grow: 1;">
+        <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(255, 255, 255); position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+        <ui:VisualElement name="ElementContainer" style="flex-grow: 0.1;" />
+        <ui:ListView focusable="true" style="flex-grow: 1; padding-left: 100px; padding-right: 100px; padding-top: 50px; padding-bottom: 50px;" />
+    </ui:VisualElement>
+</ui:UXML>

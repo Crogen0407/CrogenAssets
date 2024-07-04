@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -22,9 +23,9 @@ public class SoundManagerEditor : Editor
         
         if (GUILayout.Button("New"))
         {
-            var poolBase = ScriptableObject.CreateInstance<PoolBaseSO>();
+            var soundBase = ScriptableObject.CreateInstance<SoundBaseSO>();
 
-            CreatePoolBaseAsset(poolBase);
+            CreatePoolBaseAsset(soundBase);
         }
 
         if (_soundManager.soundBase != null)
@@ -43,7 +44,6 @@ public class SoundManagerEditor : Editor
         //PoolBase Serialize
         if (_soundManager.soundBase != null)
         {
-            _soundManager.soundBase = _soundManager.soundBase.pairs;
             var poolBaseArrayObject = serializedObject.FindProperty("poolingPairs");
             EditorGUILayout.PropertyField(poolBaseArrayObject, true);
             serializedObject.ApplyModifiedProperties();
@@ -64,9 +64,9 @@ public class SoundManagerEditor : Editor
     {
         StringBuilder codeBuilder = new StringBuilder();
     
-        foreach(var item in _poolManager.poolBase.pairs)
+        foreach(SoundPair item in _soundManager.soundBase.pairs)
         {
-            codeBuilder.Append(item.poolType);
+            codeBuilder.Append(item.audioType);
             codeBuilder.Append(", ");
         }
 
@@ -76,17 +76,17 @@ public class SoundManagerEditor : Editor
 
         File.WriteAllText($"{path}/PoolType.cs", code);
 
-        EditorUtility.SetDirty(_poolManager.poolBase);
+        EditorUtility.SetDirty(_soundManager.soundBase);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
     
-    private void CreatePoolBaseAsset(PoolBaseSO clonePoolBaseSo)
+    private void CreatePoolBaseAsset(SoundBaseSO clonePoolBaseSo)
     {
         var uniqueFileName = AssetDatabase.GenerateUniqueAssetPath($"Assets/New Pool Base.asset");
         AssetDatabase.CreateAsset(clonePoolBaseSo, uniqueFileName);
-        _poolManager.poolBase = clonePoolBaseSo;
-        EditorUtility.SetDirty(_poolManager.poolBase);
+        _soundManager.soundBase = clonePoolBaseSo;
+        EditorUtility.SetDirty(_soundManager.soundBase);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
