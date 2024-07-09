@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
+using Crogen.ObjectPooling;
 
-namespace _01.Scripts
+public class TestController : MonoBehaviour
 {
-    public class TestController : MonoBehaviour
+    private void Update()
     {
-        [SerializeField] private GameObject obj;
-        private void Update()
+        if (Input.anyKeyDown)
         {
-            if (Input.anyKeyDown)
-            {
-                Instantiate(obj);
-                // this.Pop(PoolType.pf_Cube, new Vector3(
-                //     Random.Range(-10, 10),
-                //     Random.Range(-10, 10),
-                //     Random.Range(-10, 10)), Quaternion.identity);
-            }
+             gameObject.Pop(PoolType.pf_Cube, null, new Vector3(
+                 Random.Range(-10, 10),
+                 Random.Range(-10, 10),
+                 Random.Range(-10, 10)), Quaternion.identity);
         }
     }
 }

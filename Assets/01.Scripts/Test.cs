@@ -1,32 +1,27 @@
-using System;
 using System.Collections;
-using Crogen.ObjectPooling;
 using UnityEngine;
+using Crogen.ObjectPooling;
 
-public class Test : MonoPoolingObject
+public class Test : MonoBehaviour, IPoolingObject
 {
-    void Update()
-    {
-        StartCoroutine(PushCoroutine());
-    }
+	public PoolType OriginPoolType { get; set; }
+	GameObject IPoolingObject.gameObject { get; set; }
 
-    private void OnEnable()
-    {
-        Debug.Log("죽었따");
-    }
+	public void OnPop()
+	{
+		Debug.Log("Pop");
+		StartCoroutine(CoroutineDie());
+	}
 
-    IEnumerator PushCoroutine()
-    {
-        yield return new WaitForSeconds(1);
-    }
+	public void OnPush()
+	{
+		Debug.Log("Push");
+	}
 
-    public override void OnPop()
-    {
-        
-    }
-
-    public override void OnPush()
-    {
-        
-    }
+	IEnumerator CoroutineDie()
+	{
+		yield return new WaitForSeconds(5);
+		this.Push();
+	}
 }
+

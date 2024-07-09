@@ -11,27 +11,12 @@ namespace Crogen.ObjectPooling
             _poolManager = poolManager;
         }
         
-        public static void Push(this MonoPoolingObject target, string type, bool useEvent = true)
+        public static void Push(this IPoolingObject target)
         {
-            target.transform.SetParent(_poolManager.transform);
-            if (target.transform.childCount > 0)
-            {
-                var trailRenderers = target.GetComponentsInChildren<TrailRenderer>();
-
-                //Trail은 오브젝트를 끈 후에 무조건 Point들을 제거해야 함
-                if (trailRenderers.Length != 0)
-                {
-                    foreach (var trailRenderer in trailRenderers)
-                    {
-                        trailRenderer.Clear();
-                    }
-                }
-            }
-           
-            target.gameObject.SetActive(false);
-            if(useEvent)
-                target.OnPush();
-            PoolManager.poolDic[type].Enqueue(target.GetComponent<MonoPoolingObject>());
+            target.OnPush();
+            target.gameObject.transform.SetParent(_poolManager.transform);
+            target.gameObject.transform.gameObject.SetActive(false);
+            PoolManager.poolDic[target.OriginPoolType].Push(target);
         }
     }
 }

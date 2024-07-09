@@ -405,8 +405,8 @@ MonoBehaviour:
   poolBase: {fileID: 11400000, guid: b94e6e05a88191a49bfbd2c4d7131fb6, type: 2}
   poolingPairs:
   - poolType: pf_Cube
-    monoPoolingObjectPrefab: {fileID: 213767295058933171, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
-    poolCount: 0
+    prefab: {fileID: 8702926647798363621, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
+    poolCount: 10
 --- !u!4 &1936877778
 Transform:
   m_ObjectHideFlags: 0

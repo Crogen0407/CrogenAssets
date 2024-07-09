@@ -181,6 +181,7 @@ namespace Crogen.CrogenHierarchy.Editor.HierarchyElement
                 //VerticalLine
                 for (int i = 0; i < hierarchySibling; i++)
                 {
+                    if (parent == null) break;
                     parentSettingLineColor = GetLineColor(parent, StyleEditor.DefaultLineColor);
 
                     if (parent.GetChild(0) == gameObject.transform && i == 0)

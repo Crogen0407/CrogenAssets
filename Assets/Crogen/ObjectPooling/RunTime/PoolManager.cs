@@ -1,50 +1,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Crogen.ObjectPooling;
-using UnityEngine.Serialization;
+using System;
 
 public class PoolManager : MonoBehaviour
 {
-    public static PoolManager Instance;
-    internal static Dictionary<string, Queue<MonoPoolingObject>> poolDic = new Dictionary<string, Queue<MonoPoolingObject>>();
+    internal static Dictionary<PoolType, Stack<IPoolingObject>> poolDic = new Dictionary<PoolType, Stack<IPoolingObject>>();
     public PoolBaseSO poolBase;
     public List<PoolPair> poolingPairs;
+    public static Transform Transform;
 
-    public void Awake()
-    {
-        Instance = this;
-        PopCore.Init(poolBase, this);
+	private void Awake()
+	{
+        Transform = transform;
+        PopCore.Init(this, poolBase);
         PushCore.Init(this);
-        
         MakeObj();
     }
-    
-    private void MakeObj()
-    {
-        PoolPair[] poolingPairs = poolBase.pairs.ToArray();
-        for (int i = 0; i < poolingPairs.Length; i++)
-        {
-            poolDic.Add(poolingPairs[i].poolType, new Queue<MonoPoolingObject>());
-        }
 
- 	    for (int i = 0; i < poolingPairs.Length; i++)
- 	    {
-            for (int j = 0; j < poolingPairs[i].poolCount; j++)
+	private void MakeObj()
+    {
+        PoolPair[] poolPairs = poolBase.pairs.ToArray();
+
+		foreach (PoolType type in Enum.GetValues(typeof(PoolType)))
+		{
+            try
             {
-                MonoPoolingObject poolObject = CreateObject(poolBase.pairs[i], Vector3.zero, Quaternion.identity);
-                poolObject.Push(poolingPairs[i].poolType, false);
- 		    }
+                poolDic.Add(type, new Stack<IPoolingObject>());
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("Press to \"Generate Enum\"");
+                return;
+            }
+            for (int i = 0; i < poolPairs[(int)type].poolCount; ++i)
+            {
+                IPoolingObject poolingObject = CreateObject(poolPairs[(int)type], Vector3.zero, Quaternion.identity);
+                PoolingObjectInit(poolingObject, type, transform);
+            }
         }
     }
 
-    public static MonoPoolingObject CreateObject(PoolPair poolPair, Vector3 vec, Quaternion rot)
+    public static IPoolingObject CreateObject(PoolPair poolPair, Vector3 vec, Quaternion rot)
     {
-        MonoPoolingObject poolObject = Instantiate(poolPair.monoPoolingObjectPrefab);
+        GameObject poolObject = Instantiate(poolPair.prefab);
+        IPoolingObject poolingObject = poolObject.GetComponent<IPoolingObject>();
+
+        poolingObject.OriginPoolType = (PoolType)Enum.Parse(typeof(PoolType), poolPair.poolType);
+        poolingObject.gameObject = poolObject;
+
         poolObject.transform.localPosition = vec;
         poolObject.transform.localRotation = rot;
-        poolObject.name = poolObject.name.Replace("(Clone)","");
+        poolObject.transform.name = poolObject.name.Replace("(Clone)","");
 
-        return poolObject;
+        return poolingObject;
+    }
+
+    public static void PoolingObjectInit(IPoolingObject poolObject, PoolType type, Transform parent)
+	{
+        poolObject.gameObject.transform.SetParent(parent);
+        poolObject.gameObject.SetActive(false);
+        poolDic[type].Push(poolObject);
     }
 }
     

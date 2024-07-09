@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class PoolPair
 {
     public string poolType;
-    public MonoPoolingObject monoPoolingObjectPrefab;
+    public GameObject prefab;
     public int poolCount;
 }
 
@@ -24,9 +24,9 @@ public class PoolBaseSO : ScriptableObject
         if (pairs == null) return;
         foreach (var pair in pairs)
         {
-            if (pair.poolType.Equals(string.Empty) && pair.monoPoolingObjectPrefab != null)
+            if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
             {
-                pair.poolType = pair.monoPoolingObjectPrefab.name;
+                pair.poolType = pair.prefab.name;
                 break;
             }
         }
