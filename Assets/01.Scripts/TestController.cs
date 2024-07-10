@@ -7,7 +7,7 @@ public class TestController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-             gameObject.Pop(PoolType.pf_Cube, null, new Vector3(
+             gameObject.Pop(PoolType.pf_Cube, new Vector3(
                  Random.Range(-10, 10),
                  Random.Range(-10, 10),
                  Random.Range(-10, 10)), Quaternion.identity);
