@@ -1,4 +1,5 @@
+
 public enum PoolType
 {
-    pf_Cube, 
-}
+    pf_Cube, pf_Sphere, 
+}  

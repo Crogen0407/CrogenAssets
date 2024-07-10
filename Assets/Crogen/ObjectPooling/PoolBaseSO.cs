@@ -24,10 +24,15 @@ public class PoolBaseSO : ScriptableObject
         if (pairs == null) return;
         foreach (var pair in pairs)
         {
+            if (!pair.prefab.TryGetComponent(out IPoolingObject poolingObject))
+			{
+                Debug.LogError("Script Has to \"IPoolingObject\"");
+                return;
+			}
+
             if (pair.poolType.Equals(string.Empty) && pair.prefab != null)
             {
                 pair.poolType = pair.prefab.name;
-                break;
             }
         }
     }
