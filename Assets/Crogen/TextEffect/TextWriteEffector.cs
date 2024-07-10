@@ -42,17 +42,56 @@ namespace Crogen.TextEffect
 		private static IEnumerator CoroutineBasicWrite(TMP_Text target, string text, float delay = 0.05f)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
+
 			for (int i = 0; i < text.Length; ++i)
 			{
 				stringBuilder.Append(text[i]);
 				target.text = stringBuilder.ToString();
-				yield return new WaitForSeconds(delay);
+
+				if (text[i].Equals(' ') == false || text[i].Equals('\t') == false)
+					yield return new WaitForSeconds(delay);
 			}
+
 			_currentWritingTextList.Remove(target);
 		}
+
 		private static IEnumerator CoroutineUniWrite(TMP_Text target, string text, float delay = 0.05f)
 		{
-			yield return new WaitForSeconds(delay);
+			target.ForceMeshUpdate();
+
+			var textInfo = target.textInfo;
+			target.text = text;
+			for (int i = 0; i < textInfo.characterCount; ++i)
+			{
+				var charInfo = textInfo.characterInfo[i];
+
+				if (!charInfo.isVisible)
+					continue;
+
+				var verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+
+				for (int j = 0; j < 4; ++j)
+				{
+					var origin = verts[charInfo.vertexIndex + j];
+					Debug.Log(verts[charInfo.vertexIndex + j]);
+					verts[charInfo.vertexIndex + j] = origin + new Vector3(100, 100, 100);
+					Debug.Log(verts[charInfo.vertexIndex + j]);
+				}
+			}
+
+			for (int i = 0; i < textInfo.meshInfo.Length; ++i)
+			{
+				var meshInfo = textInfo.meshInfo[i];
+				meshInfo.mesh.vertices = meshInfo.vertices;
+				target.UpdateGeometry(meshInfo.mesh, i);
+				target.UpdateVertexData();
+			}
+
+			target.ForceMeshUpdate();
+
+			yield return new WaitForSeconds(10);
+
+			_currentWritingTextList.Remove(target);
 		}
 	}
 

@@ -10,7 +10,7 @@ public class TestUIContent : MonoBehaviour
     {
         if(Input.anyKeyDown)
 		{
-            _text.Write("하루에 팔굽혀펴기 300개 실천 중...", TextType.Basic);
+            _text.Write("하루에팔굽혀펴기300개실천중...", TextType.Uni);
         }
     }
 }
