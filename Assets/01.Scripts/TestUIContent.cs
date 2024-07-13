@@ -4,13 +4,17 @@ using TMPro;
 
 public class TestUIContent : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TMP_Text _text;
 
-    void Update()
+	private void Start()
+	{
+		_text.Write("동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세", TextType.Basic, 0.05f, ()=>_text.SetColor(0, 4, Color.red));
+		
+		_text.SetMathState(Wobble, 0, 4);
+	}
+
+	Vector3 Wobble(float time)
     {
-        if(Input.anyKeyDown)
-		{
-            _text.Write("하루에팔굽혀펴기300개실천중...", TextType.Uni);
-        }
+        return new Vector2(Mathf.Cos(time * 500f) - Mathf.Sin(time * 100f) + Mathf.Cos(time * 200.5f) - Mathf.Sin(time * 200.5f), Mathf.Cos(time * 22.5f) - Mathf.Sin(time * -234.5f));
     }
 }
