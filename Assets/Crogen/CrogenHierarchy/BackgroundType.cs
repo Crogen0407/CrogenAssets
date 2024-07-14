@@ -1,7 +1,10 @@
 ﻿#if UNITY_EDITOR
-public enum BackgroundType
+namespace Crogen.CrogenHierarchy.Editor
 {
-    Default,
-    Gradients
+    public enum BackgroundType
+    {
+        Default,
+        Gradients
+    }
 }
 #endif

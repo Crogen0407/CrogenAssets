@@ -10,7 +10,7 @@ namespace Crogen.CrogenHierarchy.Editor
         private Vector2 _scrollPosition = Vector2.zero;
         private static CrogenHierarchySettingDataSO _hierarchySettingData;
 
-        [MenuItem("Crogen/CrogenHierarchy/GlobalSetting")]
+        [MenuItem("Window/Crogen/CrogenHierarchy/GlobalSetting")]
         public static void ShowWindow()
         {
             var window = GetWindow<CrogenHierarchySettingWindow>();

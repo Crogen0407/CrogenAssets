@@ -42,14 +42,16 @@ namespace Crogen.CrogenHierarchy
             Init();
             if (_hierarchySettingData == null)
                 _hierarchySettingData = Resources.Load<CrogenHierarchySettingDataSO>("HierarchySettingData");
-            
+            int parentIndex = GetParentIndex();
+
             #region Background
-    
+
+
             backgroundType = _hierarchySettingData.backgroundType;
             
             try
             {
-                backgroundColor = _hierarchySettingData.backgroundColor[GetParentIndex()];
+                backgroundColor = _hierarchySettingData.backgroundColor[parentIndex];
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -62,7 +64,7 @@ namespace Crogen.CrogenHierarchy
     
             try
             {
-                lineColor = _hierarchySettingData.lineColor[GetParentIndex()];
+                lineColor = _hierarchySettingData.lineColor[parentIndex];
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -75,13 +77,13 @@ namespace Crogen.CrogenHierarchy
     
             try
             {
-                textColor = _hierarchySettingData.textColor[GetParentIndex()];
+                textColor = _hierarchySettingData.textColor[parentIndex];
             }
             catch (ArgumentOutOfRangeException)
             {
                 if (_hierarchySettingData.textColor.Count > 0)
                 {
-                    lineColor = _hierarchySettingData.textColor[^1];
+                    textColor = _hierarchySettingData.textColor[^1];
                 }
                 else
                 {
