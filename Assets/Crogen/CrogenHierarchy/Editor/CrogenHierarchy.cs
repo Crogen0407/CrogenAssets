@@ -16,7 +16,7 @@ namespace Crogen.CrogenHierarchy.Editor
             //ElementDraw
             DrawManager = new DrawManager();
 
-            EditorApplication.hierarchyWindowItemOnGUI = HandleHierarchyOnGUI;
+            EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyOnGUI;
         }
     
         ~CrogenHierarchy()
@@ -27,6 +27,7 @@ namespace Crogen.CrogenHierarchy.Editor
         private static void HandleHierarchyOnGUI(int instanceID, Rect selectionRect)
         {
             var obj = EditorUtility.InstanceIDToObject(instanceID);
+
             if (obj != null)
             {
                 //MonoBehaviour
