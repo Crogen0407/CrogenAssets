@@ -9,12 +9,13 @@ namespace Crogen.CrogenHierarchy.Editor
     {
         private Vector2 _scrollPosition = Vector2.zero;
         private static CrogenHierarchySettingDataSO _hierarchySettingData;
-
+        private static string _editorPath = "Assets/Crogen/CrgoenHierarchy/Resources";
+        private static Texture2D _bennerTexture;
         [MenuItem("Window/Crogen/CrogenHierarchy/GlobalSetting")]
         public static void ShowWindow()
         {
             var window = GetWindow<CrogenHierarchySettingWindow>();
-            window.titleContent = new GUIContent("CrogenHierarchySettingWindow");
+            window.titleContent = new GUIContent("GlobalSetting");
             window.Show();
 
             _hierarchySettingData = Resources.Load<CrogenHierarchySettingDataSO>("HierarchySettingData");
@@ -22,6 +23,8 @@ namespace Crogen.CrogenHierarchy.Editor
             if (_hierarchySettingData == null)
             {
                 ScriptableObject asset = ScriptableObject.CreateInstance(typeof(CrogenHierarchySettingDataSO));
+                if (_bennerTexture == null)
+                    _bennerTexture = (Texture2D)AssetDatabase.LoadAssetAtPath($"{_editorPath}/CustomHierarchyBenner.png", typeof(Texture2D));
                 AssetDatabase.CreateAsset(asset, "Assets/Crogen/CrgoenHierarchy/Resources/HierarchySettingData.asset");
                 _hierarchySettingData = Resources.Load<CrogenHierarchySettingDataSO>("HierarchySettingData");
             }
@@ -31,6 +34,7 @@ namespace Crogen.CrogenHierarchy.Editor
         private void OnGUI()
         {
             _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition, GUILayout.Height(position.height));
+
             if (_hierarchySettingData != null)
             {
                 EditorGUI.BeginChangeCheck();
