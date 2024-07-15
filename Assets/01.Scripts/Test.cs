@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Crogen.ObjectPooling;
+using Crogen.CrogenPooling;
 
 public class Test : MonoBehaviour, IPoolingObject
 {
@@ -9,19 +9,18 @@ public class Test : MonoBehaviour, IPoolingObject
 
 	public void OnPop()
 	{
-		Debug.Log("Pop");
+		Debug.Log("OnPop");
 		StartCoroutine(CoroutineDie());
 	}
 
 	public void OnPush()
 	{
-		Debug.Log("Push");
+		Debug.Log("OnPush");
 	}
 
-	IEnumerator CoroutineDie()
+	private IEnumerator CoroutineDie()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(1);
 		this.Push();
 	}
 }
-

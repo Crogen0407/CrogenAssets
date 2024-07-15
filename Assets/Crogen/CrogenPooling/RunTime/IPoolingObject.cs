@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public interface IPoolingObject
+namespace Crogen.CrogenPooling
 {
-    public PoolType OriginPoolType { get; set; }
-    public GameObject gameObject { get; set; }
+    public interface IPoolingObject
+    {
+        public PoolType OriginPoolType { get; set; }
+        public GameObject gameObject { get; set; }
 
-    public void OnPop();
-    public void OnPush();
+        public void OnPop();
+        public void OnPush();
+    }
 }

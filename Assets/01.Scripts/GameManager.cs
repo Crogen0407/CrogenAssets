@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Crogen.CrogenPooling;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("dfddfdfdff");
-    }
+    [SerializeField] private PoolType cubePoolType;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.A))
+		{
+            gameObject.Pop(cubePoolType, new Vector3(
+                Random.Range(-10f, 10f),
+                Random.Range(-10f, 10f),
+                Random.Range(-10f, 10f)), Quaternion.identity);
+		}
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Crogen.ObjectPooling;
+using Crogen.CrogenPooling;
 using System;
 
 public class PoolManager : MonoBehaviour

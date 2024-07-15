@@ -1,7 +1,7 @@
 ﻿using System;
 using Crogen.MaCurve;
 using Crogen.MaCurve.Sequence;
-using Crogen.ObjectPooling;
+using Crogen.CrogenPooling;
 using UnityEngine;
 
 public class MaCurveTest : MonoBehaviour

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Crogen.ObjectPooling
+namespace Crogen.CrogenPooling
 {
     public static class PushCore
     {

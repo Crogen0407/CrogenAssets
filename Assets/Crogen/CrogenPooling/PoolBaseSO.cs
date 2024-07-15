@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Crogen.CrogenPooling;
 
 [System.Serializable]
 public class PoolPair
@@ -24,6 +24,9 @@ public class PoolBaseSO : ScriptableObject
         if (pairs == null) return;
         foreach (var pair in pairs)
         {
+            if (pair.prefab == null)
+                return;
+
             if (!pair.prefab.TryGetComponent(out IPoolingObject poolingObject))
 			{
                 Debug.LogError("Script Has to \"IPoolingObject\"");

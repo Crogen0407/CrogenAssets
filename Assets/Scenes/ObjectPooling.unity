@@ -191,9 +191,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 466109767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c8deb2e4ca4cfe8793cfb0ed0c8b3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a422673e49a5af4db5d78321d02641e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubePoolType: 0
 --- !u!1 &726853122
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,9 +406,6 @@ MonoBehaviour:
   poolingPairs:
   - poolType: pf_Cube
     prefab: {fileID: 8702926647798363621, guid: 2e58c0a25f9f53042979accd69a0afab, type: 3}
-    poolCount: 10
-  - poolType: pf_Sphere
-    prefab: {fileID: 8702926647798363621, guid: 0c9ae8b94e0467d438db4b8d38f92e0d, type: 3}
     poolCount: 10
 --- !u!4 &1936877778
 Transform:

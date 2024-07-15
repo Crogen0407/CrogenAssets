@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Crogen.ObjectPooling
+namespace Crogen.CrogenPooling
 {
     public static class PopCore
     {
@@ -45,7 +45,7 @@ namespace Crogen.ObjectPooling
 
                 return poolingObject;
             }
-            catch (KeyNotFoundException e)
+            catch (KeyNotFoundException)
             {
                 Debug.LogError("You should make 'PoolManager'!");
                 throw;
@@ -83,7 +83,7 @@ namespace Crogen.ObjectPooling
 
                 return poolingObject;
             }
-            catch (KeyNotFoundException e)
+            catch (KeyNotFoundException)
             {
                 Debug.LogError("You should make 'PoolManager'!");
                 throw;

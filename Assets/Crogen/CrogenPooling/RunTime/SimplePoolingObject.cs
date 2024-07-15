@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using Crogen.ObjectPooling;
+using Crogen.CrogenPooling;
 
 public class SimplePoolingObject : MonoBehaviour, IPoolingObject
 {

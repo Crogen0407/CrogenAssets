@@ -57,13 +57,26 @@ public class PoolEditor : Editor
         if (GUILayout.Button("Generate Enum"))
         {
             GeneratePoolingEnumFile();
-            Debug.Log("Success!");
         }
     }
 
     
     private void GeneratePoolingEnumFile()
     {
+		foreach (var pair in _poolManager.poolBase.pairs)
+		{
+            if (pair.poolType == string.Empty)
+			{
+                Debug.LogWarning("Check your poolbase. May have an empty poolType.");
+                return;
+			}
+            if (pair.poolType.Contains(' '))
+			{
+                Debug.LogWarning("Check your poolbase. Spaces are not allowed.");
+                return;
+			}
+        }
+
         StringBuilder codeBuilder = new StringBuilder();
     
         foreach(var item in _poolManager.poolBase.pairs)
@@ -74,15 +87,17 @@ public class PoolEditor : Editor
 
         string code = string.Format(CodeFormat.PoolingTypeFormat, codeBuilder.ToString());
 
-        string path = $"{Application.dataPath}/Crogen/ObjectPooling";
+        string path = $"{Application.dataPath}/Crogen/CrogenPooling";
 
         File.WriteAllText($"{path}/PoolType.cs", code);
 
         EditorUtility.SetDirty(_poolManager.poolBase);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+
+        Debug.Log("Success!");
     }
-    
+
     private void CreatePoolBaseAsset(PoolBaseSO clonePoolBaseSo)
     {
         var uniqueFileName = AssetDatabase.GenerateUniqueAssetPath($"Assets/New Pool Base.asset");
