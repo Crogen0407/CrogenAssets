@@ -1,10 +1,9 @@
-﻿2024-07-11
-assetName : ObjectPooling
-version : 1.1.9
+﻿2024-07-16
+assetName : CrogenPooling
+version : 1.2.0
 
 <업데이트>
--Pop() 오버로드 추가
--기존에 있던 선 OnPop() 매서드 호출 방식을 모든 셋팅을 끝내고 호출하는 것으로 변경
+-에셋 이름 ObjectPooling -> CrogenPooling 으로 변경
 
 <오브젝트 풀링 사용 방법>
 1. 새로운 오브젝트를 만든 후 "PoolManager" 컴포넌트를 추가한다.
