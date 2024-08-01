@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Crogen.AgentFSM
 {
-    public class AgentState<T> where T : Enum
+    public class AgentState
     {
-        protected StateMachine<T> _stateMachine;
-        protected Agent<T> _agentBase;
+        protected StateMachine _stateMachine;
+        protected Agent _agentBase;
 
         protected bool _endTriggerCalled;
         protected int _animBoolHash;
         
-        public AgentState(Agent<T> agentBase, StateMachine<T> stateMachine, string animBoolName)
+        public AgentState(Agent agentBase, StateMachine stateMachine, string animBoolName)
         {
             _agentBase = agentBase;
             _stateMachine = stateMachine;
@@ -21,12 +21,14 @@ namespace Crogen.AgentFSM
         public virtual void Enter()
         {
             _endTriggerCalled = false;
-            //_agentBase.Animator.SetBool(_animBoolHash, true);
+            if (_agentBase.Animator == null) return;
+            _agentBase.Animator.SetBool(_animBoolHash, true);
         }
 
         public virtual void Exit()
         {
-            //_agentBase.Animator.SetBool(_animBoolHash, false);
+            if (_agentBase.Animator == null) return;
+            _agentBase.Animator.SetBool(_animBoolHash, false);
         }
 
         public virtual void UpdateState() { }

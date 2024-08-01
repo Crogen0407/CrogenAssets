@@ -1,32 +1,34 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Crogen.AgentFSM.Movement;
+using System.Collections.Generic;
 
 namespace Crogen.AgentFSM
 {
-    public abstract class Agent<T> : MonoBehaviour where T : Enum
+    public abstract class Agent : MonoBehaviour
     {
-        public StateMachine<T> StateMachine { get; private set; }
-        public IMovement<T> Movement { get; protected set; }
-        //public Animator Animator { get; private set; }
+        public StateMachine StateMachine { get; private set; }
+        public IMovement Movement { get; private set; }
+        public Animator Animator { get; private set; }
         public bool CanStateChangeable { get; protected set; } = true;
         public bool isDead;
         
-        protected virtual void Awake()
+        protected void Initialize<T>() where T : Enum
         {
             Transform visualTrm = transform.Find("Visual");
-            //Animator = visualTrm.GetComponent<Animator>();
-        
-            StateMachine = new StateMachine<T>();
+            Animator = visualTrm.GetComponent<Animator>();
+            Movement = GetComponent<IMovement>();
+            StateMachine = new StateMachine();
             string name = GetType().Name;
-            foreach(T stateEnum in Enum.GetValues(typeof(T)))
+            foreach(Enum stateEnum in Enum.GetValues(typeof(T)))
             {
                 string typeName = stateEnum.ToString();
                 try
                 {
                     Type t = Type.GetType($"{name}{typeName}State");
-                    AgentState<T> playerState = Activator.CreateInstance(
-                        t, this, StateMachine, typeName) as AgentState<T>;
+                    AgentState playerState = Activator.CreateInstance(
+                        t, this, StateMachine, typeName) as AgentState;
                     StateMachine.AddState(stateEnum, playerState);
                 }catch(Exception ex)
                 {
@@ -55,8 +57,18 @@ namespace Crogen.AgentFSM
             yield return new WaitForSeconds(delayTime);
             callback?.Invoke();
         }
-        #endregion
-        
-        public abstract void SetDead();
-    }
+		#endregion
+
+#if UNITY_EDITOR
+		private void OnValidate()
+		{
+			if (transform.Find("Visual") == null)
+			{
+                GameObject visualObject =  new GameObject("Visual");
+                visualObject.transform.SetParent(transform);
+                visualObject.transform.localPosition = Vector3.zero;
+			}
+		}
+#endif
+	}
 }

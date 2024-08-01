@@ -1,9 +1,9 @@
 ﻿using Crogen.AgentFSM;
 using UnityEngine;
 
-public class PlayerRunState : AgentState<PlayerStateEnum>
+public class PlayerRunState : AgentState
 {
-    public PlayerRunState(Agent<PlayerStateEnum> agentBase, StateMachine<PlayerStateEnum> stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
+    public PlayerRunState(Agent agentBase, StateMachine stateMachine, string animBoolName) : base(agentBase, stateMachine, animBoolName)
     {
     }
 
