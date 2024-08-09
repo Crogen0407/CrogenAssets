@@ -2,7 +2,7 @@ using Crogen.HealthSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DefaultHealthSystem : HealthSystem
+public class DefaultHealth : Health
 {
     [Header("Events")] 
     public UnityEvent hpChangeEvent;

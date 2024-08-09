@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Crogen.HealthSystem
 {
-    public abstract class HealthSystem : MonoBehaviour
+    public abstract class Health : MonoBehaviour
     {
         [Header("Hp Option")]
         [SerializeField] private float _hp = 100.0f;

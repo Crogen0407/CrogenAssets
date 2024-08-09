@@ -4,12 +4,15 @@ using Crogen.AgentFSM;
 
 public class SpaceShipMovement : MonoBehaviour, IFloatingMovement
 {
-	private Rigidbody _rigidbody;
+	[Header("Speed")]
+	[SerializeField] protected float _moveSpeed = 10f;
+	[SerializeField] protected float _rotSpeed = 25f;
+
+	protected Rigidbody _rigidbody;
 
 	public Agent AgentBase { get; set; }
 	public Vector3 Velocity { get => _rigidbody.velocity; set => _rigidbody.velocity = value; }
 
-	[SerializeField] private float _moveSpeed;
 
 	private void Awake()
 	{

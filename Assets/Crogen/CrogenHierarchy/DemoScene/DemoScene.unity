@@ -3653,7 +3653,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141399532}
-  - component: {fileID: 2141399533}
   - component: {fileID: 2141399534}
   m_Layer: 0
   m_Name: PoolManager
@@ -3677,20 +3676,6 @@ Transform:
   m_Father: {fileID: 995315057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2141399533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141399531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4889394bf6bb225498bb7f1958045b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolBase: {fileID: 0}
-  poolingPairs: []
 --- !u!114 &2141399534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,9 +3694,6 @@ MonoBehaviour:
   - name: Transform
     component: {fileID: 2141399532}
     enable: 0
-  - name: PoolManager
-    component: {fileID: 2141399533}
-    enable: 1
   - name: HierarchyInfo
     component: {fileID: 2141399534}
     enable: 1

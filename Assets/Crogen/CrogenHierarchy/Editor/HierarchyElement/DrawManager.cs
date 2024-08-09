@@ -70,13 +70,16 @@ namespace Crogen.CrogenHierarchy.Editor.HierarchyElement
                     {
                         //OnReset
                         hierarchyInfo.componentIcons = new ComponentIcon[components.Length];
-                        for (int i = 0; i < hierarchyInfo.componentIcons.Length; ++i)
-                        {
-                            hierarchyInfo.componentIcons[i] = new ComponentIcon
+                        if(hierarchyInfo.componentIcons != null)
+						{
+                            for (int i = 0; i < hierarchyInfo.componentIcons.Length; ++i)
                             {
-                                enable = _hierarchySettingData.activeIcons[i]
-                            };
-                            if (_hierarchySettingData.activeIcons.Count == i + 1) break;
+                                hierarchyInfo.componentIcons[i] = new ComponentIcon
+                                {
+                                    enable = _hierarchySettingData.activeIcons[i]
+                                };
+                                if (_hierarchySettingData.activeIcons.Count == i + 1) break;
+                            }
                         }
                     }
 
@@ -158,7 +161,12 @@ namespace Crogen.CrogenHierarchy.Editor.HierarchyElement
 
             Rect togglePosition = new Rect(new Vector2(32, selectionRect.y), 
                 new Vector2(selectionRect.height, selectionRect.height));
-            gameObject.SetActive(GUI.Toggle(togglePosition, gameObject.activeSelf, string.Empty));            
+            bool toggleBoolean = GUI.Toggle(togglePosition, gameObject.activeSelf, string.Empty);
+            if(toggleBoolean != gameObject.activeSelf)
+			{
+                gameObject.SetActive(toggleBoolean);
+                EditorUtility.SetDirty(gameObject);
+			}
 
             #endregion
             
